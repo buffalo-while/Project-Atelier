@@ -4,7 +4,7 @@
 
 0. If first time working on the repo, git clone main branch from git to local machine
 ```
-git clone https://github.com/buffalo-while/Project-Atelier.git`
+git clone https://github.com/buffalo-while/Project-Atelier.git
 ```
 
 1. Optional: Make sure you are working from latest version of main
@@ -17,7 +17,7 @@ git pull origin main
 ```
 git checkout -b <new-feature-branch>
 ```
-   or
+- or
 ```
 git checkout <feature-branch>
 ```
@@ -36,21 +36,27 @@ git commit
 ```
 6. Pull latest version of main, merge into your feature branch and resolve any conflicts
    - see steps 1-3
+
 7. Push your feature branch commits to your feature branch in github
 ```
 git push origin <feature-branch>
 ```
-7. In Github, [make pull request (PR)] (https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) to main from your feature branch
+7. In Github, [make pull request (PR)](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) to main from your feature branch
+
 8. Code review from at least one teammate will be required
    - Make sure your Trello user story and implementation cards are linked to the pull request, and that the implementation task is in the Staged for Review section of Trello
    - Any teammate can pick up a code review, and should join the Trello card and make a comment that they will be reviewing in the pull request to avoid duplication of effort by reviewers
    - If you want review from a specific teammate or from multiple teammates, coordinate with them directly and make this clear in the pull request so that other teammates do not review and/or complete the merge before the
    - Code reviews will generally be completed async
+
 9. Address any feedback received by updating, committing and pushing code to github in your feature branch, or responding to reviewer questions as applicable
    - make sure to update the pull request so that the reviewer knows to review again
+
 10. Resolve any merge conflicts if indicated in github, once code review is completed, commit and push your feature branch to Github
-   - see steps 1-3
+-   see steps 1-3
+
 11. Complete the merge using the magical green button that will now show in the github pull request
+
 12. Take a minute to celebrate your win, and then rinse and repeat
 
 Additional Notes:
