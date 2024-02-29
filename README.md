@@ -17,7 +17,7 @@ git pull origin main
 ```
 git checkout -b <new-feature-branch>
 ```
-- or
+or
 ```
 git checkout <feature-branch>
 ```
@@ -44,7 +44,7 @@ git push origin <feature-branch>
 8. In Github, [make pull request (PR)](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) to main from your feature branch
 
 9. Code review from at least one teammate will be required
-   - Make sure your Trello user story and implementation cards are linked to the pull request, and that the implementation task is in the Staged for Review section of Trello
+   - Make sure your Trello user story and implementation cards are linked from the pull request, and that the implementation task is in the Staged for Review section of Trello
    - Any teammate can pick up a code review, and should join the Trello card and make a comment that they will be reviewing in the pull request to avoid duplication of effort by reviewers
    - If you want review from a specific teammate or from multiple teammates, coordinate with them directly and make this clear in the pull request so that other teammates do not review and/or complete the merge before the
    - Code reviews will generally be completed async
@@ -53,7 +53,7 @@ git push origin <feature-branch>
     - make sure to update the pull request so that the reviewer knows to review again
 
 11. Resolve any merge conflicts if indicated in github, once code review is completed, commit and push your feature branch to Github
--   see steps 1-3
+    - see steps 1-3
 
 12. Complete the merge using the magical green button that will now show in the github pull request
 
