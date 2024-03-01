@@ -9,6 +9,7 @@
     "build": "npx webpack",
     "start": "node server/index.js",
     "seed": "node server/seed.js",
+    "dev": "webpack serve",
     "(UNSUPPORTED BY DEFAULT; see webpack.config.js for more info) client-dev:hot": "npx webpack serve --hot --open"
   },
   "dependencies": {

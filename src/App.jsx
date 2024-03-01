@@ -1,11 +1,14 @@
 import React from "react";
-import "./assets/base.css";
-import "./assets/styles.css";
 import { render } from "react-dom";
-import App from "./components/App.jsx";
+// import App from "./components/App.jsx";
 
-const root = document.createElement("div");
-root.setAttribute("id", "root");
-document.body.appendChild(root);
+// const root = document.createElement("div");
+// root.setAttribute("id", "root");
+// document.body.appendChild(root);
+function App() {
+  return (
+    <h1>This is the app</h1>
+  )
+}
 
 render(<App />, root);
