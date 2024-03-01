@@ -1,4 +1,4 @@
-install React, { useState } from "react";
+import React, { useState } from "react";
 
 const RatingReviews = ( {product_id} ) => {
 
@@ -9,4 +9,4 @@ const RatingReviews = ( {product_id} ) => {
   );
 };
 
-export default RatingsReviews;
+export default RatingReviews;

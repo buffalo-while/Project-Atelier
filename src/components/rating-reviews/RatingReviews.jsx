@@ -1,5 +1,6 @@
-install React, { lazy, Suspense, useState } from "react";
-const RatingBreakdown = lazy(() => import("./components/RatingBreakdown.jsx"))
+import React from "react";
+import { lazy, Suspense, useState } from "react";
+const RatingBreakdown = lazy(() => import("./components/RatingBreakdown.jsx"));
 
 const RatingReviews = ( {product_id} ) => {
 
@@ -21,7 +22,7 @@ const RatingReviews = ( {product_id} ) => {
   );
 };
 
-export default RatingsReviews;
+export default RatingReviews;
 
 
 
