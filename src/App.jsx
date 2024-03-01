@@ -1,14 +1,33 @@
-import React from "react";
-import { render } from "react-dom";
-// import App from "./components/App.jsx";
+import React, { useState, useEffect } from 'react';
+// Template: Uncomment and change when needed
+// import ProductsInfo from 'ProductsInfo';
+// import RelatedProducts from 'RelatedProducts';
+// import RatingReviews from 'RatingReviews';
+// import QuestionAnswers from 'QuestionAnswers';
 
-// const root = document.createElement("div");
-// root.setAttribute("id", "root");
-// document.body.appendChild(root);
-function App() {
+  const [productId, setProductId] = useState(6);
+
+  // useEffect(() => {
+  //   axios.get(`products/${id}`)
+  //   .then((productIdData) => {
+  //     setProductId(productIdData.data);
+  //   })
+  //   .catch((err) => {
+  //     console.log('err getting productId', err);
+  //   })
+  // }, []);
+
+
+const App = () => {
   return (
-    <h1>This is the app</h1>
+    <div>
+      <h1>Hello World!</h1>
+      {/* <ProductsInfo/>
+      <RelatedProducts/>
+      <RatingReviews/>
+      <QuestionAnswers/> */}
+    </div>
   )
 }
 
-render(<App />, root);
+export default App;
