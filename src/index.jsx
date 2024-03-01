@@ -1,6 +1,6 @@
 import React from "react";
-import "./assets/base.css";
-import "./assets/styles.css";
+// import "./assets/base.css";
+// import "./assets/styles.css";
 import { render } from "react-dom";
 import App from "./App.jsx";
 
