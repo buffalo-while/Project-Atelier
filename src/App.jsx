@@ -5,7 +5,6 @@ import React, { useState, useEffect } from 'react';
 // import RatingReviews from 'RatingReviews';
 // import QuestionAnswers from 'QuestionAnswers';
 
-  const [productId, setProductId] = useState(6);
 
   // useEffect(() => {
   //   axios.get(`products/${id}`)
@@ -19,6 +18,8 @@ import React, { useState, useEffect } from 'react';
 
 
 const App = () => {
+  const [productId, setProductId] = useState(6);
+
   return (
     <div>
       <h1>Hello World!</h1>
