@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 // Template: Uncomment and change when needed
 // import ProductsInfo from 'ProductsInfo';
 // import RelatedProducts from 'RelatedProducts';
