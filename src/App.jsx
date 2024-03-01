@@ -17,18 +17,23 @@ import React, { useState, useEffect } from 'react';
   // }, []);
 
 
-const App = () => {
-  const [productId, setProductId] = useState(6);
+  const App = () => {
+    const [productId, setProductId] = useState(40344);
 
-  return (
-    <div>
-      <h1>Hello World!</h1>
-      {/* <ProductsInfo/>
-      <RelatedProducts/>
-      <RatingReviews/>
-      <QuestionAnswers/> */}
-    </div>
-  )
-}
+    useEffect(() => {
+    setProductId(40344);
+    }, []);
+
+    return (
+      <div>
+        <h1>Hello World!</h1>
+        { <ProductsInfo productId={productId}/>
+        <RelatedProducts productId={productId}/>
+        <RatingReviews productId={productId}/>
+        <QuestionAnswers productId={productId}/>}
+      </div>
+    )
+  }
+
 
 export default App;
