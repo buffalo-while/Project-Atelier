@@ -1,10 +1,17 @@
 import React, { useState } from "react";
 
-const RatingBreakdown = ( {product_id} ) => {
+const RatingBreakdown = ({ productId, getRatings }) => {
+  const [ratingStars, setRatingStars] = useState(<p>Loading</p>);
+  // getRatings(productId)
+  //   .then((metaResults) => {
+  //     console.log('Got results from promise: ', metaResults);
+  //     setRatingStars(metaResults.RatingStars);
+  // })
+
 
   return(
   <aside className="rating-breakdown">
-    <p>Rating breakdown placeholder</p>
+    {ratingStars}
   </aside>
   );
 };
