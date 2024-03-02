@@ -2,7 +2,7 @@ import React from "react";
 import { lazy, Suspense, useState } from "react";
 const RatingBreakdown = lazy(() => import("./components/RatingBreakdown.jsx"));
 
-const RatingReviews = ( { productId, getRatings} ) => {
+const RatingReviews = ({ productId, getRatings }) => {
 
   // Adds suspense fallback to component provided until it is available
   const suspenseView = (component) => (
