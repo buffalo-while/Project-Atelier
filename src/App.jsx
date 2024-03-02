@@ -31,7 +31,6 @@ import getRatings from './components/rating-reviews/controllers/getRatings.jsx';
         <h1>Hello World!</h1>
         {/* <ProductsInfo productId={productId}/> */}
         <RelatedProducts productId={productId}/>
-        <RatingReviews productId={productId}/>
         <QuestionAnswers productId={productId}/>
         <RatingReviews productId={productId} getRatings={getRatings}/>
       </div>
