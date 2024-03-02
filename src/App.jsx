@@ -19,10 +19,10 @@ const App = () => {
   return (
     <div>
       <h1>Hello World!</h1>
-      { <ProductsInfo productId={productId}/>
-      <RelatedProducts productId={productId}/>
-      <RatingReviews productId={productId}/>
-      <QuestionAnswers productId={productId}/>}
+      {/* <ProductsInfo/>
+      <RelatedProducts/>
+      <RatingReviews/>
+      <QuestionAnswers/> */}
     </div>
   )
 }
