@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 // Template: Uncomment and change when needed
 // import ProductsInfo from 'ProductsInfo';
-// import RelatedProducts from 'RelatedProducts';
+import RelatedProducts from './components/related-products/RelatedProducts.jsx';
 import RatingReviews from './components/rating-reviews/RatingReviews.jsx';
 // import QuestionAnswers from 'QuestionAnswers';
 
@@ -27,8 +27,8 @@ import RatingReviews from './components/rating-reviews/RatingReviews.jsx';
     return (
       <div>
         <h1>Hello World!</h1>
-        {/*<ProductsInfo productId={productId}/>
-        <RelatedProducts productId={productId}/>*/}
+        {/* <ProductsInfo productId={productId}/> */}
+        <RelatedProducts productId={productId}/>
         <RatingReviews productId={productId}/>
         {/*<QuestionAnswers productId={productId}/>*/}
       </div>
