@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 // import ProductsInfo from 'ProductsInfo';
 import RelatedProducts from './components/related-products/RelatedProducts.jsx';
 import RatingReviews from './components/rating-reviews/RatingReviews.jsx';
-// import QuestionAnswers from 'QuestionAnswers';
+import QuestionAnswers from './components/question-answers/QuestionAnswers.jsx';
 
 
   // useEffect(() => {
@@ -30,7 +30,7 @@ import RatingReviews from './components/rating-reviews/RatingReviews.jsx';
         {/* <ProductsInfo productId={productId}/> */}
         <RelatedProducts productId={productId}/>
         <RatingReviews productId={productId}/>
-        {/*<QuestionAnswers productId={productId}/>*/}
+        <QuestionAnswers productId={productId}/>
       </div>
     )
   }
