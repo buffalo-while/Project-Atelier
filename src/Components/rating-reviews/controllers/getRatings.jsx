@@ -17,7 +17,11 @@ const getRatings = (product_id, cssClass) => {
     const metaResults = {};
     metaResults.totalReviews = totalReviews.toString();
     metaResults.meanRating = meanRating.toString();
-    metaResults.RatingStars = <p className={cssClass}>Stars still in dev, average rating is {meanRating}</p>;
+    metaResults.RatingStars = <p
+        className={"stars" + (cssClass ? " " + cssClass : "")}
+      >
+        Stars still in dev, average rating is {meanRating}
+      </p>;
     metaResults.allMetaData = metaData;
     return metaResults;
   }).catch((err) => {
@@ -25,7 +29,7 @@ const getRatings = (product_id, cssClass) => {
     const errResults = {};
     errResults.totalReviews = 'N/A';
     errResults.meanRating = 'N/A';
-    errResults.RatingStars = <p className={cssClass}>Unable to show rating</p>;
+    errResults.RatingStars = <p className={"stars " + cssClass}>Unable to show rating</p>;
     errResults.allMetaData = {};
     return errResults;
   })
