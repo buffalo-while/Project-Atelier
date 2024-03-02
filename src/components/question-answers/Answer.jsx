@@ -8,6 +8,7 @@ function Answer({answer}) {
   return (
     <div>
       <p>A: {answer.body}</p>
+      <p>{answer.answerer_name}{answer.date} Helpful? {answer.helpfulness}</p>
     </div>
   )
 }

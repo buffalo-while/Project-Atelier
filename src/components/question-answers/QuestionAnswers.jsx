@@ -19,6 +19,7 @@ function QuestionAnswers({productId}) {
 
   return (
     <div>
+      <h2>QUESTIONS & ANSWERS</h2>
       {questionList.map((question, index) => (
         <Question key={index} question={question} />
       ))}
