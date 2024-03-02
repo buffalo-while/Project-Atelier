@@ -23,6 +23,3 @@ const RatingReviews = ( {product_id} ) => {
 };
 
 export default RatingReviews;
-
-
-
