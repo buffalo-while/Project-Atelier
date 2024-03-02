@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const RatingReviews = ( {product_id} ) => {
+const RatingBreakdown = ( {product_id} ) => {
 
   return(
   <aside className="rating-breakdown">
@@ -9,4 +9,4 @@ const RatingReviews = ( {product_id} ) => {
   );
 };
 
-export default RatingReviews;
+export default RatingBreakdown;

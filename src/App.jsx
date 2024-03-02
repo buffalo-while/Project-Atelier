@@ -27,10 +27,10 @@ import RatingReviews from './components/rating-reviews/RatingReviews.jsx';
     return (
       <div>
         <h1>Hello World!</h1>
-        <ProductsInfo productId={productId}/>
-        <RelatedProducts productId={productId}/>
+        {/*<ProductsInfo productId={productId}/>
+        <RelatedProducts productId={productId}/>*/}
         <RatingReviews productId={productId}/>
-        <QuestionAnswers productId={productId}/>
+        {/*<QuestionAnswers productId={productId}/>*/}
       </div>
     )
   }
