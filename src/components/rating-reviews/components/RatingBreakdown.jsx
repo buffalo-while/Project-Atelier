@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { getReviewsMetaData } from "../models/reviewsModels.js";
 
 const RatingBreakdown = ({ productId, getRatings }) => {
   const [ratingStars, setRatingStars] = useState(<p className={"stars"}>Loading</p>);
 
   useEffect(()=> {
-    getRatings(productId)
-    .then((metaResults) => {
-      console.log('Got results from promise: ', metaResults);
-      setRatingStars(metaResults.RatingStars);
-    })
+    if(getRatings) {
+      getRatings(productId)
+      .then((metaResults) => {
+        console.log('Results from calling getRatings on productId: ', metaResults);
+        setRatingStars(metaResults.RatingStars);
+      })
+    }
   }, []);
 
 
