@@ -5,7 +5,7 @@ import RelatedProducts from './components/related-products/RelatedProducts.jsx';
 import RatingReviews from './components/rating-reviews/RatingReviews.jsx';
 import QuestionAnswers from './components/question-answers/QuestionAnswers.jsx';
 
-import getRatings from './components/rating-reviews/models/GetRatings.jsx';
+import getRatings from './components/rating-reviews/controllers/getRatings.jsx';
 
   // useEffect(() => {
   //   axios.get(`products/${id}`)
