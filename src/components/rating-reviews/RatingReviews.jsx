@@ -2,7 +2,7 @@ import React from "react";
 import { lazy, Suspense, useState } from "react";
 const RatingBreakdown = lazy(() => import("./components/RatingBreakdown.jsx"));
 
-const RatingReviews = ({ productId, getRatings }) => {
+const RatingReviews = ( {product_id} ) => {
 
   // Adds suspense fallback to component provided until it is available
   const suspenseView = (component) => (
@@ -11,14 +11,11 @@ const RatingReviews = ({ productId, getRatings }) => {
     </Suspense>
   );
 
-  const ratingBreakdown = <RatingBreakdown
-    getRatings={getRatings}
-    productId={productId}
-  />;
+  const ratingBreakdown = <RatingBreakdown />
 
 
   return(
-  <section className="r-and-r" id="r-and-r">
+  <section className="r-and-r">
     <h2>RATINGS AND REVIEWS</h2>
     {suspenseView(ratingBreakdown)}
   </section>

@@ -1,22 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
-const RatingBreakdown = ({ productId, getRatings }) => {
-  const [ratingStars, setRatingStars] = useState(<p className={"stars"}>Loading</p>);
-
-  useEffect(()=> {
-    if(getRatings) {
-      getRatings(productId)
-      .then((metaResults) => {
-        console.log('Results from calling getRatings on productId: ', metaResults);
-        setRatingStars(metaResults.RatingStars);
-      })
-    }
-  }, []);
-
+const RatingBreakdown = ( {product_id} ) => {
 
   return(
   <aside className="rating-breakdown">
-    {ratingStars}
+    <p>Rating breakdown placeholder</p>
   </aside>
   );
 };
