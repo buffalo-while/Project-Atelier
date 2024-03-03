@@ -1,24 +1,32 @@
 import React from "react";
 import { getReviewsMetaData } from "../models/reviewsModels.js";
-import { StarIcon as SolidStar } from '@heroicons/react/24/solid';
-import { StarIcon as OutlineStar } from '@heroicons/react/24/outline';
+import { StarIcon as SolidStar } from "@heroicons/react/24/solid";
+import { StarIcon as OutlineStar } from "@heroicons/react/24/outline";
 
 
 const renderStars = (meanRating, cssClass) => {
-  const solidStars = (n) => (
-    [...(new Array(n))].map((i) => (
-      <span position="relative" style={{width: "1em"}}>
-        <SolidStar style={{height: "1em", width: "1em", position: "relative"}}/>
-      </span>
-    ))
-  );
-  const outlineStars = (n) => (
-    [...(new Array(n))].map((i) => (
-      <span position="relative" style={{width: "1em"}}>
-        <OutlineStar style={{height: "1em", width: "1em"}}/>
-      </span>
-    ))
-  );
+  const solidStars = (n) => {
+    let key = 0;
+    return [...(new Array(n))].map((i) => {
+      key ++;
+      return (
+        <span position="relative" key={key} style={{width: "1em"}}>
+          <SolidStar style={{height: "1em", width: "1em", position: "relative"}}/>
+        </span>
+      );
+    });
+  };
+  const outlineStars = (n) => {
+    let key = 0;
+    return [...(new Array(n))].map((i) => {
+      key ++;
+      return (
+        <span position="relative" key={key} style={{width: "1em"}}>
+          <OutlineStar style={{height: "1em", width: "1em", position: "relative"}}/>
+        </span>
+      );
+    });
+  };
   const partialStar = (decimal) => {
     //width of solid portion of partial star, note: 0.17em (or less) is empty and 0.83em is full
     const width = (0.17 + (Math.round(decimal * 4) / 4) * 0.66) + 'em';
