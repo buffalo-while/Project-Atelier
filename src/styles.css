@@ -1,0 +1,66 @@
+/* Global CSS classes */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+body {
+  line-height: 1;
+  font-family: Arial, sans-serif;
+  color: #DB5461;
+  background-color: #FAFAFA;
+}
+
+/* Top Navbar Styling */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #DB5461;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 20px 0 0 20px;
+  outline: none;
+}
+
+/* Component CSS classes */
+
+/* Image Gallery */
+.thumbnail-gallery{
+  display: flex;
+  flex-direction: column;
+  align-items:flex-start;
+  max-height: 400px;
+  height: 400px;
+  margin-left: 20px;
+}
+
+.thumbnail-img {
+  height: 100px;
+  display: flex;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.thumbnail-img:hover {
+  opacity: 0.9;
+  transform: scale(1.05);
+  cursor: pointer;
+  border: 2px solid #8AA29E;
+
+}

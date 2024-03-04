@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react';
 // import RatingReviews from 'RatingReviews';
 // import QuestionAnswers from 'QuestionAnswers';
 import OverviewMain from './Components/overview/OverviewMain.jsx'
-
+import './styles.css';
   // useEffect(() => {
   //   axios.get(`products/${id}`)
   //   .then((productIdData) => {
@@ -26,6 +26,17 @@ const App = () => {
 
     return (
       <div>
+          <div className="top-bar">
+        <div className="logo-container">
+          <img src="/path/to/your/logo.svg" alt="Logo" className="logo" />
+        </div>
+        <div className="search-container">
+          <input type="text" placeholder="Search..." className="search-input" />
+          <button className="search-icon">
+            🔍
+          </button>
+        </div>
+      </div>
         <h1>Hello World!</h1>
         <OverviewMain productId={productId}/>/
        { /* <RelatedProducts productId={productId}/>
