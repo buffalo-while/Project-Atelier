@@ -40,9 +40,9 @@ const App = () => {
       </div>
         <h1>Hello World!</h1>
         <OverviewMain productId={productId}/>/
-       { /* <RelatedProducts productId={productId}/>
+         {/* <RelatedProducts productId={productId}/>
         <RatingReviews productId={productId}/>
-        <QuestionAnswers productId={productId}/> */ }
+        <QuestionAnswers productId={productId}/>  */}
       </div>
     )
   }
