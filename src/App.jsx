@@ -28,7 +28,8 @@ const App = () => {
       <div>
           <div className="top-bar">
         <div className="logo-container">
-          <img src="/path/to/your/logo.svg" alt="Logo" className="logo" />
+        <img src="https://res.cloudinary.com/grubhub/image/upload/d_search:browse-images:default.jpg/w_auto,q_auto:low,fl_lossy,dpr_2.0,c_pad,f_auto,h_168/lvnnr6xijsgj7zmthirm" alt="Logo" className="logo" />
+
         </div>
         <div className="search-container">
           <input type="text" placeholder="Search..." className="search-input" />

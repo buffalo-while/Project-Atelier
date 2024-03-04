@@ -47,27 +47,22 @@ const ImageGallery = ({ productId }) => {
     }
   }, [productId]);
 
-// also need a function that will generate the current style's thumbnails
-  // productId/styleId/photos
-    // for each  {}
-      // create an element <img src=thumbnailUrl />
-
-  //also need to write a function where  on img click, get thumbnail url, find the photo obj where thumbnail url matches, get big URL, set that as new hero img
   const changeHeroFromGallery = (newURL) => {
     setHeroImageUrl(newURL)
   }
   return (
     <div>
-      {heroImageUrl ? <img src={heroImageUrl} alt="Hero" className="hero-image"/> : <p>Loading...</p>}
-      <div className="thumbnail-gallery">
-  {thumbnails.map((thumbnail, index) => (
-    <img
-      key={index}
-      src={thumbnail.thumbnailUrl}
-      alt={`Thumbnail ${index + 1}`}
-      className="thumbnail-img"
-      onClick={() => changeHeroFromGallery(thumbnail.url)} // This should probably change the hero image to the main image, not the thumbnail
-    />
+    {heroImageUrl ? <img src={heroImageUrl} alt="Hero" className="hero-image"/> : <p>Loading...</p>}
+
+    <div className="thumbnail-gallery">
+      {thumbnails.map((thumbnail, index) => (
+        <img
+          key={index}
+          src={thumbnail.thumbnailUrl}
+          alt={`Thumbnail ${index + 1}`}
+          className="thumbnail-img"
+          onClick={() => changeHeroFromGallery(thumbnail.url)}
+        />
   ))}
 </div>
 
