@@ -4,6 +4,8 @@ import OverviewMain from './components/overview/OverviewMain.jsx';
 import RelatedProducts from './components/related-products/RelatedProducts.jsx';
 import RatingReviews from './components/rating-reviews/RatingReviews.jsx';
 import QuestionAnswers from './components/question-answers/QuestionAnswers.jsx';
+import getRatings from './components/rating-reviews/controllers/getRatings.jsx';
+
 import './styles.css'
   // useEffect(() => {
   //   axios.get(`products/${id}`)
@@ -39,9 +41,9 @@ const App = () => {
       </div>
         <h1>Hello World!</h1>
         <OverviewMain productId={productId}/>/
-         <RelatedProducts productId={productId}/>
-        <RatingReviews productId={productId}/>
+        <RelatedProducts productId={productId}/>
         <QuestionAnswers productId={productId}/>
+        <RatingReviews productId={productId} getRatings={getRatings}/>
       </div>
     )
   }
