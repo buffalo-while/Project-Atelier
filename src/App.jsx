@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
 // Template: Uncomment and change when needed
-// import ProductsInfo from 'ProductsInfo';
-// import RelatedProducts from 'RelatedProducts';
-// import RatingReviews from 'RatingReviews';
-// import QuestionAnswers from 'QuestionAnswers';
 import OverviewMain from './components/overview/OverviewMain.jsx';
-// import getRatings from './components/rating-reviews/controllers/getRatings.jsx';
+import RelatedProducts from './components/related-products/RelatedProducts.jsx';
+import RatingReviews from './components/rating-reviews/RatingReviews.jsx';
+import QuestionAnswers from './components/question-answers/QuestionAnswers.jsx';
 import './styles.css'
   // useEffect(() => {
   //   axios.get(`products/${id}`)
@@ -41,9 +39,9 @@ const App = () => {
       </div>
         <h1>Hello World!</h1>
         <OverviewMain productId={productId}/>/
-         {/* <RelatedProducts productId={productId}/>
+         <RelatedProducts productId={productId}/>
         <RatingReviews productId={productId}/>
-        <QuestionAnswers productId={productId}/>  */}
+        <QuestionAnswers productId={productId}/>
       </div>
     )
   }
