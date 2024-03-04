@@ -4,10 +4,13 @@
         "commonjs": true,
         "es2021": true
     },
-    "extends": "airbnb",
+    "extends": ["airbnb", "airbnb/hooks"],
     "parserOptions": {
         "ecmaVersion": "latest"
     },
     "rules": {
+        "import/extensions": "off",
+        "react/prop-types": "off",
+        "no-console": "off"
     }
 }
