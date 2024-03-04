@@ -4,9 +4,9 @@ import React, { useState, useEffect } from 'react';
 // import RelatedProducts from 'RelatedProducts';
 // import RatingReviews from 'RatingReviews';
 // import QuestionAnswers from 'QuestionAnswers';
-
-import getRatings from './components/rating-reviews/controllers/getRatings.jsx';
-
+import OverviewMain from './components/overview/OverviewMain.jsx';
+// import getRatings from './components/rating-reviews/controllers/getRatings.jsx';
+import './styles.css'
   // useEffect(() => {
   //   axios.get(`products/${id}`)
   //   .then((productIdData) => {
