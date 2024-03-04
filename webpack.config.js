@@ -16,24 +16,29 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env', '@babel/preset-react']
-          }
-        }
+            presets: ['@babel/preset-env', '@babel/preset-react'],
+          },
+        },
       },
       {
+<<<<<<< HEAD
         test:/\.jsx?$/,
         exclude: /node_modules/,
+=======
+        test: /\.jsx?$/,
+>>>>>>> r-test-setup
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env', '@babel/preset-react']
-          }
-        }
+            presets: ['@babel/preset-env', '@babel/preset-react'],
+          },
+        },
       },
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'], // Correctly specifying loaders as strings in an array
       },
+<<<<<<< HEAD
       {
         test: /\.(png|jp(e*)g|svg|gif)$/,
         use: [
@@ -47,10 +52,13 @@ module.exports = {
         ],
       }
     ]
+=======
+    ],
+>>>>>>> r-test-setup
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, "./src", 'index.html'),
+      template: path.join(__dirname, './src', 'index.html'),
     }),
   ],
 };
