@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react';
 // import RatingReviews from 'RatingReviews';
 // import QuestionAnswers from 'QuestionAnswers';
 
+import getRatings from './components/rating-reviews/controllers/getRatings.jsx';
 
   // useEffect(() => {
   //   axios.get(`products/${id}`)
@@ -29,8 +30,8 @@ const App = () => {
         <h1>Hello World!</h1>
         {/* <ProductsInfo productId={productId}/> */}
         <RelatedProducts productId={productId}/>
-        <RatingReviews productId={productId}/>
         <QuestionAnswers productId={productId}/>
+        <RatingReviews productId={productId} getRatings={getRatings}/>
       </div>
     )
   }
