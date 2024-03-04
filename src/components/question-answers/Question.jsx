@@ -9,7 +9,7 @@ function Question({question}) {
 // console.log("question inside of question", question);
   return (
     <div>
-      <p>Q: {question.question_body} Helpful Yes{question.question_helpfulness}</p>
+      <p>Q: {question.question_body} Helpful? <a href=''>Yes </a> {question.question_helpfulness} <a href=''>Add Answer</a></p>
       <AnswerList questionId={question.question_id}/>
     </div>
   )
