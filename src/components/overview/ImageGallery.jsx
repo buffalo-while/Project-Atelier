@@ -51,7 +51,7 @@ const ImageGallery = ({ productId }) => {
     setHeroImageUrl(newURL)
   }
   return (
-    <div>
+    <div className="image-gallery-container">
     {heroImageUrl ? <img src={heroImageUrl} alt="Hero" className="hero-image"/> : <p>Loading...</p>}
 
     <div className="thumbnail-gallery">
