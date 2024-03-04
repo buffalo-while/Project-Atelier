@@ -13,7 +13,6 @@ body {
   line-height: 1;
   font-family: Arial, sans-serif;
   color: #004346;
-  background-color: #FAFAFA;
 }
 
 /* Top Navbar Styling */
@@ -44,20 +43,53 @@ body {
 /* Component CSS classes */
 
 /* Overview */
+.content-container-1 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.image-gallery-container {
+  background-color:  #172A3A;;
+  display: flex;
+  flex: 1;
+  position: relative;
+  max-width: 700px;
+  flex-grow: 1;
+}
+
+.hero-image {
+  display: block;
+  width: 100%;
+  margin-left: 200px;
+  background-color: black;
+}
+.product-info {
+  padding: 20px;
+  flex-grow: 1;
+  max-width: 50%;
+}
+
+/* Thumbnails */
+
 .thumbnail-gallery{
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-height: 100%;
   display: flex;
   flex-direction: column;
-  align-items:flex-start;
-  max-height: 400px;
-  height: 400px;
-  margin-left: 20px;
+  align-items: flex-start;
+  background-color: rgba(255, 255, 255, 0.5); /* adds transparency to see the hero image underneath */
+
 }
 
 .thumbnail-img {
-  height: 100px;
-  display: flex;
+  max-height: 100px;
   object-fit: contain;
-  margin-bottom: 10px;
+  width: auto;
+  margin: 10px;
 }
 
 .thumbnail-img:hover {
@@ -67,3 +99,4 @@ body {
   border: 2px solid #8AA29E;
 
 }
+
