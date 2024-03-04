@@ -21,12 +21,8 @@ module.exports = {
         },
       },
       {
-<<<<<<< HEAD
         test:/\.jsx?$/,
         exclude: /node_modules/,
-=======
-        test: /\.jsx?$/,
->>>>>>> r-test-setup
         use: {
           loader: 'babel-loader',
           options: {
@@ -38,7 +34,6 @@ module.exports = {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'], // Correctly specifying loaders as strings in an array
       },
-<<<<<<< HEAD
       {
         test: /\.(png|jp(e*)g|svg|gif)$/,
         use: [
@@ -52,9 +47,6 @@ module.exports = {
         ],
       }
     ]
-=======
-    ],
->>>>>>> r-test-setup
   },
   plugins: [
     new HtmlWebpackPlugin({
