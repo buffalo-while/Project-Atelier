@@ -21,7 +21,7 @@ module.exports = {
         },
       },
       {
-        test:/\.jsx?$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
@@ -42,11 +42,11 @@ module.exports = {
             options: {
               name: '[name].[ext]',
               outputPath: 'images/',
-            }
-          } // This closing bracket was missing
+            },
+          }, // This closing bracket was missing
         ],
-      }
-    ]
+      },
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
