@@ -12,12 +12,12 @@ function AnswerList({questionId}) {
     axios.get(`/api/qa/questions/${questionId}/answers`)
     .then((response => {
       setAnswerList(response.data.results);
-      console.log("response data inside answerList", response.data.results);
+      // console.log("response data inside answerList", response.data.results);
     }))
     .catch((err) => {
       console.log("error inside answer useEffect", err);
     })
-  },[])
+  },[questionId])
 
   return (
     <div>
@@ -26,5 +26,6 @@ function AnswerList({questionId}) {
       ))}
     </div>
   )
-}
+};
+
 export default AnswerList;

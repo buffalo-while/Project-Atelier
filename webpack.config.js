@@ -22,6 +22,7 @@ module.exports = {
       },
       {
         test:/\.jsx?$/,
+        exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
           options: {
@@ -30,9 +31,21 @@ module.exports = {
         }
       },
       {
-        test: /\.(png|jp(e*)g|svg|gif)$/,
-        use: ['file-loader'],
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'], // Correctly specifying loaders as strings in an array
       },
+      {
+        test: /\.(png|jp(e*)g|svg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader', // Correctly specifying the loader as a string
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'images/',
+            }
+          } // This closing bracket was missing
+        ],
+      }
     ]
   },
   plugins: [
