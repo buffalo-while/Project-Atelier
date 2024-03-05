@@ -1,15 +1,15 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import RelatedCard from './RelatedCard.jsx'
 
-const RelatedList = () => {
-const [relatedProducts, setRelatedProducts] = useState([])
+const RelatedList = ({relatedProducts, relatedProductStyles }) => {
 
   return (
-    <div>{
-      relatedProducts.map((product, index) => (
-        <RelatedCard key={index} product={product}/>
+    <div>
+      {relatedProducts.map((product, index) => (
+        <RelatedCard productInfo={relatedProducts[index]} defaultStyle={relatedProductStyles[index]} />
       ))
-      }</div>
+    }
+    </div>
   )
 }
 
