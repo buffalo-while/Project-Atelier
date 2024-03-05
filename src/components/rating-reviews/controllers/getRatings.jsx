@@ -90,3 +90,4 @@ function getRatings(productId, cssClass) {
 }
 
 export default getRatings;
+export { renderStars };
