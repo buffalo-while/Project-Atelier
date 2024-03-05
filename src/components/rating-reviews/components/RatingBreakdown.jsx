@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 
-function RatingBreakdown({ productId, getRatings }) {
-  const [metaResults, setMetaResults] = useState({});
-
+function RatingBreakdown({
+  productId, getRatings, metaResults, setMetaResults,
+}) {
   useEffect(() => {
     if (getRatings) {
       getRatings(productId)
@@ -11,7 +11,7 @@ function RatingBreakdown({ productId, getRatings }) {
           setMetaResults(results);
         });
     }
-  }, [getRatings, productId]);
+  }, [getRatings, productId, setMetaResults]);
 
   return (
     <aside className="rating-breakdown">
