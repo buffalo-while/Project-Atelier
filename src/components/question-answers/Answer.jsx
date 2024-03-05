@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import dayjs from 'dayjs';
 
 function Answer({answer}) {
   // console.log("question inside answer", question.answer.body);
@@ -8,8 +9,9 @@ function Answer({answer}) {
   return (
     <div>
       <p>A: {answer.body}</p>
-      <p>{answer.answerer_name}{answer.date} Helpful? {answer.helpfulness}</p>
+      <p>{answer.answerer_name} {dayjs(answer.date).format('MM-DD-YYYY')} Helpful? <a href=''>Yes</a> {answer.helpfulness}</p>
     </div>
   )
-}
+};
+
 export default Answer;
