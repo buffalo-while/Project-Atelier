@@ -18,11 +18,7 @@ import './styles.css';
 // }, []);
 
 function App() {
-  const [productId, setProductId] = useState(40344);
-
-  useEffect(() => {
-    setProductId(40346);
-  }, []);
+  const [productId, setProductId] = useState(40348);
 
   return (
     <div>
