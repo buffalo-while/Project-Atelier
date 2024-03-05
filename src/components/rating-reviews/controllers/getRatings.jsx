@@ -48,7 +48,10 @@ const renderStars = (meanRating, cssClass) => {
   };
 
   return (
-    <span className={`stars${(cssClass ? ` ${cssClass}` : '')}`}>
+    <span
+      className={`stars${(cssClass ? ` ${cssClass}` : '')}`}
+      name="ave-rating-stars"
+    >
       {solidStars(Math.floor(meanRating))}
       {partialStar(meanRating - Math.floor(meanRating))}
       {outlineStars(5 - Math.ceil(meanRating))}
