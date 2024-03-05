@@ -28,13 +28,13 @@ function App() {
         </div>
         <div className="search-container">
           <input type="text" placeholder="Search..." className="search-input" />
-          <button className="search-icon">
+          <button type="submit" className="search-icon">
             🔍
           </button>
         </div>
       </div>
       <h1>Hello World!</h1>
-      <OverviewMain productId={productId} />
+      <OverviewMain productId={productId} getRatings={getRatings} />
       <RelatedProducts productId={productId} />
       <QuestionAnswers productId={productId} />
       <RatingReviews productId={productId} getRatings={getRatings} />
