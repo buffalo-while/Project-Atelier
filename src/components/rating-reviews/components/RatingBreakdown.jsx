@@ -1,21 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 
-function RatingBreakdown({ productId, getRatings }) {
-  const [ratingStars, setRatingStars] = useState(<p className="stars">Loading</p>);
-
+function RatingBreakdown({
+  productId, getRatings, metaResults, setMetaResults,
+}) {
   useEffect(() => {
     if (getRatings) {
       getRatings(productId)
-        .then((metaResults) => {
-          console.log('Results from calling getRatings on productId: ', metaResults);
-          setRatingStars(metaResults.RatingStars);
+        .then((results) => {
+          // console.log('Results from calling getRatings on productId: ', results);
+          setMetaResults(results);
         });
     }
-  }, [getRatings, productId]);
+  }, [getRatings, productId, setMetaResults]);
 
   return (
     <aside className="rating-breakdown">
-      {ratingStars}
+      <span className="ave-rating" name="ave-rating">{metaResults.meanRating}</span>
+      {metaResults.RatingStars}
     </aside>
   );
 }
