@@ -1,11 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function StarsBar({
-  numStars, metaResults, reviewsFilter, setReviewsFilter,
+  numStars, metaResults, reviewsFilter, setReviewsFilter, clearFilters, setClearFilters,
 }) {
   // States
   const [reviewsFilterClass, setReviewsFilterClass] = useState('reviews-filter');
   const [ratingFilterSelected, setRatingFilterSelected] = useState(false);
+
+  useEffect(() => {
+    if (clearFilters) {
+      setReviewsFilterClass('reviews-filter');
+      setRatingFilterSelected(false);
+      setClearFilters(false);
+    }
+  }, [clearFilters, setClearFilters]);
 
   // Handler functions
   const handleStarsBarMouseEnter = () => {

@@ -13,7 +13,12 @@ function RatingBreakdown({
         });
     }
   }, [getRatings, productId, setMetaResults]);
-
+  let percentRecommend = 'Loading...';
+  if (metaResults.allMetaData && metaResults.allMetaData.recommended) {
+    const recommend = Number(metaResults.allMetaData.recommended.true);
+    const notRecommend = Number(metaResults.allMetaData.recommended.false);
+    percentRecommend = Math.round((recommend / (recommend + notRecommend)) * 100);
+  }
   return (
     <aside className="rating-breakdown">
       <header className="rating-summary" name="rating-summary">
@@ -26,6 +31,10 @@ function RatingBreakdown({
           reviewsFilter={reviewsFilter}
           setReviewsFilter={setReviewsFilter}
         />
+        <p>
+          {percentRecommend}
+          % of reviews recommend this product
+        </p>
       </section>
     </aside>
   );

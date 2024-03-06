@@ -128,7 +128,13 @@ body {
 
 /* Rating and Reviews Module */
 
-/* StarsBar component */
+/* StarsBars/Filter component */
+
+.remove-filters {
+  color: #551A8B;
+  text-decoration: underline;
+  cursor: pointer;
+}
 
 .reviews-filter-selected {
   border: 1px solid #004346;
