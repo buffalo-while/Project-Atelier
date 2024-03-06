@@ -11,6 +11,7 @@
     "rules": {
         "import/extensions": "off",
         "react/prop-types": "off",
-        "no-console": "off"
+        "no-console": "off",
+        "namedComponents": "function-declaration"
     }
 }
