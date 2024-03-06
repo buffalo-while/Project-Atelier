@@ -1,16 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import RelatedCard from './RelatedCard.jsx'
+import RelatedCard from './RelatedCard.jsx';
 
-const RelatedList = ({relatedProducts, relatedProductStyles }) => {
-
+const RelatedList = ({ relatedProducts, relatedProductStyles }) => {
+  // console.log(relatedProductStyles, 'default index')
   return (
     <div>
       {relatedProducts.map((product, index) => (
-        <RelatedCard productInfo={relatedProducts[index]} defaultStyle={relatedProductStyles[index]} />
-      ))
-    }
+        <div key={product.id}>
+        <RelatedCard
+          product={relatedProducts[index]}
+          style={relatedProductStyles[index]}
+        />
+        </div>
+      ))}
     </div>
-  )
-}
+  );
+};
 
 export default RelatedList;

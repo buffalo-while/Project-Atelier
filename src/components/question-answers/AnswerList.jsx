@@ -1,23 +1,20 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Answer from './Answer.jsx';
 
-
-function AnswerList({questionId}) {
-
+function AnswerList({ questionId }) {
   const [answerList, setAnswerList] = useState([]);
 
   useEffect(() => {
     axios.get(`/api/qa/questions/${questionId}/answers`)
-    .then((response => {
-      setAnswerList(response.data.results);
+      .then(((response) => {
+        setAnswerList(response.data.results);
       // console.log("response data inside answerList", response.data.results);
-    }))
-    .catch((err) => {
-      console.log("error inside answer useEffect", err);
-    })
-  },[questionId])
+      }))
+      .catch((err) => {
+        console.log('error inside answer useEffect', err);
+      });
+  }, [questionId]);
 
   return (
     <div>
@@ -25,7 +22,7 @@ function AnswerList({questionId}) {
         <Answer key={index} answer={answer} />
       ))}
     </div>
-  )
-};
+  );
+}
 
 export default AnswerList;
