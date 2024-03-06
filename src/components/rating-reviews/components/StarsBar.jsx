@@ -1,8 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-function StarsBar({ numStars, metaResults }) {
-  // console.log('numStars: ', numStars);
-  // console.log('metaResults: ', metaResults);
+function StarsBar({
+  numStars, metaResults, reviewsFilter, setReviewsFilter,
+}) {
+  // States
+  const [reviewsFilterClass, setReviewsFilterClass] = useState('reviews-filter');
+  const [ratingFilterSelected, setRatingFilterSelected] = useState(false);
+
+  // Handler functions
+  const handleStarsBarMouseEnter = () => {
+    setReviewsFilterClass(`${reviewsFilterClass} reviews-filter-hover`);
+  };
+
+  const handleStarsBarMouseLeave = () => {
+    setReviewsFilterClass(reviewsFilterClass.slice(0, reviewsFilterClass.indexOf(' reviews-filter-hover')));
+  };
+
+  const handleStarsBarClick = () => {
+    const newFilter = [...reviewsFilter];
+    if (ratingFilterSelected) {
+      newFilter.splice(newFilter.indexOf(numStars), 1);
+      setReviewsFilterClass('reviews-filter reviews-filter-hover');
+    } else {
+      newFilter.push(numStars);
+      setReviewsFilterClass('reviews-filter reviews-filter-selected reviews-filter-hover');
+    }
+    setRatingFilterSelected(!ratingFilterSelected);
+    setReviewsFilter(newFilter);
+  };
+
+  // Create the bar element, once metaResults are available
   let barElement = (
     <>
       <span className="num-stars" name="num-stars" style={{ width: '15%', float: 'left' }}>
@@ -13,6 +40,7 @@ function StarsBar({ numStars, metaResults }) {
       </span>
     </>
   );
+
   if (metaResults.allMetaData && metaResults.allMetaData.ratings) {
     const { totalReviews, allMetaData } = metaResults;
     const rating = allMetaData.ratings[numStars] ? allMetaData.ratings[numStars] : 0;
@@ -29,7 +57,7 @@ function StarsBar({ numStars, metaResults }) {
             height: '0.5em',
             display: 'inline-block',
             verticalAlign: 'middle',
-            backgroundColor: '#EFEFEF',
+            backgroundColor: '#E6ECEC',
           }}
         >
           <span
@@ -51,8 +79,20 @@ function StarsBar({ numStars, metaResults }) {
       </>
     );
   }
+
   return (
-    <div className="rating-by-stars" name="rating-by-stars">
+    <div
+      name="reviews-rating-filter"
+      className={reviewsFilterClass}
+      value={numStars}
+      onMouseEnter={handleStarsBarMouseEnter}
+      onMouseLeave={handleStarsBarMouseLeave}
+      onClick={handleStarsBarClick}
+      onKeyPress={handleStarsBarClick}
+      role="option"
+      aria-selected={ratingFilterSelected}
+      tabIndex={0}
+    >
       {barElement}
     </div>
   );

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import StarsBars from './StarsBars.jsx';
 
 function RatingBreakdown({
-  productId, getRatings, metaResults, setMetaResults,
+  productId, getRatings, metaResults, setMetaResults, reviewsFilter, setReviewsFilter,
 }) {
   useEffect(() => {
     if (getRatings) {
@@ -21,7 +21,11 @@ function RatingBreakdown({
         {metaResults.RatingStars}
       </header>
       <section className="rating-breakdown" name="rating-breakdown">
-        <StarsBars metaResults={metaResults} />
+        <StarsBars
+          metaResults={metaResults}
+          reviewsFilter={reviewsFilter}
+          setReviewsFilter={setReviewsFilter}
+        />
       </section>
     </aside>
   );

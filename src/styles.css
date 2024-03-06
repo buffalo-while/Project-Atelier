@@ -125,3 +125,17 @@ body {
   display: flex;
   flex-direction: column;
 }
+
+/* Rating and Reviews Module */
+
+/* StarsBar component */
+
+.reviews-filter-selected {
+  border: 1px solid #004346;
+  border-radius: 5%;
+  margin: 1px;
+}
+
+.reviews-filter-hover {
+  background-color: #99B4B5;
+}
