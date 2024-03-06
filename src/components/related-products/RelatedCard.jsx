@@ -1,18 +1,23 @@
 import React from 'react';
+import ImageGallery from '../overview/ImageGallery.jsx'
 
-const RelatedCard = ({ productInfo, defaultStyle }) => {
+const RelatedCard = ({ product, style }) => {
+  console.log(style,'cardStyles')
+  console.log(product, 'productInfo')
   return (
     <div>
-      {/* <div>
-        <img src={defaultStyle.photos[0].thumbnail_url ? defaultStyle.photos[0].thumbnail_url : 'https://i.imgur.com/mYzivnl.png'} alt={productInfo.name} />
-      </div> */}
-      <p>Card Generator</p>
-      <p>{productInfo.category}</p>
-      <h3>{productInfo.name}</h3>
+      <div>
+      <img height='100' width='100' src={style ? style : 'https://i.imgur.com/mYzivnl.png'} alt={product.name} />
+      {/* <ImageGallery productId={product}/> */}
+      </div>
+      <p>Generate Product #: {product.id}</p>
+      <h3>Name: {product.name}</h3>
+      <p>Category: {product.category}
+      <br></br>
+        Slogan: {product.slogan}
+      </p>
     </div>
-  )
-}
-
-
+  );
+};
 
 export default RelatedCard;
