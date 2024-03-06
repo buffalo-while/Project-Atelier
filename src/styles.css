@@ -101,3 +101,27 @@ body {
 
 }
 
+/* Styles Selector */
+
+.style-thumbnails {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+
+}
+.style-thumbnails img {
+  width: 100px;
+  margin: 10px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.style-thumbnails img:hover {
+  transform: scale(1.1);
+}
+
+.product-information-column{
+  border: 5px solid red;
+  display: flex;
+  flex-direction: column;
+}

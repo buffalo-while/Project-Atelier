@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 // Template: Uncomment and change when needed
 import OverviewMain from './components/overview/OverviewMain.jsx';
 import RelatedProducts from './components/related-products/RelatedProducts.jsx';
@@ -18,7 +18,8 @@ import './styles.css';
 // }, []);
 
 function App() {
-  const [productId, setProductId] = useState(40348);
+  // eslint-disable-next-line no-unused-vars
+  const [productId, setProductId] = useState(40347);
 
   return (
     <div>
