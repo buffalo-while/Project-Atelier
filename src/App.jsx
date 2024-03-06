@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 // Template: Uncomment and change when needed
 import OverviewMain from './components/overview/OverviewMain.jsx';
 import RelatedProducts from './components/related-products/RelatedProducts.jsx';
@@ -18,11 +18,8 @@ import './styles.css';
 // }, []);
 
 function App() {
-  const [productId, setProductId] = useState(40344);
-
-  useEffect(() => {
-    setProductId(40346);
-  }, []);
+  // eslint-disable-next-line no-unused-vars
+  const [productId, setProductId] = useState(40347);
 
   return (
     <div>
@@ -32,13 +29,13 @@ function App() {
         </div>
         <div className="search-container">
           <input type="text" placeholder="Search..." className="search-input" />
-          <button className="search-icon">
+          <button type="submit" className="search-icon">
             🔍
           </button>
         </div>
       </div>
       <h1>Hello World!</h1>
-      <OverviewMain productId={productId} />
+      <OverviewMain productId={productId} getRatings={getRatings} />
       <RelatedProducts productId={productId} />
       <QuestionAnswers productId={productId} />
       <RatingReviews productId={productId} getRatings={getRatings} />

@@ -1,19 +1,16 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
-function SearchQuestion({handleSearchQuestion}) {
-
+function SearchQuestion({ handleSearchQuestion }) {
   const [searchValue, setSearchValue] = useState('');
 
-  return(
-    <div>
-      <form onSubmit={(e) => handleSearchQuestion(searchValue)}>
-      <p>Search for Question here...</p>
-      <input onChange={(e) => setSearchValue(e.target.value)} value={searchValue} placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..."></input>
+  return (
+    <div data-testid="search-question-container">
+      <form onSubmit={() => handleSearchQuestion(searchValue)}>
+        <p>Search for Question here...</p>
+        <input onChange={(e) => setSearchValue(e.target.value)} value={searchValue} placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..." />
       </form>
     </div>
-  )
-};
-
+  );
+}
 
 export default SearchQuestion;
