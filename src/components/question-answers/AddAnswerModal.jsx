@@ -1,17 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 
-function AddQuestionModal({
-  isOpen, onClose, children, productName,
+function AddAnswerModal({
+  isOpen, onClose, children, questionBody, productName,
 }) {
   const modalRoot = document.getElementById('modal');
+  // need productNAME AND QUESTION BODY
 
   const modalContent = (
     <dialog open>
-      <h2>Ask Your Question</h2>
+      <h2>Submit your Answer</h2>
       <p>
-        About the
         {productName}
+        :
+        {' '}
+        {questionBody}
+        {' '}
       </p>
       <button type="submit" onClick={onClose}>Close</button>
       <div>{children}</div>
@@ -21,4 +25,4 @@ function AddQuestionModal({
   return isOpen ? ReactDOM.createPortal(modalContent, modalRoot) : null;
 }
 
-export default AddQuestionModal;
+export default AddAnswerModal;
