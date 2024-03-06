@@ -40,7 +40,7 @@ function ProdInfo({ productId, getRatings }) {
     <div>
       {product && (
         <div>
-          <div className="prod-info-stars">{suspenseView(ratingBreakdown)}</div>
+          <div className="prod-info-stars">{suspenseView(getRatings)}</div>
           <div className="prod-info-smalletext">read all reviews</div>
           <p className="prod-info-category">{product.category}</p>
           <p className="prod-info-name">{product.name}</p>
