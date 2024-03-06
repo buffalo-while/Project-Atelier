@@ -119,7 +119,7 @@ function AddAnswer({ question, productId }) {
             value={nickName}
             required
           />
-          <p>For privacy reasons, do not use your fill name or email address.</p>
+          <p>For privacy reasons, do not use your full name or email address.</p>
 
           <label htmlFor="answer-modal-email">
             Your email:

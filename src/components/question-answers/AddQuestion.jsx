@@ -93,7 +93,7 @@ function AddQuestion({ productId }) {
             required
             value={nickName}
           />
-          <p>For privacy reasons, do not use your fill name or email address.</p>
+          <p>For privacy reasons, do not use your full name or email address.</p>
 
           <label htmlFor="modal-email">
             Your email:
