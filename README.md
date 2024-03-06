@@ -117,7 +117,7 @@ More information for each property:
   - mean (average) of all ratings, rounded to 1 decimal point, for the product, or
   - "N/A" if API request failed
 - RatingStars
-  - react element (span) with css class named "stars" plus the css class name passed to the getRatings function if applicable
+  - react element (span) with name "ave-rating-stars" and css class(es) named "stars" plus the css class name passed to the getRatings function if applicable
   - the element will display 5 star icons which are solid (filled) up to the meanRating rounded to nearest 0.25 with the remainder outline only, or
   - the element displays 'Unable to show rating' if the API request errored
 - allMetaData
