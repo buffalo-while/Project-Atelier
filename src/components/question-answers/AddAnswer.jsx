@@ -1,10 +1,8 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
-import AddAnswerModal from './AddAnswerModal.jsx';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import AddAnswerModal from './AddAnswerModal.jsx';
 
 function AddAnswer({ question, productId }) {
-
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [productName, setProductName] = useState('');
   const [yourAnswer, setYourAnswer] = useState('');
@@ -22,17 +20,16 @@ function AddAnswer({ question, productId }) {
       })
       .catch((err) => {
         console.log(err);
-      })
-
-  }, [productId])
+      });
+  }, [productId]);
 
   const openModal = () => {
     setIsOpenModal(true);
-  }
+  };
 
   const closeModal = () => {
     setIsOpenModal(false);
-  }
+  };
 
   // found this email validator online
   const isValidEmail = (email) => {
@@ -64,36 +61,41 @@ function AddAnswer({ question, productId }) {
     event.preventDefault();
 
     if (yourAnswer.length === 0) {
-      setErrorMessage("You must enter an answer.");
+      setErrorMessage('You must enter an answer.');
     } else if (nickName.length === 0) {
-      setErrorMessage("You must enter a name.");
+      setErrorMessage('You must enter a name.');
     } else if (!isValidEmail(email)) {
-      setErrorMessage("The email address provided is not in the correct email format.");
+      setErrorMessage('The email address provided is not in the correct email format.');
     } else {
       setErrorMessage('');
       closeModal();
       const photoURLs = photos.map((photo) => photo.url);
-      console.log(`photoURLs`, photoURLs);
-      axios.post(`/api/qa/questions/${question.question_id}/answers`, { body: yourAnswer, name: nickName, email: email, photos: photoURLs })
+      console.log('photoURLs', photoURLs);
+      axios.post(`/api/qa/questions/${question.question_id}/answers`, {
+        body: yourAnswer, name: nickName, email, photos: photoURLs,
+      })
         .then(() => {
           setYourAnswer('');
           setNickName('');
           setEmail('');
           setPhotos([]);
-          console.log("successful answer submit");
+          console.log('successful answer submit');
         })
         .catch((err) => {
           console.log(err);
-        })
+        });
     }
-  }
+  };
 
   return (
     <div>
       <button onClick={openModal}>Add Answer</button>
       <AddAnswerModal isOpen={isOpenModal} onClose={closeModal} questionBody={question.question_body} productName={productName}>
         <form onSubmit={(e) => handleAnswerSubmit(yourAnswer, nickName, email, photos)}>
-          <label htmlFor="answer-modal-answer">Your Answer:<span>*</span></label>
+          <label htmlFor="answer-modal-answer">
+            Your Answer:
+            <span>*</span>
+          </label>
           <textarea
             cols="48"
             rows="8"
@@ -102,9 +104,12 @@ function AddAnswer({ question, productId }) {
             name="answer-modal-answer"
             required
             value={yourAnswer}
-          ></textarea>
+          />
 
-          <label htmlFor="answer-modal-nickname">What is your nickname:<span>*</span></label>
+          <label htmlFor="answer-modal-nickname">
+            What is your nickname:
+            <span>*</span>
+          </label>
           <input
             onChange={(e) => setNickName(e.target.value)}
             id="answer-modal-nickname"
@@ -112,10 +117,14 @@ function AddAnswer({ question, productId }) {
             placeholder="Example: jack543!"
             maxLength={60}
             value={nickName}
-            required></input>
+            required
+          />
           <p>For privacy reasons, do not use your fill name or email address.</p>
 
-          <label htmlFor="answer-modal-email">Your email: <span>*</span></label>
+          <label htmlFor="answer-modal-email">
+            Your email:
+            <span>*</span>
+          </label>
           <input
             onChange={(e) => setEmail(e.target.value)}
             id="answer-modal-email"
@@ -123,7 +132,8 @@ function AddAnswer({ question, productId }) {
             placeholder="jack@email.com"
             required
             value={email}
-            maxLength={60}></input>
+            maxLength={60}
+          />
           <p>For authentication reasons, you will not be emailed.</p>
 
           <label htmlFor="answer-modal-photos">Upload your photos:</label>
@@ -138,7 +148,7 @@ function AddAnswer({ question, productId }) {
           />
           <div>
             {photos.map((photo, index) => (
-              <div key={index}>
+              <div>
                 <img src={photo.url} alt={`uploaded-${index}`} height="60" width="60" />
                 <button type="button" onClick={() => removePhoto(index)}>
                   Remove
@@ -152,7 +162,7 @@ function AddAnswer({ question, productId }) {
         </form>
       </AddAnswerModal>
     </div>
-  )
+  );
 }
 
 export default AddAnswer;

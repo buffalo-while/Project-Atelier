@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import AnswerList from './AnswerList.jsx';
 import AddAnswer from './AddAnswer.jsx';
 
-
 function Question({ question, productId }) {
   // const [question_id, setQuestionId] = useState(1);
 
@@ -15,7 +14,7 @@ function Question({ question, productId }) {
       <AddAnswer question={question} productId={productId} />
       <AnswerList questionId={question.question_id} />
     </div>
-  )
-};
+  );
+}
 
 export default Question;
