@@ -2,8 +2,8 @@ import React from 'react';
 import ImageGallery from '../overview/ImageGallery.jsx'
 
 const RelatedCard = ({ product, style }) => {
-  console.log(style,'cardStyles')
-  console.log(product, 'productInfo')
+  // console.log(style,'cardStyles')
+  // console.log(product, 'productInfo')
   return (
     <div>
       <div>
