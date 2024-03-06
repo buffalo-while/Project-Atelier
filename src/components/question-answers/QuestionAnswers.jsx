@@ -6,21 +6,21 @@ import SearchQuestion from './SearchQuestion.jsx';
 import MoreAnsweredQuestions from './MoreAnsweredQuestions.jsx';
 import AddQuestion from './AddQuestion.jsx';
 
-function QuestionAnswers({productId}) {
+function QuestionAnswers({ productId }) {
   const [questionList, setQuestionList] = useState([]);
   const [filteredQuestionList, setFilteredQuestionList] = useState([]);
   const [productName, setProductName] = useState('');
 
   useEffect(() => {
     axios.get(`/api/qa/questions/?product_id=${productId}&page=1&count=10`)
-    .then((response) => {
-      // console.log("response.data", response.data.results)
-      setQuestionList(response.data.results);
-    })
-    .catch((err) => {
-      console.log("error", err);
-    })
-  },[productId]);
+      .then((response) => {
+        // console.log("response.data", response.data.results)
+        setQuestionList(response.data.results);
+      })
+      .catch((err) => {
+        console.log("error", err);
+      })
+  }, [productId]);
 
   const handleSearchQuestion = (searchValue) => {
     event.preventDefault();
@@ -37,16 +37,16 @@ function QuestionAnswers({productId}) {
   return (
     <div>
       <h2>QUESTIONS & ANSWERS</h2>
-      <SearchQuestion handleSearchQuestion={handleSearchQuestion}/>
+      <SearchQuestion handleSearchQuestion={handleSearchQuestion} />
       {filteredQuestionList.length !== 0
-      ? filteredQuestionList.map((question, index) => (
-        <Question key={index} question={question} />
+        ? filteredQuestionList.map((question, index) => (
+          <Question key={index} question={question} productId={productId} />
         ))
         : questionList.map((question, index) => (
-        <Question key={index} question={question} />
-      ))}
+          <Question key={index} question={question} productId={productId} />
+        ))}
       <MoreAnsweredQuestions />
-      <AddQuestion productId={productId}/>
+      <AddQuestion productId={productId} />
     </div>
   )
 };
