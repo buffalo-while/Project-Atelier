@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import StarsBars from './StarsBars.jsx';
 
 function RatingBreakdown({
   productId, getRatings, metaResults, setMetaResults,
@@ -15,8 +16,13 @@ function RatingBreakdown({
 
   return (
     <aside className="rating-breakdown">
-      <span className="ave-rating" name="ave-rating">{metaResults.meanRating}</span>
-      {metaResults.RatingStars}
+      <header className="rating-summary" name="rating-summary">
+        <span className="ave-rating" name="ave-rating">{metaResults.meanRating}</span>
+        {metaResults.RatingStars}
+      </header>
+      <section className="rating-breakdown" name="rating-breakdown">
+        <StarsBars metaResults={metaResults} />
+      </section>
     </aside>
   );
 }
