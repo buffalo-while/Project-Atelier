@@ -19,7 +19,7 @@ function ReviewsList({
         });
     }
   }, [productId, reviewsSort, metaResults]);
-  const reviewsElements = allReviews.filter((review) => {
+  const reviewElements = allReviews.filter((review) => {
     if (reviewsFilter.length === 0 || reviewsFilter.indexOf(review.rating) !== -1) {
       return true;
     }
@@ -29,7 +29,7 @@ function ReviewsList({
   ));
   return (
     <section name="reviews-list" className="reviews-list">
-      {reviewsElements}
+      {reviewElements}
     </section>
   );
 }
