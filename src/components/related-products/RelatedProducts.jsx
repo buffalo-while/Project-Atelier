@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import RelatedList from './RelatedList.jsx';
+import Comparison from './RelatedComparison.jsx';
+import CompareModal from './util/CompareModal.jsx';
 import { getProduct, getRelatedProducts, getProductStyles } from './util/relatedModels.js';
 
-const RelatedProducts = ({ productId }) => {
-  //To Do:
+function RelatedProducts({ productId }) {
+  // To Do:
   // Create a useState that will be made for Related Products and Outfit
   // Give those useStates to the RelatedList to generate the carousel
   const [relatedProducts, setRelatedProducts] = useState([]);
   const [relatedProductsStyles, setRelatedProductsStyles] = useState([]);
+  const [comparisonModal, setComparisonModal] = useState(false);
 
   const populateRelatedProductData = async () => {
     const relatedProductIDs = await getRelatedProducts(productId);
@@ -24,16 +27,14 @@ const RelatedProducts = ({ productId }) => {
     const defaultStyles = await Promise.all(uniqueRelatedProductIds.map((id) => getProductStyles(id)));
     // // console.log(defaultStyles, 'styles');
     setRelatedProductsStyles(defaultStyles.map((defaultStyle) => defaultStyle.data.results[0].photos[0].thumbnail_url));
-     // console.log(defaultStyles.map((defaultStyle) => defaultStyle.data), 'set styles.data')
+    // console.log(defaultStyles.map((defaultStyle) => defaultStyle.data), 'set styles.data')
     //  console.log(defaultStyles.map((defaultStyle) => defaultStyle.data.results), 'set styles.result')
   };
-
 
   useEffect(() => {
     populateRelatedProductData();
     populateRelatedStylesData();
   }, [productId])
-
 
   return (
     <div>
@@ -46,9 +47,21 @@ const RelatedProducts = ({ productId }) => {
       {/* This will be for the Outfit Section */}
       <h2>Given Outfit</h2>
       {/* <RelatedList /> */}
+      {
+        comparisonModal
+        && (
+          <CompareModal>
+            <Comparison
+              product={productId}
+              relatedProducts={relatedProducts}
+              setComparisonModal={setComparisonModal}
+            />
+          </CompareModal>
+        )
+      }
     </div>
 
-  )
+  );
 }
 
 export default RelatedProducts;
