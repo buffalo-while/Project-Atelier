@@ -5,7 +5,7 @@ function RelatedCard({ product, style }) {
   // console.log(style,'cardStyles')
   // console.log(product, 'productInfo')
   return (
-    <div>
+    <div data-testid="related-card">
       <div>
         <img height='100' width='100' src={style ? style : 'https://tracerproducts.com/wp-content/uploads/2019/12/Product-Image-Coming-Soon.jpg'} alt={product.name} />
         {/* <ImageGallery productId={product}/> */}
