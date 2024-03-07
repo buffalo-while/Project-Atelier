@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import dayjs from 'dayjs';
 import { renderStars } from '../controllers/getRatings.jsx';
+import RatingPhoto from './RatingPhoto.jsx';
 
 function ReviewTile({ review }) {
   const [allText, setAllText] = useState(false);
@@ -29,19 +30,11 @@ function ReviewTile({ review }) {
     );
   };
 
-  // need to build this out to open portal
-  const handleOpenImagePortal = (e) => (console.log(e));
-
   const images = () => (
     review.photos
-      .filter((photo) => (!photo.url.slice(0, 1) === 'b'))
+      .filter((photo) => (photo.url.slice(0, 4) === 'http'))
       .map((photo) => (
-        <img
-          key={photo.id}
-          src={photo.url}
-          alt={`Provided by reviewer id ${photo.id}`}
-          className="thumbnail-img"
-        />
+        <RatingPhoto key={photo.id} photo={photo} />
       ))
   );
 
