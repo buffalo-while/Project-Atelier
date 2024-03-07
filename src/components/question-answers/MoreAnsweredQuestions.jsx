@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
-function MoreAnsweredQuestions() {
+function MoreAnsweredQuestions({ handleLoadingMore }) {
   return (
     <div>
-      <button>MORE ANSWERED QUESTIONS</button>
+      <button onClick={handleLoadingMore}>MORE ANSWERED QUESTIONS</button>
     </div>
   );
 }
