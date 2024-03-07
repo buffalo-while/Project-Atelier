@@ -12,6 +12,6 @@
         "import/extensions": "off",
         "react/prop-types": "off",
         "no-console": "off",
-        "namedComponents": "function-declaration"
+        "react/function-component-definition": "off"
     }
 }
