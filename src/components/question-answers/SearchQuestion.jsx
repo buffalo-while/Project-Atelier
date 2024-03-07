@@ -8,7 +8,7 @@ function SearchQuestion({ handleSearchQuestion }) {
     <div data-testid="search-question-container">
       <form onSubmit={(e) => handleSearchQuestion(e, searchValue)}>
         <p>Search for Question here...</p>
-        <input className={styles.searchbar} onChange={(e) => setSearchValue(e.target.value)} value={searchValue} placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS... 🔍" />
+        <input onChange={(e) => setSearchValue(e.target.value)} value={searchValue} placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS... 🔍" />
       </form>
     </div>
   );
