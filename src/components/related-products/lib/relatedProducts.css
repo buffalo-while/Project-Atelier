@@ -1,0 +1,13 @@
+.related-products-container{
+  display:flex;
+  align-items: center;
+}
+
+.related-card {
+  border: 1px solid black;
+  padding: 1px;
+}
+
+/* .image-card{
+
+} */

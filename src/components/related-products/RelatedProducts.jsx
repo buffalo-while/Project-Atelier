@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import RelatedList from './RelatedList.jsx';
+import Comparison from './RelatedComparison.jsx';
+import CompareModal from './util/CompareModal.jsx';
 import { getProduct, getRelatedProducts, getProductStyles } from './util/relatedModels.js';
 
 function RelatedProducts({ productId }) {
-  //To Do:
+  // To Do:
   // Create a useState that will be made for Related Products and Outfit
   // Give those useStates to the RelatedList to generate the carousel
   const [relatedProducts, setRelatedProducts] = useState([]);
   const [relatedProductsStyles, setRelatedProductsStyles] = useState([]);
+  const [comparisonModal, setComparisonModal] = useState(false);
 
   const populateRelatedProductData = async () => {
     const relatedProductIDs = await getRelatedProducts(productId);
@@ -44,9 +47,21 @@ function RelatedProducts({ productId }) {
       {/* This will be for the Outfit Section */}
       <h2>Given Outfit</h2>
       {/* <RelatedList /> */}
+      {
+        comparisonModal
+        && (
+          <CompareModal>
+            <Comparison
+              product={productId}
+              relatedProducts={relatedProducts}
+              setComparisonModal={setComparisonModal}
+            />
+          </CompareModal>
+        )
+      }
     </div>
 
   );
-};
+}
 
 export default RelatedProducts;
