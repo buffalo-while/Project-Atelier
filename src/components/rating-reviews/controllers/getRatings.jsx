@@ -27,6 +27,10 @@ const renderStars = (meanRating, cssClass) => {
     });
   };
   const partialStar = (decimal) => {
+    // no partial star should show if decimal is 0
+    if (!decimal) {
+      return null;
+    }
     // width of solid portion of partial star, note: 0.17em (or less) is empty and 0.83em is full
     const width = `${0.17 + (Math.round(decimal * 4) / 4) * 0.66}em`;
     return (
