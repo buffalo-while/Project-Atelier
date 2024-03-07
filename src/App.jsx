@@ -19,7 +19,7 @@ import './styles.css';
 
 function App() {
   // eslint-disable-next-line no-unused-vars
-  const [productId, setProductId] = useState(40347);
+  const [productId, setProductId] = useState(40346);
 
   return (
     <div>
