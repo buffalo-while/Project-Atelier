@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import dayjs from 'dayjs';
+import { CheckIcon } from '@heroicons/react/20/solid';
 import { renderStars } from '../controllers/getRatings.jsx';
 import RatingPhoto from './RatingPhoto.jsx';
 
@@ -23,10 +24,10 @@ function ReviewTile({ review }) {
       return (<article name="review-text" className="review-text">{formatParagraphs(review.body)}</article>);
     }
     return (
-      <>
-        <article name="review-text" className="review-text">{formatParagraphs(review.body.slice(0, 250))}</article>
+      <article name="review-text" className="review-text">
+        {formatParagraphs(review.body.slice(0, 250))}
         <button type="button" onClick={handleShowMore}>Show more</button>
-      </>
+      </article>
     );
   };
 
@@ -55,7 +56,35 @@ function ReviewTile({ review }) {
         <p name="review-summary" className="review-summary">{review.summary}</p>
         {reviewText()}
         {images()}
+        {review.recommend
+          ? (
+            <p>
+              <CheckIcon style={{ height: '1em', width: '1em' }} />
+              {' '}
+              I recommend this product.
+            </p>
+          )
+          : null}
       </section>
+      {review.response
+        ? (
+          <section name="review-response" className="review-response">
+            <h3>Response:</h3>
+            <p>{review.response}</p>
+          </section>
+        )
+        : null}
+      <footer>
+        <p>
+          Helpful?
+          {' '}
+          <button type="button">Yes</button>
+          {' ('}
+          {review.helpfulness}
+          {')  |  '}
+          <button type="button">Report</button>
+        </p>
+      </footer>
     </div>
   );
 }
