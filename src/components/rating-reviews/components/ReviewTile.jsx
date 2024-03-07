@@ -9,17 +9,42 @@ function ReviewTile({ review }) {
     setAllText(true);
   };
 
+  const formatParagraphs = (text) => {
+    let key = 0;
+    return text.split('\n').map((paragraph) => {
+      key += 1;
+      return <p key={key}>{paragraph}</p>;
+    });
+  };
+
   const reviewText = () => {
     if (allText || review.body.length <= 250) {
-      return (<p name="review-text" className="review-text">{review.body}</p>);
+      return (<article name="review-text" className="review-text">{formatParagraphs(review.body)}</article>);
     }
     return (
       <>
-        <p name="review-text" className="review-text">{review.body.slice(0, 250)}</p>
+        <article name="review-text" className="review-text">{formatParagraphs(review.body.slice(0, 250))}</article>
         <button type="button" onClick={handleShowMore}>Show more</button>
       </>
     );
   };
+
+  // need to build this out to open portal
+  const handleOpenImagePortal = (e) => (console.log(e));
+
+  const images = () => (
+    review.photos
+      .filter((photo) => (!photo.url.slice(0, 1) === 'b'))
+      .map((photo) => (
+        <img
+          key={photo.id}
+          src={photo.url}
+          alt={`Provided by reviewer id ${photo.id}`}
+          className="thumbnail-img"
+        />
+      ))
+  );
+
   return (
     <div role="listitem" name="review" className="review">
       <header className="review-topline">
@@ -36,6 +61,7 @@ function ReviewTile({ review }) {
       <section name="review-body" className="review-body">
         <p name="review-summary" className="review-summary">{review.summary}</p>
         {reviewText()}
+        {images()}
       </section>
     </div>
   );
