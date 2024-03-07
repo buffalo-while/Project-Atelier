@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import RelatedList from './RelatedList.jsx';
 import { getProduct, getRelatedProducts, getProductStyles } from './util/relatedModels.js';
 
-const RelatedProducts = ({ productId }) => {
+function RelatedProducts({ productId }) {
   //To Do:
   // Create a useState that will be made for Related Products and Outfit
   // Give those useStates to the RelatedList to generate the carousel
@@ -24,16 +24,14 @@ const RelatedProducts = ({ productId }) => {
     const defaultStyles = await Promise.all(uniqueRelatedProductIds.map((id) => getProductStyles(id)));
     // // console.log(defaultStyles, 'styles');
     setRelatedProductsStyles(defaultStyles.map((defaultStyle) => defaultStyle.data.results[0].photos[0].thumbnail_url));
-     // console.log(defaultStyles.map((defaultStyle) => defaultStyle.data), 'set styles.data')
+    // console.log(defaultStyles.map((defaultStyle) => defaultStyle.data), 'set styles.data')
     //  console.log(defaultStyles.map((defaultStyle) => defaultStyle.data.results), 'set styles.result')
   };
-
 
   useEffect(() => {
     populateRelatedProductData();
     populateRelatedStylesData();
   }, [productId])
-
 
   return (
     <div>
@@ -48,7 +46,7 @@ const RelatedProducts = ({ productId }) => {
       {/* <RelatedList /> */}
     </div>
 
-  )
-}
+  );
+};
 
 export default RelatedProducts;
