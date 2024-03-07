@@ -145,3 +145,9 @@ body {
 .reviews-filter-hover {
   background-color: #99B4B5;
 }
+
+/* ReviewTile component */
+
+p.review-summary::first-line {
+  font-weight: bold;
+}
