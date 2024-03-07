@@ -5,7 +5,7 @@ function SearchQuestion({ handleSearchQuestion }) {
 
   return (
     <div data-testid="search-question-container">
-      <form onSubmit={() => handleSearchQuestion(searchValue)}>
+      <form onSubmit={(e) => handleSearchQuestion(e, searchValue)}>
         <p>Search for Question here...</p>
         <input onChange={(e) => setSearchValue(e.target.value)} value={searchValue} placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..." />
       </form>
