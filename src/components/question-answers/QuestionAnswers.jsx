@@ -14,8 +14,8 @@ function QuestionAnswers({ productId }) {
   useEffect(() => {
     axios.get(`/api/qa/questions/?product_id=${productId}&page=1&count=50`)
       .then((response) => {
-        console.log("response.data", response.data.results);
-        setQuestionList(response.data.results.sort((a,b) => b.question_helpfulness - a.question_helpfulness));
+        console.log('response.data', response.data.results);
+        setQuestionList(response.data.results.sort((a, b) => b.question_helpfulness - a.question_helpfulness));
       })
       .catch((err) => {
         console.log('error', err);
@@ -24,7 +24,7 @@ function QuestionAnswers({ productId }) {
 
   useEffect(() => {
     setRemainingQuestions(questionList.length - visibleQuestions);
-  },[questionList, visibleQuestions]);
+  }, [questionList, visibleQuestions]);
 
   const handleSearchQuestion = (event, searchValue) => {
     event.preventDefault();
@@ -39,9 +39,9 @@ function QuestionAnswers({ productId }) {
   };
 
   const handleLoadingMore = () => {
-    console.log("loading two more questons")
+    console.log('loading two more questons');
     setVisibleQuestions(visibleQuestions + 2);
-  }
+  };
 
   return (
     <div>
@@ -49,15 +49,15 @@ function QuestionAnswers({ productId }) {
       <SearchQuestion handleSearchQuestion={handleSearchQuestion} />
       {questionList.length > 0 && (
         <div>
-      {filteredQuestionList.length !== 0
-        ? filteredQuestionList.slice(0, visibleQuestions).map((question) => (
-          <Question key={question.question_id} question={question} productId={productId} />
-        ))
-        : questionList.slice(0, visibleQuestions).map((question) => (
-          <Question key={question.question_id} question={question} productId={productId} />
-        ))}
-        {remainingQuestions > 2 ? <MoreAnsweredQuestions handleLoadingMore={handleLoadingMore} /> : null}
-        {/* // <MoreAnsweredQuestions handleLoadingMore={handleLoadingMore} /> */}
+          {filteredQuestionList.length !== 0
+            ? filteredQuestionList.slice(0, visibleQuestions).map((question) => (
+              <Question key={question.question_id} question={question} productId={productId} />
+            ))
+            : questionList.slice(0, visibleQuestions).map((question) => (
+              <Question key={question.question_id} question={question} productId={productId} />
+            ))}
+          {remainingQuestions > 2 ? <MoreAnsweredQuestions handleLoadingMore={handleLoadingMore} /> : null}
+          {/* // <MoreAnsweredQuestions handleLoadingMore={handleLoadingMore} /> */}
         </div>
       )}
       <AddQuestion productId={productId} />

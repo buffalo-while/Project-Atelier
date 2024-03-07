@@ -5,11 +5,11 @@ import Answer from './Answer.jsx';
 function AnswerList({ questionId }) {
   const [answerList, setAnswerList] = useState([]);
   const [visibleAnswers, setVisibleAnswers] = useState(2);
-  const [remainingAnswers, setRemainingAnswers] = useState(0)
+  const [remainingAnswers, setRemainingAnswers] = useState(0);
 
   const loadMoreAnswers = () => {
     setVisibleAnswers(visibleAnswers + 2);
-  }
+  };
 
   useEffect(() => {
     axios.get(`/api/qa/questions/${questionId}/answers`)
@@ -28,10 +28,10 @@ function AnswerList({ questionId }) {
 
   return (
     <div>
-      {answerList.slice(0, visibleAnswers).map((answer, index) => (
-        <Answer key={index} answer={answer} />
+      {answerList.slice(0, visibleAnswers).map((answer) => (
+        <Answer key={answer.answer_id} answer={answer} />
       ))}
-      {remainingAnswers > 0 ?  <button onClick={loadMoreAnswers}>See more answers</button> : null}
+      {remainingAnswers > 0 ? <button onClick={loadMoreAnswers}>See more answers</button> : null}
       {/* <button onClick={loadMoreAnswers}>See more answers</button> */}
     </div>
   );
