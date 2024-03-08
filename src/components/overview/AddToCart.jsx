@@ -18,6 +18,7 @@ function AddToCart({ selectedStyleSkus }) {
 
   const postToCart = () => {
     const payload = {
+      // eslint-disable-next-line no-use-before-define
       sku_id: selectedSizeObj.sku,
     };
 
@@ -61,7 +62,8 @@ function AddToCart({ selectedStyleSkus }) {
         ))}
       </select>
 
-      <button type="submit"
+      <button
+        type="submit"
         onClick={postToCart}
         disabled={!selectedSize || maxQuantity === 0}
       >
