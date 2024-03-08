@@ -1,25 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import RatingBreakdown from './components/RatingBreakdown.jsx';
 import SortReviews from './components/SortReviews.jsx';
 import ReviewsList from './components/ReviewsList.jsx';
-import { getProductInfo } from './models/reviewsModels';
+// import { getProductInfo } from './models/reviewsModels';
 
 // const RatingBreakdown = lazy(() => import('./components/RatingBreakdown.jsx'));
 // const SortReviews = lazy(() => import('./components/SortReviews.jsx'));
 // const ReviewsList = lazy(() => import('./components/ReviewsList.jsx'));
 
-function RatingReviews({ productId, getRatings }) {
+function RatingReviews({ productId, getRatings, productName }) {
   const [metaResults, setMetaResults] = useState({});
   const [reviewsFilter, setReviewsFilter] = useState([]);
   const [reviewsSort, setReviewsSort] = useState('relevant');
-  const [productName, setProductName] = useState('');
+  // const [productName, setProductName] = useState('');
 
-  useEffect(() => {
-    getProductInfo(productId)
-      .then((response) => {
-        setProductName(response.data.name);
-      });
-  }, [productId]);
+  // useEffect(() => {
+  //   getProductInfo(productId)
+  //     .then((response) => {
+  //       setProductName(response.data.name);
+  //     });
+  // }, [productId]);
   // Adds suspense fallback to component provided until it is available
   // const suspenseView = (component) => (
   //   <Suspense fallback={<p>Loading...</p>}>
