@@ -15,7 +15,6 @@ function ReviewsList({
       const count = metaResults.totalReviews;
       getReviews(productId, count, page, reviewsSort)
         .then((response) => {
-          console.log('Results from calling getReviews on productId: ', response.data.results);
           setAllReviews(response.data.results);
         });
     }
@@ -47,7 +46,7 @@ function ReviewsList({
       {nonVisibleReviews.length > 0
         ? (
           <button type="button" onClick={handleMoreReviews}>
-            More Reviews
+            MORE REVIEWS
           </button>
         ) : null}
     </div>

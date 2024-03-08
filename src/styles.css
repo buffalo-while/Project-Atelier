@@ -184,12 +184,14 @@ dialog.expanded-rating-photo {
   z-index: 1;
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
-  max-width: 80%;
-  max-height: 80%;
+  width: 75%;
+  height: 75%;
 }
 
 .review-image-full {
-  max-width: 80%;
   max-height: 80%;
+  max-width: 80%;
+  object-fit: contain;
 }
