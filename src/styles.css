@@ -134,6 +134,13 @@ body {
 
 /* Rating and Reviews Module */
 
+.r-and-r {
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
 /* StarsBars/Filter component */
 
 .remove-filters {
@@ -152,8 +159,39 @@ body {
   background-color: #99B4B5;
 }
 
+/* ReviewList component */
+.reviews-list {
+  overflow-y: auto;
+}
+
 /* ReviewTile component */
 
 p.review-summary::first-line {
   font-weight: bold;
+}
+
+button.review-image-expand {
+  border: none;
+  cursor: pointer;
+  appearance: none;
+  background-color: inherit;
+}
+
+dialog.expanded-rating-photo {
+  position: fixed;
+  top: 50%;
+  transform: translate(0%, -50%);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 75%;
+  height: 75%;
+}
+
+.review-image-full {
+  max-height: 80%;
+  max-width: 80%;
+  object-fit: contain;
 }
