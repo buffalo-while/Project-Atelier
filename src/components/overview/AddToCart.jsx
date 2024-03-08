@@ -24,7 +24,7 @@ function AddToCart({ selectedStyleSkus }) {
 
     axios.post('/api/cart', payload)
       .then((response) => {
-        console.log('Successfully added to cart:', response.data)
+        console.log('Successfully added to cart:', response.data);
         alert('Successfully added to cart');
       })
   };
