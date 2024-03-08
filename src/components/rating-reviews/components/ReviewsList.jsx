@@ -41,11 +41,13 @@ function ReviewsList({
   };
 
   return (
-    <div role="list" name="reviews-list" className="reviews-list">
-      {visibleReviews}
+    <div className="reviews-list">
+      <div role="list" name="reviews-list">
+        {visibleReviews}
+      </div>
       {nonVisibleReviews.length > 0
         ? (
-          <button type="button" onClick={handleMoreReviews}>
+          <button type="button" name="more-reviews" onClick={handleMoreReviews}>
             MORE REVIEWS
           </button>
         ) : null}
