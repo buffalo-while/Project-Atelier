@@ -1,0 +1,41 @@
+.questionContainer {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #004346;
+  padding: 10px;
+  margin: 10px;
+  width: 50%;
+}
+
+.questionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.questionBody {
+  font-size: large;
+  font-weight: bold;
+}
+
+.actionsContainer {
+  display: flex;
+  align-items: center;
+}
+
+.questionHelpful {
+ font-size: small;
+}
+
+.answerListContainer {
+  margin-top: 10px;
+}
+
+.questionHelpful button {
+  background: none;
+  border: none;
+  padding: 0;
+  text-decoration: underline;
+  margin-left: 2px;
+  cursor: pointer;
+}

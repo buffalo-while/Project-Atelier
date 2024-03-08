@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import AddAnswerModal from './AddAnswerModal.jsx';
+import styles from './styles/AddAnswerButton.module.css';
 
 function AddAnswer({ question, productId }) {
   const [isOpenModal, setIsOpenModal] = useState(false);
@@ -89,7 +90,7 @@ function AddAnswer({ question, productId }) {
 
   return (
     <div>
-      <button onClick={openModal}>Add Answer</button>
+      <button className={styles.addAnswerButton} onClick={openModal}>Add Answer</button>
       <AddAnswerModal isOpen={isOpenModal} onClose={closeModal} questionBody={question.question_body} productName={productName}>
         <form onSubmit={(e) => handleAnswerSubmit(yourAnswer, nickName, email, photos)}>
           <label htmlFor="answer-modal-answer">
