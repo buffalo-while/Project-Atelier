@@ -3,7 +3,7 @@ import React, {
 } from 'react';
 import axios from 'axios';
 
-const RatingBreakdown = lazy(() => import('../rating-reviews/components/RatingBreakdown.jsx'));
+// const RatingBreakdown = lazy(() => import('../rating-reviews/components/RatingBreakdown.jsx'));
 
 function ProdInfo({ productId, getRatings, selectedStyle }) {
   const [product, setProduct] = useState('');
@@ -37,32 +37,41 @@ function ProdInfo({ productId, getRatings, selectedStyle }) {
       {component}
     </Suspense>
   );
-  console.log('selected style: ', selectedStyle);
-// if i'm grabbing produce.name and product.category, i'm not in the right place. // this is totally a gotcha
   return (
     <div>
       {product && (
         <div>
-          <div className="prod-info-stars">
-            {ratingData ? suspenseView(ratingData.RatingStars) : <p>Loading ratings...</p>}
+          <div className="prod-info-star-section">
+            <div className="prod-info-stars">
+              {ratingData ? suspenseView(ratingData.RatingStars) : <p>Loading ratings...</p>}
+            </div>
+            <div className="prod-info-smalltext">read all reviews</div>
           </div>
-          <div className="prod-info-smalletext">read all reviews</div>
           <p className="prod-info-category">{product.category}</p>
           <p className="prod-info-name">{product.name}</p>
           <p className="prod-info-price">
             {selectedStyle && selectedStyle.sale_price > 1 ? (
               <>
                 <span style={{ color: 'red', textDecoration: 'line-through' }}>
-                  ${selectedStyle.original_price}
+                  $
+                  {
+                  selectedStyle.original_price
+                  }
                 </span>
                 <span style={{ color: 'red', marginLeft: '5px' }}>
-                  ${selectedStyle.sale_price}
+                  $
+                  {
+                  selectedStyle.sale_price
+                  }
                 </span>
               </>
             ) : (
               <span style={{ color: 'black' }}>
-              ${product.default_price}
-            </span>
+                $
+                {
+                product.default_price
+                }
+              </span>
             )}
           </p>
         </div>

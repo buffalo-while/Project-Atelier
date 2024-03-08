@@ -4,9 +4,9 @@ const RatingBreakdown = lazy(() => import('./components/RatingBreakdown.jsx'));
 const SortReviews = lazy(() => import('./components/SortReviews.jsx'));
 
 function RatingReviews({ productId, getRatings }) {
-  // Adds suspense fallback to component provided until it is available
   const [metaResults, setMetaResults] = useState({});
-
+  const [reviewsFilter, setReviewsFilter] = useState([]);
+  // Adds suspense fallback to component provided until it is available
   const suspenseView = (component) => (
     <Suspense fallback={<p>Loading...</p>}>
       {component}
@@ -19,6 +19,8 @@ function RatingReviews({ productId, getRatings }) {
       productId={productId}
       metaResults={metaResults}
       setMetaResults={setMetaResults}
+      reviewsFilter={reviewsFilter}
+      setReviewsFilter={setReviewsFilter}
     />
   );
 

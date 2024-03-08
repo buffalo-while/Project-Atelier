@@ -11,18 +11,16 @@ function OverviewMain({ productId, getRatings }) {
   const [styles, setStyles] = useState([]);
   const [selectedStyleId, setSelectedStyleId] = useState(null);
   const [selectedStyleSkus, setSelectedStyleSkus] = useState({});
-  const [selectedStyle, setSelectedStyle] = useState({})
+  const [selectedStyle, setSelectedStyle] = useState({});
 
- // const selectedStyle = styles.find((style) => style.style_id === selectedStyleId);
+  // const selectedStyle = styles.find((style) => style.style_id === selectedStyleId);
 
   useEffect(() => {
     const fetchStyles = async () => {
       try {
         const response = await axios.get(`api/products/${productId}/styles`);
-        const stylesData = response.data.results; // need to access this for the prices, i was one layer up, bu ti'm already passing it as styles, so i need to select it?
-        console.log('stylesData', stylesData)
+        const stylesData = response.data.results;
         setStyles(stylesData);
-        // Automatically select the first style as the default
         if (stylesData.length > 0) {
           const defaultStyle = stylesData[0];
           setSelectedStyleId(defaultStyle.style_id);
@@ -43,7 +41,7 @@ function OverviewMain({ productId, getRatings }) {
   const changeHeroFromGallery = (newURL) => {
     setHeroImageUrl(newURL);
   };
-
+  // maybe move this one into imagegallery
   const changeThumbnails = (stylePhotos) => {
     setThumbnails(stylePhotos.map((photo) => ({
       thumbnailUrl: photo.thumbnail_url,
@@ -51,21 +49,13 @@ function OverviewMain({ productId, getRatings }) {
     })));
   };
 
-  // useEffect(() => {
-  //   // Update hero image and thumbnails when a new style is selected
-  //   if (selectedStyle) {
-  //     setHeroImageUrl(selectedStyle.photos[0].url);
-  //     changeThumbnails(selectedStyle.photos);
-  //     setSelectedStyleSkus(selectedStyle.skus);
-  //   }
-  // }, [selectedStyle, selectedStyleId, styles]);
   useEffect(() => {
-    const currentSelectedStyle = styles.find(style => style.style_id === selectedStyleId);
+    const currentSelectedStyle = styles.find((style) => style.style_id === selectedStyleId);
     if (currentSelectedStyle) {
       setHeroImageUrl(currentSelectedStyle.photos[0].url);
       changeThumbnails(currentSelectedStyle.photos);
       setSelectedStyleSkus(currentSelectedStyle.skus);
-      setSelectedStyle(currentSelectedStyle); // Ensure this is correctly updating the state
+      setSelectedStyle(currentSelectedStyle);
     }
   }, [selectedStyleId, styles]);
   return (

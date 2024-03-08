@@ -8,19 +8,25 @@ import AddQuestion from './AddQuestion.jsx';
 function QuestionAnswers({ productId }) {
   const [questionList, setQuestionList] = useState([]);
   const [filteredQuestionList, setFilteredQuestionList] = useState([]);
+  const [visibleQuestions, setVisibleQuestions] = useState(4);
+  const [remainingQuestions, setRemainingQuestions] = useState(0);
 
   useEffect(() => {
-    axios.get(`/api/qa/questions/?product_id=${productId}&page=1&count=10`)
+    axios.get(`/api/qa/questions/?product_id=${productId}&page=1&count=50`)
       .then((response) => {
-        // console.log("response.data", response.data.results)
-        setQuestionList(response.data.results);
+        console.log("response.data", response.data.results);
+        setQuestionList(response.data.results.sort((a,b) => b.question_helpfulness - a.question_helpfulness));
       })
       .catch((err) => {
         console.log('error', err);
       });
   }, [productId]);
 
-  const handleSearchQuestion = (searchValue) => {
+  useEffect(() => {
+    setRemainingQuestions(questionList.length - visibleQuestions);
+  },[questionList, visibleQuestions]);
+
+  const handleSearchQuestion = (event, searchValue) => {
     event.preventDefault();
     // console.log("searchValue", searchValue);
 
@@ -32,18 +38,28 @@ function QuestionAnswers({ productId }) {
     }
   };
 
+  const handleLoadingMore = () => {
+    console.log("loading two more questons")
+    setVisibleQuestions(visibleQuestions + 2);
+  }
+
   return (
     <div>
       <h2>QUESTIONS & ANSWERS</h2>
       <SearchQuestion handleSearchQuestion={handleSearchQuestion} />
+      {questionList.length > 0 && (
+        <div>
       {filteredQuestionList.length !== 0
-        ? filteredQuestionList.map((question) => (
+        ? filteredQuestionList.slice(0, visibleQuestions).map((question) => (
           <Question key={question.question_id} question={question} productId={productId} />
         ))
-        : questionList.map((question) => (
+        : questionList.slice(0, visibleQuestions).map((question) => (
           <Question key={question.question_id} question={question} productId={productId} />
         ))}
-      <MoreAnsweredQuestions />
+        {remainingQuestions > 2 ? <MoreAnsweredQuestions handleLoadingMore={handleLoadingMore} /> : null}
+        {/* // <MoreAnsweredQuestions handleLoadingMore={handleLoadingMore} /> */}
+        </div>
+      )}
       <AddQuestion productId={productId} />
     </div>
   );
