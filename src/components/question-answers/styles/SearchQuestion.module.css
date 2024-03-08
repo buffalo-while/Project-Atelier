@@ -1,0 +1,17 @@
+.searchBar {
+  padding: 10px;
+  margin-left: 10px;
+}
+
+input {
+  width: 50%;
+  padding: .5rem;
+  border: solid 3px rgba(0, 0, 0, 0.8);
+
+}
+
+input::placeholder {
+  font-size: larger;
+  font-weight: bolder;
+}
+
