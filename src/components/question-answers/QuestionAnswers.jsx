@@ -4,6 +4,7 @@ import Question from './Question.jsx';
 import SearchQuestion from './SearchQuestion.jsx';
 import MoreAnsweredQuestions from './MoreAnsweredQuestions.jsx';
 import AddQuestion from './AddQuestion.jsx';
+import styles from './styles/QuestionAnswersHeader.module.css';
 
 function QuestionAnswers({ productId }) {
   const [questionList, setQuestionList] = useState([]);
@@ -45,7 +46,7 @@ function QuestionAnswers({ productId }) {
 
   return (
     <div>
-      <h2>QUESTIONS & ANSWERS</h2>
+      <h4 className={styles.qnaHeader}>QUESTIONS & ANSWERS</h4>
       <SearchQuestion handleSearchQuestion={handleSearchQuestion} />
       {questionList.length > 0 && (
         <div>
