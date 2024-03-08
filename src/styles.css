@@ -128,6 +128,13 @@ body {
 
 /* Rating and Reviews Module */
 
+.r-and-r {
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
 /* StarsBars/Filter component */
 
 .remove-filters {
@@ -144,6 +151,11 @@ body {
 
 .reviews-filter-hover {
   background-color: #99B4B5;
+}
+
+/* ReviewList component */
+.reviews-list {
+  overflow-y: auto;
 }
 
 /* ReviewTile component */
