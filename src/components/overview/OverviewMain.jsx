@@ -57,7 +57,7 @@ function OverviewMain({ productId, getRatings }) {
       setSelectedStyleSkus(currentSelectedStyle.skus);
       setSelectedStyle(currentSelectedStyle);
     }
-  }, [selectedStyleId, styles]);
+  }, [selectedStyle, selectedStyleId, styles]);
   return (
     <div>
       <h1>
