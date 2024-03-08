@@ -1,11 +1,10 @@
 import React, {
-  useEffect, useState, lazy, Suspense,
+  useEffect, useState, Suspense,
 } from 'react';
 import axios from 'axios';
 
-// const RatingBreakdown = lazy(() => import('../rating-reviews/components/RatingBreakdown.jsx'));
 
-function ProdInfo({ productId, getRatings, selectedStyle }) {
+function ProdInfo({ productId, getRatings, selectedStyle, setProductName }) {
   const [product, setProduct] = useState('');
   const [ratingData, setRatingData] = useState(null);
 
@@ -13,7 +12,9 @@ function ProdInfo({ productId, getRatings, selectedStyle }) {
     const fetchProduct = async () => {
       try {
         const response = await axios.get(`/api/products/${productId}`);
+        const productName = response.data.name;
         setProduct(response.data);
+        setProductName(productName);
       } catch (error) {
         console.error('There was an error: ', error);
       }
@@ -54,23 +55,17 @@ function ProdInfo({ productId, getRatings, selectedStyle }) {
               <>
                 <span style={{ color: 'red', textDecoration: 'line-through' }}>
                   $
-                  {
-                  selectedStyle.original_price
-                  }
+                  { selectedStyle.original_price}
                 </span>
                 <span style={{ color: 'red', marginLeft: '5px' }}>
                   $
-                  {
-                  selectedStyle.sale_price
-                  }
+                  {selectedStyle.sale_price }
                 </span>
               </>
             ) : (
               <span style={{ color: 'black' }}>
                 $
-                {
-                product.default_price
-                }
+                {product.default_price}
               </span>
             )}
           </p>

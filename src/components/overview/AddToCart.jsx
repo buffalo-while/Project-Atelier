@@ -18,8 +18,8 @@ function AddToCart({ selectedStyleSkus }) {
 
   const postToCart = () => {
     const payload = {
+      // eslint-disable-next-line no-use-before-define
       sku_id: selectedSizeObj.sku,
-      qty: selectedQuantity,
     };
 
     axios.post('/api/cart', payload)
@@ -27,6 +27,10 @@ function AddToCart({ selectedStyleSkus }) {
         console.log('Successfully added to cart:', response.data);
         alert('Successfully added to cart');
       })
+      .catch((error) => {
+        console.log('Failed to add to cart: ', error);
+        alert('Failed to add to cart. Try again later.');
+      });
   };
 
   const sizes = Object.keys(selectedStyleSkus).map((sku) => ({
@@ -38,10 +42,8 @@ function AddToCart({ selectedStyleSkus }) {
   const availableSizes = sizes.filter((size) => size.quantity > 0);
 
   const selectedSizeObj = sizes.find((size) => size.size === selectedSize);
-  console.log('selectedSizeObj', selectedSizeObj);
 
   const maxQuantity = selectedSizeObj ? Math.min(selectedSizeObj.quantity, 15) : 0;
-  console.log(selectedSize)
 
   return (
     <div className="addToCart">
@@ -60,8 +62,9 @@ function AddToCart({ selectedStyleSkus }) {
         ))}
       </select>
 
-      <button type="submit"
-        onClick={() => console.log('Added to Cart: ', selectedSize, selectedQuantity)}
+      <button
+        type="submit"
+        onClick={postToCart}
         disabled={!selectedSize || maxQuantity === 0}
       >
         Add to Cart

@@ -7,19 +7,11 @@ import QuestionAnswers from './components/question-answers/QuestionAnswers.jsx';
 import getRatings from './components/rating-reviews/controllers/getRatings.jsx';
 
 import './styles.css';
-// useEffect(() => {
-//   axios.get(`products/${id}`)
-//   .then((productIdData) => {
-//     setProductId(productIdData.data);
-//   })
-//   .catch((err) => {
-//     console.log('err getting productId', err);
-//   })
-// }, []);
 
 function App() {
   // eslint-disable-next-line no-unused-vars
   const [productId, setProductId] = useState(40344);
+  const [productName, setProductName] = useState('');
 
   return (
     <div>
@@ -30,12 +22,12 @@ function App() {
         <div className="search-container">
           <input type="text" placeholder="Search..." className="search-input" />
           <button type="submit" className="search-icon">
-            🔍
+            🔎
           </button>
         </div>
       </div>
       <h1>Hello World!</h1>
-      <OverviewMain productId={productId} getRatings={getRatings} />
+      <OverviewMain productId={productId} getRatings={getRatings} setProductName={setProductName} />
       <RelatedProducts productId={productId} />
       <QuestionAnswers productId={productId} />
       <RatingReviews productId={productId} getRatings={getRatings} />

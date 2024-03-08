@@ -5,15 +5,13 @@ import ProdInfo from './ProdInfo.jsx';
 import StyleSelector from './StyleSelector.jsx';
 import AddToCart from './AddToCart.jsx';
 
-function OverviewMain({ productId, getRatings }) {
+function OverviewMain({ productId, getRatings, setProductName }) {
   const [heroImageUrl, setHeroImageUrl] = useState('');
   const [thumbnails, setThumbnails] = useState([]);
   const [styles, setStyles] = useState([]);
   const [selectedStyleId, setSelectedStyleId] = useState(null);
   const [selectedStyleSkus, setSelectedStyleSkus] = useState({});
   const [selectedStyle, setSelectedStyle] = useState({});
-
-  // const selectedStyle = styles.find((style) => style.style_id === selectedStyleId);
 
   useEffect(() => {
     const fetchStyles = async () => {
@@ -57,7 +55,7 @@ function OverviewMain({ productId, getRatings }) {
       setSelectedStyleSkus(currentSelectedStyle.skus);
       setSelectedStyle(currentSelectedStyle);
     }
-  }, [selectedStyleId, styles]);
+  }, [selectedStyle, selectedStyleId, styles]);
   return (
     <div>
       <h1>
@@ -76,6 +74,7 @@ function OverviewMain({ productId, getRatings }) {
             getRatings={getRatings}
             styles={styles}
             selectedStyle={selectedStyle}
+            setProductName={setProductName}
           />
           <StyleSelector
             styles={styles}
