@@ -195,3 +195,24 @@ dialog.expanded-rating-photo {
   max-width: 80%;
   object-fit: contain;
 }
+
+/* WriteReviewModal component */
+dialog.write-review-portal {
+  position: fixed;
+  top: 50%;
+  transform: translate(0%, -50%);
+  z-index: 1;
+  width: 85%;
+  height: 85%;
+}
+
+/* WriteReviewStars component */
+.star-rating-radio {
+  display: none;
+}
+
+.write-review-star {
+  cursor: pointer;
+  width: 1em;
+  height: 1em;
+}

@@ -10,4 +10,10 @@ const putHelpfulOrReportReview = ((reviewId, reportOrHelpful) => (
   axios.put(`/api/reviews/${reviewId}/${reportOrHelpful}`)
 ));
 
-export { getReviewsMetaData, getReviews, putHelpfulOrReportReview };
+const getProductInfo = ((productId) => (
+  axios.get(`/api/products/${productId}`)
+));
+
+export {
+  getReviewsMetaData, getReviews, putHelpfulOrReportReview, getProductInfo,
+};

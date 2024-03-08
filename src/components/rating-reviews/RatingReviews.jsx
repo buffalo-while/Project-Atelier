@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import RatingBreakdown from './components/RatingBreakdown.jsx';
 import SortReviews from './components/SortReviews.jsx';
 import ReviewsList from './components/ReviewsList.jsx';
+import { getProductInfo } from './models/reviewsModels';
 
 // const RatingBreakdown = lazy(() => import('./components/RatingBreakdown.jsx'));
 // const SortReviews = lazy(() => import('./components/SortReviews.jsx'));
@@ -11,6 +12,14 @@ function RatingReviews({ productId, getRatings }) {
   const [metaResults, setMetaResults] = useState({});
   const [reviewsFilter, setReviewsFilter] = useState([]);
   const [reviewsSort, setReviewsSort] = useState('relevant');
+  const [productName, setProductName] = useState('');
+
+  useEffect(() => {
+    getProductInfo(productId)
+      .then((response) => {
+        setProductName(response.data.name);
+      });
+  }, [productId]);
   // Adds suspense fallback to component provided until it is available
   // const suspenseView = (component) => (
   //   <Suspense fallback={<p>Loading...</p>}>
@@ -70,6 +79,7 @@ function RatingReviews({ productId, getRatings }) {
         productId={productId}
         reviewsFilter={reviewsFilter}
         reviewsSort={reviewsSort}
+        productName={productName}
       />
     </section>
   );

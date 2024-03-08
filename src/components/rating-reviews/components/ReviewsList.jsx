@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { getReviews } from '../models/reviewsModels';
 import ReviewTile from './ReviewTile.jsx';
+import WriteReview from './WriteReview.jsx';
 
 function ReviewsList({
-  productId, reviewsFilter, metaResults, reviewsSort,
+  productId, reviewsFilter, metaResults, reviewsSort, productName,
 }) {
   const [allReviews, setAllReviews] = useState([]);
   const [visibleReviews, setVisibleReviews] = useState(null);
@@ -51,6 +52,10 @@ function ReviewsList({
             MORE REVIEWS
           </button>
         ) : null}
+      <WriteReview
+        productId={productId}
+        productName={productName}
+      />
     </div>
   );
 }
