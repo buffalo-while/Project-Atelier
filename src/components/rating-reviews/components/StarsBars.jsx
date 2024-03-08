@@ -24,7 +24,9 @@ function StarsBars({ metaResults, reviewsFilter, setReviewsFilter }) {
         setReviewsFilter={setReviewsFilter}
         setClearFilters={setClearFilters}
       />
-      {starsBars}
+      <div name="select-star-rating" aria-label="Filter by selected ratings" role="listbox">
+        {starsBars}
+      </div>
     </>
   );
 }

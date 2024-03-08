@@ -28,9 +28,9 @@ function ReviewsList({
     <ReviewTile key={review.review_id} review={review} />
   ));
   return (
-    <section role="list" name="reviews-list" className="reviews-list">
+    <div role="list" name="reviews-list" className="reviews-list">
       {reviewElements}
-    </section>
+    </div>
   );
 }
 
