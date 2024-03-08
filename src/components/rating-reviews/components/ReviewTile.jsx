@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import dayjs from 'dayjs';
 import { CheckIcon } from '@heroicons/react/20/solid';
 import { renderStars } from '../controllers/getRatings.jsx';
@@ -6,6 +6,37 @@ import RatingPhoto from './RatingPhoto.jsx';
 
 function ReviewTile({ review }) {
   const [allText, setAllText] = useState(false);
+
+  const [voted, setVoted] = useState(false);
+  const [helpfulCount, setHelpfulCount] = useState(review.helpfulness);
+
+  useEffect(() => {
+    const votedStorage = localStorage.getItem(`review${review.review_id}voted`);
+    if (votedStorage) {
+      setVoted(true);
+    }
+  }, [review.review_id]);
+
+  const toggleVoted = () => {
+    setVoted(true);
+    localStorage.setItem(`review${review.review_id}voted`, 'true');
+  };
+
+  const handleVoteClick = (e) => {
+    if (e.target.name === 'helpful') {
+      setHelpfulCount(helpfulCount + 1);
+      // call helpful API
+      // then increase helpful count
+      // catch any errors
+    } else if (e.target.name === 'report') {
+      // call report API
+      // then do nothing
+      // catch any errors
+    } else {
+      console.log('Oops - target name not found for review feedback');
+    }
+    toggleVoted();
+  };
 
   const handleShowMore = () => {
     setAllText(true);
@@ -78,11 +109,11 @@ function ReviewTile({ review }) {
         <p>
           Helpful?
           {' '}
-          <button type="button">Yes</button>
+          <button type="button" name="helpful" onClick={handleVoteClick} disabled={voted}>Yes</button>
           {' ('}
-          {review.helpfulness}
+          {helpfulCount}
           {')  |  '}
-          <button type="button">Report</button>
+          <button type="button" name="report" onClick={handleVoteClick} disabled={voted}>Report</button>
         </p>
       </footer>
     </div>

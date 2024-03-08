@@ -8,10 +8,10 @@ function ReviewsList({
   const [allReviews, setAllReviews] = useState([]);
   useEffect(() => {
     if (getReviews && metaResults.totalReviews && metaResults.totalReviews !== 'N/A') {
-      const page = 1;
+      const page = 2;
       // revert later when have built limitations on number of reviews that render initially
-      // const count = 5;
-      const count = metaResults.totalReviews;
+      const count = 5;
+      // const count = metaResults.totalReviews;
       getReviews(productId, count, page, reviewsSort)
         .then((response) => {
           console.log('Results from calling getReviews on productId: ', response.data.results);
