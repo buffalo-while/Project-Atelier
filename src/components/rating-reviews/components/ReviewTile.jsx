@@ -3,6 +3,7 @@ import dayjs from 'dayjs';
 import { CheckIcon } from '@heroicons/react/20/solid';
 import { renderStars } from '../controllers/getRatings.jsx';
 import RatingPhoto from './RatingPhoto.jsx';
+import { putHelpfulOrReportReview } from '../models/reviewsModels.js';
 
 function ReviewTile({ review }) {
   const [allText, setAllText] = useState(false);
@@ -23,19 +24,15 @@ function ReviewTile({ review }) {
   };
 
   const handleVoteClick = (e) => {
-    if (e.target.name === 'helpful') {
+    const voteType = e.target.name;
+    console.log(voteType);
+    if (voteType === 'helpful') {
       setHelpfulCount(helpfulCount + 1);
-      // call helpful API
-      // then increase helpful count
-      // catch any errors
-    } else if (e.target.name === 'report') {
-      // call report API
-      // then do nothing
-      // catch any errors
-    } else {
-      console.log('Oops - target name not found for review feedback');
     }
     toggleVoted();
+    putHelpfulOrReportReview(review.review_id, voteType)
+      .then(() => (console.log(`${voteType} put request successful`)))
+      .catch(() => (console.log(`${voteType} put request errored`)));
   };
 
   const handleShowMore = () => {
@@ -121,17 +118,3 @@ function ReviewTile({ review }) {
 }
 
 export default ReviewTile;
-
-//  Structure:
-//  Header
-//    Left: review stars
-//    Right: verified check if email exists, reviewer name, formatted date
-//  Review summary, limited to 60 characters, in bold, word-break truncate + ... to avoid two lines
-//  ...rest of review summary if applicable
-//  Review text & media (multi-media input with text and images), limited to 250 characters
-//  Button to Show more, if review length is capped only (need a state)
-//  Any images (up to 5) that were submitted at part of review show as thumbnails, can open in modal
-//  Recommend, only shows if yes, includes checkmark icon + I recommend this product
-//  Footer
-//    Rating helpfulness, Yes, No, displays number and clickable once (note API does not allow No)
-//    Report button also clicakble once only (either button cannot be clicked if other has)
