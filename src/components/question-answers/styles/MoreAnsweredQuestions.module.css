@@ -1,0 +1,13 @@
+.moreAnsweredQuestionsButton {
+background: none;
+border: none;
+padding: 0;
+/* text-decoration: underline; */
+cursor: pointer;
+border: solid 2px rgba(0, 0, 0, 0.8);
+font-weight: bold;
+font-size: large;
+padding: 20px;
+margin-left: 10px;
+color: #004346;
+}
