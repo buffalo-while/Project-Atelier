@@ -28,11 +28,11 @@ function AnswerList({ questionId }) {
   }, [visibleAnswers, answerList]);
 
   return (
-    <div className={styles.answerListContainer}>
+    <div>
       {answerList.slice(0, visibleAnswers).map((answer) => (
         <Answer key={answer.answer_id} answer={answer} />
       ))}
-      {remainingAnswers > 0 ? <button onClick={loadMoreAnswers}>LOAD MORE ANSWERS</button> : null}
+      {remainingAnswers > 0 ? <button className={styles.answerListButton} onClick={loadMoreAnswers}>LOAD MORE ANSWERS</button> : null}
       {/* <button onClick={loadMoreAnswers}>See more answers</button> */}
     </div>
   );

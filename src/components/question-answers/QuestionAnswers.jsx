@@ -4,7 +4,7 @@ import Question from './Question.jsx';
 import SearchQuestion from './SearchQuestion.jsx';
 import MoreAnsweredQuestions from './MoreAnsweredQuestions.jsx';
 import AddQuestion from './AddQuestion.jsx';
-import styles from './styles/QuestionAnswersHeader.module.css';
+import styles from './styles/QuestionAnswers.module.css';
 
 function QuestionAnswers({ productId }) {
   const [questionList, setQuestionList] = useState([]);
@@ -48,7 +48,7 @@ function QuestionAnswers({ productId }) {
     <div>
       <h4 className={styles.qnaHeader}>QUESTIONS & ANSWERS</h4>
       <SearchQuestion handleSearchQuestion={handleSearchQuestion} />
-      {questionList.length > 0 && (
+      {questionList.length > 0  ?
         <div>
           {filteredQuestionList.length !== 0
             ? filteredQuestionList.slice(0, visibleQuestions).map((question) => (
@@ -57,11 +57,13 @@ function QuestionAnswers({ productId }) {
             : questionList.slice(0, visibleQuestions).map((question) => (
               <Question key={question.question_id} question={question} productId={productId} />
             ))}
+            <div className={styles.qnaButtons}>
           {remainingQuestions > 2 ? <MoreAnsweredQuestions handleLoadingMore={handleLoadingMore} /> : null}
+          <AddQuestion productId={productId} />
+          </div>
           {/* // <MoreAnsweredQuestions handleLoadingMore={handleLoadingMore} /> */}
-        </div>
-      )}
-      <AddQuestion productId={productId} />
+          </div>
+      : <AddQuestion productId={productId} />}
     </div>
   );
 }
