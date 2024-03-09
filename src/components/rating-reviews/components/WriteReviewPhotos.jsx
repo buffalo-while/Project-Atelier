@@ -5,9 +5,15 @@ function WriteReviewPhotos({ photos, setPhotos }) {
 
   const handlePhotoUpload = (e) => {
     const newPhotos = [...photos];
+    const fileValue = e.target.value;
+    const files = e.target.files;
     const file = e.target.files[0];
+    console.log(fileValue);
+    console.log(files);
+    console.log(file);
     if (file && file.type.split('/')[0] === 'image' && remainingPhotos > 0) {
       const photoURL = URL.createObjectURL(file);
+      console.log('PhotoURL: ', photoURL);
       newPhotos.push(photoURL);
       setPhotos(newPhotos);
       setRemainingPhotos(remainingPhotos - 1);
@@ -24,7 +30,6 @@ function WriteReviewPhotos({ photos, setPhotos }) {
           name="review-photos"
           accept="image/*"
           onChange={handlePhotoUpload}
-          multiple
           disabled={remainingPhotos === 0}
         />
       </label>
