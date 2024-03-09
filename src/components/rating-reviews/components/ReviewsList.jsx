@@ -16,7 +16,6 @@ function ReviewsList({
       const count = metaResults.totalReviews;
       getReviews(productId, count, page, reviewsSort)
         .then((response) => {
-          console.log(response.data.results);
           setAllReviews(response.data.results);
         });
     }

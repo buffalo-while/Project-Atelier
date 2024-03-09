@@ -1,22 +1,24 @@
 import React, { useState } from 'react';
+import { postPhoto } from '../models/reviewsModels.js';
 
 function WriteReviewPhotos({ photos, setPhotos }) {
   const [remainingPhotos, setRemainingPhotos] = useState(5);
 
   const handlePhotoUpload = (e) => {
     const newPhotos = [...photos];
-    const fileValue = e.target.value;
-    const files = e.target.files;
     const file = e.target.files[0];
-    console.log(fileValue);
-    console.log(files);
-    console.log(file);
     if (file && file.type.split('/')[0] === 'image' && remainingPhotos > 0) {
-      const photoURL = URL.createObjectURL(file);
-      console.log('PhotoURL: ', photoURL);
-      newPhotos.push(photoURL);
-      setPhotos(newPhotos);
-      setRemainingPhotos(remainingPhotos - 1);
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        postPhoto(reader.result)
+          .then((res) => {
+            newPhotos.push(res.data);
+            setPhotos(newPhotos);
+            setRemainingPhotos(remainingPhotos - 1);
+          })
+          .catch((err) => console.log(err));
+      };
+      reader.readAsDataURL(file);
     }
   };
 

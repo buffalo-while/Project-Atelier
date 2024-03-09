@@ -9,7 +9,7 @@ const config = require('../config.js');
 const auth = `${config.GITHUB_APIKEY}`;
 const app = express();
 
-app.use(express.json());
+app.use(express.json({ limit: '50mb' }));
 app.use(express.static(path.join(__dirname, '../dist')));
 app.use(morgan('dev'));
 
@@ -38,29 +38,21 @@ app.all('/api/*', (req, res) => {
 });
 
 // Make cloudinary API request to upload photo and return url from response to client
-
-cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
-});
-
 app.post('/photos', (req, res) => {
   console.log('Photos post request received to url ', req.originalUrl);
   const fileURL = req.body.url;
-  console.log('Cloudinary file (request body): ', fileURL);
-  cloudinary.v2.uploader.upload(fileURL, { format: 'jpg' })
+  cloudinary.uploader.upload(fileURL, { format: 'jpg' })
     .then((response) => {
-      console.log(response.secure_url);
+      res.status(200).json(response.secure_url);
     })
     .catch((err) => {
-      res.status(500).json({ message: err });
+      res.status(500).send('Error posting photo to server');
       if (err.response) {
         console.log('Error received from API: ', err.response.status, '\n Data: ', err.response.data, '\n Headers: ', err.response.headers);
       } else if (err.request) {
         console.log('Error, request made no response received: ', err.request);
       } else {
-        console.log('Error, no request sent: ', err.message);
+        console.log('Error, no request sent: ', err);
       }
     });
 });

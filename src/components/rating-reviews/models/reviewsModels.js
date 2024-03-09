@@ -14,6 +14,10 @@ const postReview = ((bodyParameters) => (
   axios.post('/api/reviews', bodyParameters)
 ));
 
+const postPhoto = ((base64dataURI) => (
+  axios.post('/photos', { url: base64dataURI })
+));
+
 export {
-  getReviewsMetaData, getReviews, putHelpfulOrReportReview, postReview,
+  getReviewsMetaData, getReviews, putHelpfulOrReportReview, postReview, postPhoto,
 };
