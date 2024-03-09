@@ -1,0 +1,45 @@
+.answerBody {
+  font-size: medium;
+}
+
+.answerTitle {
+  font-weight: bold;
+  font-size: large;
+}
+
+.answererInfo {
+  margin: 15px;
+  margin-left: 25px;
+}
+.nameAndDate {
+  opacity: .5;
+  font-weight: bold;
+  font-size: small;
+}
+.helpful {
+  font-size: small;
+  margin: 7px;
+}
+
+.helpful button {
+  background: none;
+  border: none;
+  padding: 0;
+  text-decoration: underline;
+  cursor: pointer;
+  /* font-weight: bolder; */
+  font-size: small;
+  color: #004346;
+  margin-left:7px;
+}
+.reportedButton {
+  background: none;
+  border: none;
+  padding: 0;
+  text-decoration: underline;
+  cursor: pointer;
+  /* font-weight: bolder; */
+  font-size: small;
+  margin-left:7px;
+  color: #004346;
+}

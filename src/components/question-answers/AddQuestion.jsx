@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import AddQuestionModal from './AddQuestionModal.jsx';
+import styles from './styles/AddQuestion.module.css';
 
 function AddQuestion({ productId }) {
   const [productName, setProductName] = useState('');
@@ -63,7 +64,7 @@ function AddQuestion({ productId }) {
 
   return (
     <div>
-      <button onClick={openModal}>ADD A QUESTION</button>
+      <button className={styles.addQuestionButton} onClick={openModal}>ADD A QUESTION +</button>
       <AddQuestionModal isOpen={isOpenModal} onClose={closeModal} productName={productName}>
         <form onSubmit={(e) => handleQuestionSubmit(askQuestion, nickName, email, productId)}>
           <label htmlFor="modal-question">

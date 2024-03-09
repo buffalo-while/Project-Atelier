@@ -1,9 +1,10 @@
 import React from 'react';
+import styles from './styles/MoreAnsweredQuestions.module.css';
 
 function MoreAnsweredQuestions({ handleLoadingMore }) {
   return (
     <div>
-      <button onClick={handleLoadingMore}>MORE ANSWERED QUESTIONS</button>
+      <button className={styles.moreAnsweredQuestionsButton} onClick={handleLoadingMore}>MORE ANSWERED QUESTIONS</button>
     </div>
   );
 }
