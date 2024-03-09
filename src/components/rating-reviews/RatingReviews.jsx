@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import RatingBreakdown from './components/RatingBreakdown.jsx';
 import SortReviews from './components/SortReviews.jsx';
 import ReviewsList from './components/ReviewsList.jsx';
+import ProductBreakdown from './components/ProductBreakdown.jsx';
 
 function RatingReviews({ productId, getRatings, productName }) {
   const [metaResults, setMetaResults] = useState({});
@@ -18,6 +19,9 @@ function RatingReviews({ productId, getRatings, productName }) {
         setMetaResults={setMetaResults}
         reviewsFilter={reviewsFilter}
         setReviewsFilter={setReviewsFilter}
+      />
+      <ProductBreakdown
+        metaResults={metaResults}
       />
       <SortReviews
         metaResults={metaResults}
