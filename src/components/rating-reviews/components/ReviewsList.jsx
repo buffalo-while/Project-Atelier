@@ -55,6 +55,7 @@ function ReviewsList({
       <WriteReview
         productId={productId}
         productName={productName}
+        metaResults={metaResults}
       />
     </div>
   );

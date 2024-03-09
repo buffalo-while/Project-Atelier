@@ -204,6 +204,7 @@ dialog.write-review-portal {
   z-index: 1;
   width: 85%;
   height: 85%;
+  overflow: auto;
 }
 
 /* WriteReviewStars component */
@@ -215,4 +216,16 @@ dialog.write-review-portal {
   cursor: pointer;
   width: 1em;
   height: 1em;
+}
+
+.write-review-portal input {
+  width: auto;
+}
+
+/* WriteReviewPhotos component */
+.review-thumbnail {
+  max-height: 15%;
+  object-fit: contain;
+  max-width: 15%;
+  margin: 5px;
 }

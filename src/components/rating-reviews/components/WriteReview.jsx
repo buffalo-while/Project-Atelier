@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
 import WriteReviewModal from './WriteReviewModal.jsx';
 
-function WriteReview({ productId, productName }) {
+function WriteReview({ productId, productName, metaResults }) {
   const [showWriteReviewPortal, setShowWriteReviewPortal] = useState(false);
   const handleOpenWriteReviewPortal = () => {
     setShowWriteReviewPortal(true);
@@ -17,6 +17,7 @@ function WriteReview({ productId, productName }) {
           productId={productId}
           onClose={() => setShowWriteReviewPortal(false)}
           productName={productName}
+          metaResults={metaResults}
         />,
         document.getElementById('root'),
       )}

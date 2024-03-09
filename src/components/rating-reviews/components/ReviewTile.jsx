@@ -25,7 +25,6 @@ function ReviewTile({ review }) {
 
   const handleVoteClick = (e) => {
     const voteType = e.target.name;
-    console.log(voteType);
     if (voteType === 'helpful') {
       setHelpfulCount(helpfulCount + 1);
     }
