@@ -8,7 +8,6 @@ function AddToCart({ selectedStyleSkus }) {
   const handleSizeChange = (event) => {
     const sizeSelected = event.target.value;
     setSelectedSize(sizeSelected);
-    // Reset quantity to 1 whenever size changes
     setSelectedQuantity(1);
   };
 

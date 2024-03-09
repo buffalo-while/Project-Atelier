@@ -12,7 +12,8 @@ function OverviewMain({ productId, getRatings, setProductName }) {
   const [selectedStyleId, setSelectedStyleId] = useState(null);
   const [selectedStyleSkus, setSelectedStyleSkus] = useState({});
   const [selectedStyle, setSelectedStyle] = useState({});
-
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+  console.log('selectedImageIndex', selectedImageIndex)
   useEffect(() => {
     const fetchStyles = async () => {
       try {
@@ -50,7 +51,6 @@ function OverviewMain({ productId, getRatings, setProductName }) {
   useEffect(() => {
     const currentSelectedStyle = styles.find((style) => style.style_id === selectedStyleId);
     if (currentSelectedStyle) {
-      setHeroImageUrl(currentSelectedStyle.photos[0].url);
       changeThumbnails(currentSelectedStyle.photos);
       setSelectedStyleSkus(currentSelectedStyle.skus);
       setSelectedStyle(currentSelectedStyle);
@@ -67,6 +67,8 @@ function OverviewMain({ productId, getRatings, setProductName }) {
           heroImageUrl={heroImageUrl}
           changeHeroFromGallery={changeHeroFromGallery}
           thumbnails={thumbnails}
+          selectedImageIndex={selectedImageIndex}
+          setSelectedImageIndex={setSelectedImageIndex}
         />
         <div className="product-information-column">
           <ProdInfo
@@ -78,10 +80,16 @@ function OverviewMain({ productId, getRatings, setProductName }) {
           />
           <StyleSelector
             styles={styles}
+            selectedStyle={selectedStyle}
+            selectedStyleId={selectedStyleId} // Corrected this line
             setSelectedStyle={setSelectedStyle}
             setSelectedStyleId={setSelectedStyleId}
             selectedStyleName={selectedStyle ? selectedStyle.name : ''}
+            changeHeroFromGallery={changeHeroFromGallery}
+            selectedImageIndex={selectedImageIndex}
+            setSelectedImageIndex={setSelectedImageIndex}
           />
+
           <AddToCart
             selectedStyleSkus={selectedStyleSkus}
           />

@@ -1,33 +1,41 @@
-/* eslint-disable react/no-array-index-key */
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
+import { FaCheck } from 'react-icons/fa';
 
 function StyleSelector({
   styles,
   setSelectedStyle,
   selectedStyleName,
   setSelectedStyleId,
+  selectedStyleId,
+  selectedStyle,
+  setSelectedImageIndex,
+  selectedImageIndex,
+  changeHeroFromGallery,
 }) {
+  const handleClick = (styleId, style) => {
+    setSelectedStyleId(styleId);
+    setSelectedStyle(style);
+
+    const imageCount = style.photos.length;
+    const newIndex = selectedImageIndex < imageCount ? selectedImageIndex : 0;
+
+    setSelectedImageIndex(newIndex);
+    changeHeroFromGallery(style.photos[newIndex].url);
+
+  };
+
+
   return (
     <div>
-      <h1>
-        Style:
-        {selectedStyleName}
-      </h1>
+      <h1>Style: {selectedStyleName}</h1>
       <div className="style-thumbnails">
         {styles.map((style, index) => (
-          <img
-            key={index}
-            src={style.photos[0].thumbnail_url}
-            alt={`Style ${index + 1}`}
-            className={`style-thumbnail ${style.selected ? 'selected-style' : ''}`} // Add a class for styling selected style
-            onClick={() => {
-              // so wait I need to add the obj? to the
-              setSelectedStyleId(style.style_id);
-              setSelectedStyle(style);
-            }}
-          />
+          <div key={index} className="style-thumbnail" onClick={() => handleClick(style.style_id, style)}>
+            <img src={style.photos[0].thumbnail_url} alt={`Style ${index + 1}`} />
+            {selectedStyleId === style.style_id && (
+              <FaCheck className="checkmark-icon" />
+            )}
+          </div>
         ))}
       </div>
     </div>

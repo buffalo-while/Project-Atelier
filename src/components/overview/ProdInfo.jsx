@@ -2,6 +2,7 @@ import React, {
   useEffect, useState, Suspense,
 } from 'react';
 import axios from 'axios';
+import { FaFacebook, FaPinterest, FaTwitter } from 'react-icons/fa';
 
 
 function ProdInfo({ productId, getRatings, selectedStyle, setProductName }) {
@@ -40,6 +41,7 @@ function ProdInfo({ productId, getRatings, selectedStyle, setProductName }) {
   );
   return (
     <div>
+
       {product && (
         <div>
           <div className="prod-info-star-section">
@@ -69,6 +71,22 @@ function ProdInfo({ productId, getRatings, selectedStyle, setProductName }) {
               </span>
             )}
           </p>
+          <div>
+            <p className="socials">
+              <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" className="social-icon">
+                <FaFacebook />
+              </a>
+              <a
+              href="https://www.pinterest.com/" target="_blank" rel="noopener noreferrer" className="social-icon">
+            <FaPinterest />
+              </a>
+
+              <a
+              href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" className="social-icon"
+              ><FaTwitter /></a>
+
+            </p>
+</div>
         </div>
       )}
     </div>
