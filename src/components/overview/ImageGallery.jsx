@@ -1,4 +1,5 @@
 import React from 'react';
+import HeroModal from './HeroModal.jsx';
 
 function ImageGallery({ heroImageUrl, changeHeroFromGallery, thumbnails, setSelectedImageIndex }) {
   const selectImage = (index) => {
@@ -23,6 +24,7 @@ function ImageGallery({ heroImageUrl, changeHeroFromGallery, thumbnails, setSele
           </button>
         ))}
       </div>
+      <HeroModal heroImageUrl={heroImageUrl} />
     </div>
   );
 }
