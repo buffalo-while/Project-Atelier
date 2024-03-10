@@ -10,4 +10,14 @@ const putHelpfulOrReportReview = ((reviewId, reportOrHelpful) => (
   axios.put(`/api/reviews/${reviewId}/${reportOrHelpful}`)
 ));
 
-export { getReviewsMetaData, getReviews, putHelpfulOrReportReview };
+const postReview = ((bodyParameters) => (
+  axios.post('/api/reviews', bodyParameters)
+));
+
+const postPhoto = ((base64dataURI) => (
+  axios.post('/photos', { url: base64dataURI })
+));
+
+export {
+  getReviewsMetaData, getReviews, putHelpfulOrReportReview, postReview, postPhoto,
+};
