@@ -54,15 +54,18 @@ function ProdInfo({ productId, getRatings, selectedStyle, setProductName }) {
             {selectedStyle && selectedStyle.sale_price > 1 ? (
               <>
                 <span style={{ color: 'red', textDecoration: 'line-through' }}>
-                  ${selectedStyle.original_price}
+                  $
+                  {selectedStyle.original_price}
                 </span>
                 <span style={{ color: 'red', marginLeft: '5px' }}>
-                  ${selectedStyle.sale_price}
+                  $
+                  {selectedStyle.sale_price}
                 </span>
               </>
             ) : (
               <span style={{ color: 'black' }}>
-                ${product.default_price}
+                $
+                {product.default_price}
               </span>
             )}
           </p>

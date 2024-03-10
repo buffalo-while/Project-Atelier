@@ -61,7 +61,8 @@ function OverviewMain({ productId, getRatings, setProductName }) {
   return (
     <div>
       <h1>
-        productId: {productId}
+        productId:
+        {productId}
       </h1>
       <div className={overviewStyles.contentContainer}>
         <ImageGallery

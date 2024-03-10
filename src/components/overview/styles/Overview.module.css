@@ -36,10 +36,6 @@
   flex-direction: row;
 }
 
-.prodInfoStars {
-  /* Styles for stars (if applicable, otherwise can remove) */
-}
-
 .prodInfoSmalltext {
   padding-left: 10px;
 }
@@ -99,18 +95,17 @@
   display: inline-block;
   margin: 10px;
   cursor: pointer;
-  width: 100px; /* Set a fixed width */
-  height: 100px; /* Ensure height is the same as width for a circle */
-  border-radius: 50%; /* This makes the thumbnail circular */
-  overflow: hidden; /* Ensures the content fits within the circular boundary */
-  align-items: center; /* Center the content vertically */
-  justify-content: center; /* Center the content horizontally */
-  display: flex; /* Enables flexbox layout for centering */
-  border: 2px solid #ddd; /* Optional: adds a border around the circle */
-  object-fit: cover; /* Ensures the image covers the area, cropping as needed */
-  object-position: center; /* Adjusts the image position to center */
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  border: 2px solid #ddd;
+  object-fit: cover;
+  object-position: center;
 }
-
 .styleThumbnailSelected {
   border: 12px solid #4CAF50;
 }
@@ -127,7 +122,7 @@
   cursor: pointer;
 }
 
-/* Modal and Overlay styles can remain unchanged as they are unique and descriptive enough */
+/* Modal and Overlay styles*/
 .overlay {
   background: rgba(49,49,49,0.8);
   width: 100vw;
@@ -137,7 +132,7 @@
   right: 0;
   bottom: 0;
   position: fixed;
-  z-index: 1040; /* Ensuring it's on top of other elements */
+  z-index: 1040;
 }
 
 .modalContent {
@@ -148,21 +143,21 @@
   background: #f1f1f1;
   padding: 14px 28px;
   border-radius: 3px;
-  width: auto; /* Adjust width as necessary */
-  max-width: 95%; /* Preventing the modal from stretching too wide */
-  height: auto; /* Letting height adjust based on content */
-  max-height: 95vh; /* Preventing the modal from being too tall */
+  width: auto;
+  max-width: 95%;
+  height: auto;
+  max-height: 95vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow-y: auto; /* Allows scrolling within the modal if content is tall */
-  z-index: 1050; /* Ensuring modal content is above the overlay */
+  overflow-y: auto;
+  z-index: 1050;
 }
 
 .heroImageModal {
-  max-width: 100%; /* Ensuring image does not overflow the modal */
-  max-height: 80vh; /* Adjust based on your preference */
-  object-fit: contain; /* Keeps the image aspect ratio */
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
 }
 
 .closeModal {
@@ -171,7 +166,7 @@
   right: 10px;
   cursor: pointer;
   color: #007bff;
-  font-size: 24px; /* Adjust the size as needed */
+  font-size: 24px;
 }
 
 body.activeModal {
@@ -189,12 +184,12 @@ body.activeModal {
   margin-right: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  background-color: white; /* Default background color */
-  color: #333; /* Default text color */
+  background-color: white;
+  color: #333;
   font-family: Arial, sans-serif;
   font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s ease; /* Smooth transition for background color change */
+  transition: background-color 0.3s ease;
 }
 
 .btnCart:not(:disabled) {
