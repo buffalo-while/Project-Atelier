@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import dayjs from 'dayjs';
+import styles from './styles/Answer.module.css';
 
 function Answer({ answer }) {
   // console.log("question inside answer", question.answer.body);
@@ -56,38 +57,33 @@ function Answer({ answer }) {
   };
 
   return (
-    <div>
-      <p>
-        A:
+    <div className={styles.answerContainer}>
+      <div className={styles.answerBody}>
+        <span className={styles.answerTitle}>A:</span>
+        {' '}
         {answer.body}
-      </p>
+      </div>
       {/* {/* {answer.photos.map((photo, index) => (
         <img key={index} src={photo.url} alt="thumbnail of photo" height="50" width="50" />
       /*} */}
-      <p>
-        {answer.answerer_name.toLowerCase() === 'seller' ? <b>Seller</b> : answer.answerer_name}
-
-        {' '}
-        {dayjs(answer.date).format('MM-DD-YYYY')}
-        {' '}
-        Helpful?
-        {' '}
-        {' '}
-        <button onClick={handleHelpfulVote}>Yes</button>
-
-        {' '}
-        {helpfulCount}
-        {' '}
+      <div className={styles.answererInfo}>
+        <span className={styles.nameAndDate}> by {answer.answerer_name.toLowerCase() === 'seller' ? <b>Seller</b> : answer.answerer_name},
+          {' '}
+          {dayjs(answer.date).format('MM-DD-YYYY')} </span>
         {' '}
         {' '}
         |
-        {' '}
-        {' '}
-        <button onClick={handleReportedAnswer}>
-          {reported ? 'Reported' : 'Report'}
+        <span className={styles.helpful}>Helpful?
+          <button onClick={handleHelpfulVote}>Yes</button>
           {' '}
-        </button>
-      </p>
+          ({helpfulCount})
+          </span>
+          |
+          <button className={styles.reportedButton} onClick={handleReportedAnswer}>
+            {reported ? 'Reported' : 'Report'}
+            {' '}
+          </button>
+      </div>
     </div>
   );
 }

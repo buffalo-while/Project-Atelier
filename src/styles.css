@@ -105,3 +105,37 @@ dialog.expanded-rating-photo {
   max-width: 80%;
   object-fit: contain;
 }
+
+/* WriteReviewModal component */
+dialog.write-review-portal {
+  position: fixed;
+  top: 50%;
+  transform: translate(0%, -50%);
+  z-index: 1;
+  width: 85%;
+  height: 85%;
+  overflow: auto;
+}
+
+/* WriteReviewStars component */
+.star-rating-radio {
+  display: none;
+}
+
+.write-review-star {
+  cursor: pointer;
+  width: 1em;
+  height: 1em;
+}
+
+.write-review-portal input {
+  width: auto;
+}
+
+/* WriteReviewPhotos component */
+.review-thumbnail {
+  max-height: 15%;
+  object-fit: contain;
+  max-width: 15%;
+  margin: 5px;
+}

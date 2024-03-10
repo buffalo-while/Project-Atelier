@@ -30,7 +30,7 @@ function App() {
       <OverviewMain productId={productId} getRatings={getRatings} setProductName={setProductName} />
       <RelatedProducts productId={productId} />
       <QuestionAnswers productId={productId} />
-      <RatingReviews productId={productId} getRatings={getRatings} />
+      <RatingReviews productId={productId} getRatings={getRatings} productName={productName} />
     </div>
   );
 }
