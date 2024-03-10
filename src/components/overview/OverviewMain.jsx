@@ -4,6 +4,7 @@ import ImageGallery from './ImageGallery.jsx';
 import ProdInfo from './ProdInfo.jsx';
 import StyleSelector from './StyleSelector.jsx';
 import AddToCart from './AddToCart.jsx';
+import overviewStyles from './styles/Overview.module.css';
 
 function OverviewMain({ productId, getRatings, setProductName }) {
   const [heroImageUrl, setHeroImageUrl] = useState('');
@@ -13,7 +14,7 @@ function OverviewMain({ productId, getRatings, setProductName }) {
   const [selectedStyleSkus, setSelectedStyleSkus] = useState({});
   const [selectedStyle, setSelectedStyle] = useState({});
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
-  console.log('selectedImageIndex', selectedImageIndex)
+
   useEffect(() => {
     const fetchStyles = async () => {
       try {
@@ -40,7 +41,7 @@ function OverviewMain({ productId, getRatings, setProductName }) {
   const changeHeroFromGallery = (newURL) => {
     setHeroImageUrl(newURL);
   };
-  // maybe move this one into imagegallery
+
   const changeThumbnails = (stylePhotos) => {
     setThumbnails(stylePhotos.map((photo) => ({
       thumbnailUrl: photo.thumbnail_url,
@@ -56,13 +57,13 @@ function OverviewMain({ productId, getRatings, setProductName }) {
       setSelectedStyle(currentSelectedStyle);
     }
   }, [selectedStyle, selectedStyleId, styles]);
+
   return (
     <div>
       <h1>
-        productId:
-        {productId}
+        productId: {productId}
       </h1>
-      <div className="content-container-1">
+      <div className={overviewStyles.contentContainer}>
         <ImageGallery
           heroImageUrl={heroImageUrl}
           changeHeroFromGallery={changeHeroFromGallery}
@@ -70,7 +71,7 @@ function OverviewMain({ productId, getRatings, setProductName }) {
           selectedImageIndex={selectedImageIndex}
           setSelectedImageIndex={setSelectedImageIndex}
         />
-        <div className="product-information-column">
+        <div className={overviewStyles.productInformationColumn}>
           <ProdInfo
             productId={productId}
             getRatings={getRatings}
@@ -81,7 +82,7 @@ function OverviewMain({ productId, getRatings, setProductName }) {
           <StyleSelector
             styles={styles}
             selectedStyle={selectedStyle}
-            selectedStyleId={selectedStyleId} // Corrected this line
+            selectedStyleId={selectedStyleId}
             setSelectedStyle={setSelectedStyle}
             setSelectedStyleId={setSelectedStyleId}
             selectedStyleName={selectedStyle ? selectedStyle.name : ''}
@@ -89,7 +90,6 @@ function OverviewMain({ productId, getRatings, setProductName }) {
             selectedImageIndex={selectedImageIndex}
             setSelectedImageIndex={setSelectedImageIndex}
           />
-
           <AddToCart
             selectedStyleSkus={selectedStyleSkus}
           />

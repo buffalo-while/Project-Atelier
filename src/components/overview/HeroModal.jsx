@@ -1,30 +1,35 @@
 import React, { useState } from 'react';
-import { FaExpandArrowsAlt } from 'react-icons-fa';
+import { FaExpandArrowsAlt } from 'react-icons/fa';
+import overviewStyles from './styles/Overview.module.css'; // Adjust the import path as needed
 
-function HeroModal ({ heroImageUrl}) {
+function HeroModal({ heroImageUrl }) {
   const [heroModal, setHeroModal] = useState(false);
 
   const toggleModal = () => {
     setHeroModal(!heroModal);
   };
 
+  if (heroModal) {
+    document.body.classList.add(overviewStyles.activeModal);
+  } else {
+    document.body.classList.remove(overviewStyles.activeModal);
+  }
+
   return (
-    <>
-      <FaExpandArrowsAlt    onClick={toggleModal}
-        className="btn-modal"
+    <div className={overviewStyles.modalContainer}>
+      <FaExpandArrowsAlt onClick={toggleModal}
+        className={overviewStyles.arrowIcon}
         type="submit"/>
       {heroModal && (
-      <div className="hero-modal">
-        <div onClick={toggleModal} className="overlay"></div>
-        <div className="modal-content">
-          <h2>Hello Modal</h2>
-          {heroImageUrl ? <img src={heroImageUrl} alt="hero" className="hero-image-modal" /> : <p>Loading...</p>}
-          <button type="submit" onClick={toggleModal} className="close-modal">Close</button>
+      <div className={overviewStyles.heroModal}>
+        <div onClick={toggleModal} className={overviewStyles.overlay} />
+        <div className={overviewStyles.modalContent}>
+          {heroImageUrl ? <img src={heroImageUrl} alt="Hero" className={overviewStyles.heroImageModal} /> : <p>Loading...</p>}
+          <FaExpandArrowsAlt onClick={toggleModal} className={overviewStyles.closeModal} />
         </div>
       </div>
       )}
-
-    </>
+    </div>
   );
 }
 

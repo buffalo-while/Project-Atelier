@@ -1,5 +1,6 @@
 import React from 'react';
 import HeroModal from './HeroModal.jsx';
+import overviewStyles from './styles/Overview.module.css';
 
 function ImageGallery({ heroImageUrl, changeHeroFromGallery, thumbnails, setSelectedImageIndex }) {
   const selectImage = (index) => {
@@ -8,19 +9,19 @@ function ImageGallery({ heroImageUrl, changeHeroFromGallery, thumbnails, setSele
   };
 
   return (
-    <div className="image-gallery-container">
-      {heroImageUrl ? <img src={heroImageUrl} alt="Hero" className="hero-image" /> : <p>Loading...</p>}
+    <div className={overviewStyles.imageGalleryContainer}>
+      {heroImageUrl ? <img src={heroImageUrl} alt="Hero" className={overviewStyles.heroImage} /> : <p>Loading...</p>}
 
-      <div className="thumbnail-gallery">
+      <div className={overviewStyles.thumbnailGallery}>
         {thumbnails && thumbnails.map((thumbnail, index) => (
           <button
             type="button"
             key={index}
-            className="thumbnail-button"
-            onClick={() => selectImage(index)} // Use selectImage function here
+            className={overviewStyles.thumbnailButton}
+            onClick={() => selectImage(index)}
             style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}
           >
-            <img src={thumbnail.thumbnailUrl} alt={`Thumbnail ${index + 1}`} className="thumbnail-img" />
+            <img src={thumbnail.thumbnailUrl} alt={`Thumbnail ${index + 1}`} className={overviewStyles.thumbnailImg} />
           </button>
         ))}
       </div>
@@ -28,6 +29,5 @@ function ImageGallery({ heroImageUrl, changeHeroFromGallery, thumbnails, setSele
     </div>
   );
 }
-
 
 export default ImageGallery;

@@ -1,9 +1,7 @@
-import React, {
-  useEffect, useState, Suspense,
-} from 'react';
+import React, { useEffect, useState, Suspense } from 'react';
 import axios from 'axios';
 import { FaFacebook, FaPinterest, FaTwitter } from 'react-icons/fa';
-
+import overviewStyles from './styles/Overview.module.css';
 
 function ProdInfo({ productId, getRatings, selectedStyle, setProductName }) {
   const [product, setProduct] = useState('');
@@ -32,61 +30,55 @@ function ProdInfo({ productId, getRatings, selectedStyle, setProductName }) {
 
     fetchProduct();
     fetchRatings();
-  }, [productId, getRatings]);
+  }, [productId, getRatings, setProductName]);
 
   const suspenseView = (component) => (
     <Suspense fallback={<p>Loading...</p>}>
       {component}
     </Suspense>
   );
+
   return (
     <div>
-
       {product && (
         <div>
-          <div className="prod-info-star-section">
-            <div className="prod-info-stars">
+          <div className={overviewStyles.prodInfoStarSection}>
+            <div className={overviewStyles.prodInfoStars}>
               {ratingData ? suspenseView(ratingData.RatingStars) : <p>Loading ratings...</p>}
             </div>
-            <div className="prod-info-smalltext">read all reviews</div>
+            <div className={overviewStyles.prodInfoSmalltext}>read all reviews</div>
           </div>
-          <p className="prod-info-category">{product.category}</p>
-          <p className="prod-info-name">{product.name}</p>
-          <p className="prod-info-price">
+          <p className={overviewStyles.prodInfoCategory}>{product.category}</p>
+          <p className={overviewStyles.prodInfoName}>{product.name}</p>
+          <p className={overviewStyles.prodInfoPrice}>
             {selectedStyle && selectedStyle.sale_price > 1 ? (
               <>
                 <span style={{ color: 'red', textDecoration: 'line-through' }}>
-                  $
-                  { selectedStyle.original_price}
+                  ${selectedStyle.original_price}
                 </span>
                 <span style={{ color: 'red', marginLeft: '5px' }}>
-                  $
-                  {selectedStyle.sale_price }
+                  ${selectedStyle.sale_price}
                 </span>
               </>
             ) : (
               <span style={{ color: 'black' }}>
-                $
-                {product.default_price}
+                ${product.default_price}
               </span>
             )}
           </p>
           <div>
-            <p className="socials">
-              <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" className="social-icon">
+            <p className={overviewStyles.socials}>
+              <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" className={overviewStyles.socialIcon}>
                 <FaFacebook />
               </a>
-              <a
-              href="https://www.pinterest.com/" target="_blank" rel="noopener noreferrer" className="social-icon">
-            <FaPinterest />
+              <a href="https://www.pinterest.com/" target="_blank" rel="noopener noreferrer" className={overviewStyles.socialIcon}>
+                <FaPinterest />
               </a>
-
-              <a
-              href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" className="social-icon"
-              ><FaTwitter /></a>
-
+              <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" className={overviewStyles.socialIcon}>
+                <FaTwitter />
+              </a>
             </p>
-</div>
+          </div>
         </div>
       )}
     </div>
