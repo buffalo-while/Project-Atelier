@@ -52,7 +52,6 @@ function StarsBar({
   if (metaResults.allMetaData && metaResults.allMetaData.ratings) {
     const { totalReviews, allMetaData } = metaResults;
     const ratingCount = allMetaData.ratings[numStars] ? allMetaData.ratings[numStars] : 0;
-    console.log('Stars: ', numStars, '; ratingCount: ', ratingCount, '; totalReviws: ', totalReviews);
     barElement = (
       <>
         <span className="num-stars" name="num-stars" style={{ width: '15%', float: 'left' }}>

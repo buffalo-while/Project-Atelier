@@ -3,12 +3,14 @@ import RatingBreakdown from './components/RatingBreakdown.jsx';
 import SortReviews from './components/SortReviews.jsx';
 import ReviewsList from './components/ReviewsList.jsx';
 import ProductBreakdown from './components/ProductBreakdown.jsx';
+import ReviewsSearch from './components/ReviewsSearch.jsx';
 import styles from './styles/RatingReviews.module.css';
 
 function RatingReviews({ productId, getRatings, productName }) {
   const [metaResults, setMetaResults] = useState({});
   const [reviewsFilter, setReviewsFilter] = useState([]);
   const [reviewsSort, setReviewsSort] = useState('relevant');
+  const [reviewsSearchFilter, setReviewsSearchFilter] = useState('');
 
   return (
     <section className={styles.rAndR} id="r-and-r">
@@ -32,6 +34,12 @@ function RatingReviews({ productId, getRatings, productName }) {
             metaResults={metaResults}
             reviewsSort={reviewsSort}
             setReviewsSort={setReviewsSort}
+            reviewSearchFilter={reviewsSearchFilter}
+            setReviewSearchFilter={setReviewsSearchFilter}
+          />
+          <ReviewsSearch
+            reviewsSearchFilter={reviewsSearchFilter}
+            setReviewsSearchFilter={setReviewsSearchFilter}
           />
           <ReviewsList
             metaResults={metaResults}
@@ -39,6 +47,7 @@ function RatingReviews({ productId, getRatings, productName }) {
             reviewsFilter={reviewsFilter}
             reviewsSort={reviewsSort}
             productName={productName}
+            reviewsSearchFilter={reviewsSearchFilter}
           />
         </section>
       </div>

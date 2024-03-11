@@ -4,7 +4,7 @@ import ReviewTile from './ReviewTile.jsx';
 import WriteReview from './WriteReview.jsx';
 
 function ReviewsList({
-  productId, reviewsFilter, metaResults, reviewsSort, productName,
+  productId, reviewsFilter, metaResults, reviewsSort, productName, reviewsSearchFilter,
 }) {
   const [allReviews, setAllReviews] = useState([]);
   const [visibleReviews, setVisibleReviews] = useState(null);
@@ -28,13 +28,24 @@ function ReviewsList({
           return true;
         }
         return false;
+      }).filter((review) => {
+        if (reviewsSearchFilter.length < 3) {
+          return true;
+        }
+        const summary = review.summary.toLowerCase();
+        const body = review.body.toLowerCase();
+        const searchTerm = reviewsSearchFilter.toLowerCase();
+        if (summary.indexOf(searchTerm) !== -1 || body.indexOf(searchTerm) !== -1) {
+          return true;
+        }
+        return false;
       }).map((review) => (
         <ReviewTile key={review.review_id} review={review} />
       ));
       setVisibleReviews(filteredReviewElements.slice(0, 2));
       setNonVisibleReviews(filteredReviewElements.slice(2));
     }
-  }, [allReviews, reviewsFilter]);
+  }, [allReviews, reviewsFilter, reviewsSearchFilter]);
 
   const handleMoreReviews = () => {
     setVisibleReviews(visibleReviews.concat(nonVisibleReviews.slice(0, 2)));
