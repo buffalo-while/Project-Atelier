@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import RelatedList from './RelatedList.jsx';
-import Comparison from './RelatedComparison.jsx';
+import RelatedComparison from './RelatedComparison.jsx';
 import CompareModal from './util/CompareModal.jsx';
 import { getProduct, getRelatedProducts, getProductStyles } from './util/relatedModels.js';
 
@@ -12,7 +12,6 @@ function RelatedProducts({ productId, setProductId }) {
   const [relatedProductsStyles, setRelatedProductsStyles] = useState([]);
   const [comparisonModal, setComparisonModal] = useState(false);
   const [comparedProduct, setComparedProduct] = useState({});
-
 
   const populateRelatedProductData = async () => {
     const relatedProductIDs = await getRelatedProducts(productId);
@@ -38,14 +37,14 @@ function RelatedProducts({ productId, setProductId }) {
     populateRelatedStylesData();
   }, [productId])
 
-  const relatedCardClickHandler = ((id) => {
+  const relatedCardClickHandler = useCallback((id) => {
     setProductId(id);
-  });
+  }, []);
 
-  const actionButtonHandler = ((product) => {
+  const actionButtonHandler = useCallback((product) => {
     setComparedProduct(product);
     setComparisonModal(true);
-  });
+  }, []);
 
   return (
     <div>
@@ -56,6 +55,7 @@ function RelatedProducts({ productId, setProductId }) {
         relatedProductStyles={relatedProductsStyles}
         relatedCardClickHandler={relatedCardClickHandler}
         actionButtonHandler={actionButtonHandler}
+        isYourOutfit={false}
       />
       {/* This will be for the Outfit Section */}
       <h2>Given Outfit</h2>
@@ -64,17 +64,15 @@ function RelatedProducts({ productId, setProductId }) {
         comparisonModal
         && (
           <CompareModal>
-            <Comparison
+            <RelatedComparison
               product={productId}
-              relatedProducts={relatedProducts}
+              comparedProduct={comparedProduct}
               setComparisonModal={setComparisonModal}
-              actionButtonHandler={actionButtonHandler}
             />
           </CompareModal>
         )
       }
     </div>
-
   );
 }
 

@@ -3,7 +3,7 @@ import RelatedCard from './RelatedCard.jsx';
 import './lib/relatedProducts.css';
 
 function RelatedList({
-  relatedProducts, relatedProductStyles, relatedCardClickHandler, actionButtonHandler,
+  relatedProducts, relatedProductStyles, relatedCardClickHandler, actionButtonHandler, isYourOutfit,
 }) {
   // console.log(relatedProductStyles, 'default index')
   return (
@@ -15,6 +15,7 @@ function RelatedList({
             style={relatedProductStyles[index]}
             relatedCardClickHandler={relatedCardClickHandler}
             actionButtonHandler={actionButtonHandler}
+            actionButton={isYourOutfit ? '❌' : '⭐'}
           />
         </div>
       ))}

@@ -2,7 +2,9 @@ import React from 'react';
 import './lib/relatedProducts.css';
 // import ImageGallery from '../overview/ImageGallery.jsx'
 
-function RelatedCard({ product, style, relatedCardClickHandler, actionButtonHandler }) {
+function RelatedCard({
+  product, style, relatedCardClickHandler, actionButtonHandler, actionButton
+}) {
   // console.log(style,'cardStyles')
   // console.log(product, 'productInfo')
   return (
@@ -28,14 +30,14 @@ function RelatedCard({ product, style, relatedCardClickHandler, actionButtonHand
         />
         <button
           type="button"
-          aria-label={actionButtonHandler === 'yes' ? 'Compare Products' : 'remove product'}
+          aria-label={actionButtonHandler === '⭐' ? 'Compare Products' : 'remove product'}
           className="actionButton"
           onClick={(e) => {
             e.stopPropagation();
             actionButtonHandler(product);
           }}
         >
-          {actionButtonHandler}
+          {actionButton}
         </button>
         {/* <ImageGallery productId={product}/> */}
       </div>
