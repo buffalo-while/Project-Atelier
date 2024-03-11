@@ -51,7 +51,8 @@ function StarsBar({
 
   if (metaResults.allMetaData && metaResults.allMetaData.ratings) {
     const { totalReviews, allMetaData } = metaResults;
-    const rating = allMetaData.ratings[numStars] ? allMetaData.ratings[numStars] : 0;
+    const ratingCount = allMetaData.ratings[numStars] ? allMetaData.ratings[numStars] : 0;
+    console.log('Stars: ', numStars, '; ratingCount: ', ratingCount, '; totalReviws: ', totalReviews);
     barElement = (
       <>
         <span className="num-stars" name="num-stars" style={{ width: '15%', float: 'left' }}>
@@ -61,7 +62,7 @@ function StarsBar({
           className="stars-bar"
           name="stars-bar"
           style={{
-            width: '70%',
+            width: '66%',
             height: '0.5em',
             display: 'inline-block',
             verticalAlign: 'middle',
@@ -72,7 +73,7 @@ function StarsBar({
             className="stars-bar-filled"
             name="stars-bar"
             style={{
-              width: `${(rating / totalReviews) * 70}%`,
+              width: `${(ratingCount / totalReviews) * 22}%`,
               backgroundColor: '#004346',
               position: 'absolute',
               height: '0.5em',
@@ -82,7 +83,7 @@ function StarsBar({
           />
         </span>
         <span className="count-stars" name="count-stars" style={{ width: '15%', float: 'right' }}>
-          {rating}
+          {ratingCount}
         </span>
       </>
     );

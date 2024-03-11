@@ -12,29 +12,35 @@ function RatingReviews({ productId, getRatings, productName }) {
   return (
     <section className="r-and-r" id="r-and-r">
       <h2>RATINGS AND REVIEWS</h2>
-      <RatingBreakdown
-        getRatings={getRatings}
-        productId={productId}
-        metaResults={metaResults}
-        setMetaResults={setMetaResults}
-        reviewsFilter={reviewsFilter}
-        setReviewsFilter={setReviewsFilter}
-      />
-      <ProductBreakdown
-        metaResults={metaResults}
-      />
-      <SortReviews
-        metaResults={metaResults}
-        reviewsSort={reviewsSort}
-        setReviewsSort={setReviewsSort}
-      />
-      <ReviewsList
-        metaResults={metaResults}
-        productId={productId}
-        reviewsFilter={reviewsFilter}
-        reviewsSort={reviewsSort}
-        productName={productName}
-      />
+      <div className="reviews-box">
+        <aside className="reviews-aside">
+          <RatingBreakdown
+            getRatings={getRatings}
+            productId={productId}
+            metaResults={metaResults}
+            setMetaResults={setMetaResults}
+            reviewsFilter={reviewsFilter}
+            setReviewsFilter={setReviewsFilter}
+          />
+          <ProductBreakdown
+            metaResults={metaResults}
+          />
+        </aside>
+        <section className="reviews-main">
+          <SortReviews
+            metaResults={metaResults}
+            reviewsSort={reviewsSort}
+            setReviewsSort={setReviewsSort}
+          />
+          <ReviewsList
+            metaResults={metaResults}
+            productId={productId}
+            reviewsFilter={reviewsFilter}
+            reviewsSort={reviewsSort}
+            productName={productName}
+          />
+        </section>
+      </div>
     </section>
   );
 }

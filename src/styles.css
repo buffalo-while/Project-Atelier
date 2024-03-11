@@ -141,6 +141,34 @@ body {
   overflow: hidden;
 }
 
+.r-and-r h2 {
+  height: 2vh;
+  margin-block-start: 1.5vh;
+  margin-block-end: 1.5vh;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+.reviews-box {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+
+}
+
+.reviews-aside {
+  display: flex;
+  flex-direction: column;
+  max-height: 95vh;
+  overflow: hidden;
+}
+
+.reviews-main {
+  display: flex;
+  flex-direction: column;
+  max-height: 95vh;
+  overflow: hidden;
+}
+
 /* StarsBars/Filter component */
 
 .remove-filters {
@@ -228,4 +256,31 @@ dialog.write-review-portal {
   object-fit: contain;
   max-width: 15%;
   margin: 5px;
+}
+
+/* RatingBreakdown component */
+.rating-prod-char {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+}
+
+.rating-char-desc {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.rating-prod-bar {
+  width: 90%;
+  height: 0.5em;
+  display: inline-block;
+  vertical-align: middle;
+  background-color: #E6ECEC;
+  margin-top: 0.5em;
+  margin-left: 5%;
+  margin-right: 5%;
 }
