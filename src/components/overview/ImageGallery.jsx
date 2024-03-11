@@ -1,30 +1,31 @@
 import React from 'react';
+import HeroModal from './HeroModal.jsx';
+import overviewStyles from './styles/Overview.module.css';
 
-function ImageGallery({ heroImageUrl, changeHeroFromGallery, thumbnails }) {
+function ImageGallery({ heroImageUrl, changeHeroFromGallery, thumbnails, setSelectedImageIndex }) {
+  const selectImage = (index) => {
+    setSelectedImageIndex(index);
+    changeHeroFromGallery(thumbnails[index].url);
+  };
+
   return (
-    <div className="image-gallery-container">
-      {heroImageUrl ? <img src={heroImageUrl} alt="Hero" className="hero-image" /> : <p>Loading...</p>}
+    <div className={overviewStyles.imageGalleryContainer}>
+      {heroImageUrl ? <img src={heroImageUrl} alt="Hero" className={overviewStyles.heroImage} /> : <p>Loading...</p>}
 
-      <div className="thumbnail-gallery">
+      <div className={overviewStyles.thumbnailGallery}>
         {thumbnails && thumbnails.map((thumbnail, index) => (
           <button
-            type="submit"
-            // eslint-disable-next-line react/no-array-index-key
+            type="button"
             key={index}
-            className="thumbnail-button"
-            onClick={() => changeHeroFromGallery(thumbnail.url)}
-            style={{
-              background: 'none', border: 'none', padding: 0, cursor: 'pointer',
-            }}
+            className={overviewStyles.thumbnailButton}
+            onClick={() => selectImage(index)}
+            style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}
           >
-            <img
-              src={thumbnail.thumbnailUrl}
-              alt={`Thumbnail ${index + 1}`}
-              className="thumbnail-img"
-            />
+            <img src={thumbnail.thumbnailUrl} alt={`Thumbnail ${index + 1}`} className={overviewStyles.thumbnailImg} />
           </button>
         ))}
       </div>
+      <HeroModal heroImageUrl={heroImageUrl} />
     </div>
   );
 }

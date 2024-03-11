@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import StarButton from './StarButton.jsx';
+import overviewStyles from './styles/Overview.module.css';
 
 function AddToCart({ selectedStyleSkus }) {
   const [selectedSize, setSelectedSize] = useState('');
@@ -8,7 +10,6 @@ function AddToCart({ selectedStyleSkus }) {
   const handleSizeChange = (event) => {
     const sizeSelected = event.target.value;
     setSelectedSize(sizeSelected);
-    // Reset quantity to 1 whenever size changes
     setSelectedQuantity(1);
   };
 
@@ -18,7 +19,6 @@ function AddToCart({ selectedStyleSkus }) {
 
   const postToCart = () => {
     const payload = {
-      // eslint-disable-next-line no-use-before-define
       sku_id: selectedSizeObj.sku,
     };
 
@@ -40,22 +40,29 @@ function AddToCart({ selectedStyleSkus }) {
   }));
 
   const availableSizes = sizes.filter((size) => size.quantity > 0);
-
   const selectedSizeObj = sizes.find((size) => size.size === selectedSize);
-
   const maxQuantity = selectedSizeObj ? Math.min(selectedSizeObj.quantity, 15) : 0;
 
   return (
-    <div className="addToCart">
-      <h2>Add to Cart</h2>
-      <select onChange={handleSizeChange} value={selectedSize} disabled={!availableSizes.length}>
+    <div className={overviewStyles.addToCart}>
+      <select
+        onChange={handleSizeChange}
+        value={selectedSize}
+        disabled={!availableSizes.length}
+        className={overviewStyles.addToCartSelect}
+      >
         <option value="">Select Size</option>
         {availableSizes.map((size) => (
           <option key={size.sku} value={size.size}>{size.size}</option>
         ))}
       </select>
 
-      <select onChange={handleQuantityChange} value={selectedQuantity} disabled={!selectedSize}>
+      <select
+        onChange={handleQuantityChange}
+        value={selectedQuantity}
+        disabled={!selectedSize}
+        className={overviewStyles.addToCartSelect}
+      >
         <option value="">Qty</option>
         {Array.from({ length: maxQuantity }, (_, i) => i + 1).map((qty) => (
           <option key={qty} value={qty}>{qty}</option>
@@ -65,6 +72,7 @@ function AddToCart({ selectedStyleSkus }) {
       <button
         type="submit"
         onClick={postToCart}
+        className={overviewStyles.btnCart}
         disabled={!selectedSize || maxQuantity === 0}
       >
         Add to Cart

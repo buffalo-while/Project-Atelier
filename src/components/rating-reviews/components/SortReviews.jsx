@@ -13,7 +13,7 @@ function SortReviews({ metaResults, reviewsSort, setReviewsSort }) {
       <label htmlFor="sort-reviews-criteria">
         reviews, sorted by
         {' '}
-        <select name="sort-reviews-criteria" value={reviewsSort} onChange={handleSortReviews}>
+        <select name="sort-reviews-criteria" id="sort-reviews-criteria" value={reviewsSort} onChange={handleSortReviews}>
           <option value="helpful" name="helpfulness">helpfulness</option>
           <option value="newest" name="newest">newest</option>
           <option value="relevant" name="relevance">relevance</option>

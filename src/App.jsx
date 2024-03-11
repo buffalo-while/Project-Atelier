@@ -28,9 +28,9 @@ function App() {
       </div>
       <h1>Hello World!</h1>
       <OverviewMain productId={productId} getRatings={getRatings} setProductName={setProductName} />
-      <RelatedProducts productId={productId} />
+      <RelatedProducts productId={productId} setProductId={setProductId} />
       <QuestionAnswers productId={productId} />
-      <RatingReviews productId={productId} getRatings={getRatings} />
+      <RatingReviews productId={productId} getRatings={getRatings} productName={productName} />
     </div>
   );
 }
