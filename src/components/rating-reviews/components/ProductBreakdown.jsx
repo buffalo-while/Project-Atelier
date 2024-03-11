@@ -16,7 +16,6 @@ function ProductBreakdown({ metaResults }) {
       return null;
     }
     metaChars = metaResults.allMetaData.characteristics;
-    console.log(metaChars.Comfort.value);
     return Object.keys(charDescriptions)
       .filter((char) => (metaChars[char]))
       .map((char) => (

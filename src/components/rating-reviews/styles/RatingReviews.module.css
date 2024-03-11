@@ -1,0 +1,34 @@
+.rAndR {
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.rAndR h2 {
+  height: 2vh;
+  margin-block-start: 1.5vh;
+  margin-block-end: 1.5vh;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+.reviewsBox {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+
+}
+
+.reviewsAside {
+  display: flex;
+  flex-direction: column;
+  max-height: 95vh;
+  overflow: hidden;
+}
+
+.reviewsMain {
+  display: flex;
+  flex-direction: column;
+  max-height: 95vh;
+  overflow: hidden;
+}
