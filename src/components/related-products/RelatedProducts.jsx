@@ -55,6 +55,7 @@ function RelatedProducts({ productId, setProductId }) {
         relatedProducts={relatedProducts}
         relatedProductStyles={relatedProductsStyles}
         relatedCardClickHandler={relatedCardClickHandler}
+        actionButtonHandler={actionButtonHandler}
       />
       {/* This will be for the Outfit Section */}
       <h2>Given Outfit</h2>

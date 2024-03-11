@@ -6,6 +6,7 @@
 .related-card {
   border: 1px solid black;
   padding: 1px;
+  cursor: pointer;
 }
 
 /* .image-card{

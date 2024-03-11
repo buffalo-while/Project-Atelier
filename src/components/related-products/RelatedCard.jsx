@@ -2,11 +2,23 @@ import React from 'react';
 import './lib/relatedProducts.css';
 // import ImageGallery from '../overview/ImageGallery.jsx'
 
-function RelatedCard({ product, style }) {
+function RelatedCard({ product, style, relatedCardClickHandler, actionButtonHandler }) {
   // console.log(style,'cardStyles')
   // console.log(product, 'productInfo')
   return (
-    <div data-testid="related-card">
+    <div
+      data-testid="related-card"
+      role="button"
+      tabIndex="0"
+      aria-label="productDetails"
+      className="product-card"
+      onKeyPress={(e) => {
+        if (e.key === 'Enter') {
+          relatedCardClickHandler(product.id);
+        }
+      }}
+      onClick={() => { relatedCardClickHandler(product.id); }}
+    >
       <div className="image-card">
         <img
           height="100"
@@ -14,6 +26,17 @@ function RelatedCard({ product, style }) {
           src={style ? style : 'https://tracerproducts.com/wp-content/uploads/2019/12/Product-Image-Coming-Soon.jpg'}
           alt={product.name}
         />
+        <button
+          type="button"
+          aria-label={actionButtonHandler === 'yes' ? 'Compare Products' : 'remove product'}
+          className="actionButton"
+          onClick={(e) => {
+            e.stopPropagation();
+            actionButtonHandler(product);
+          }}
+        >
+          {actionButtonHandler}
+        </button>
         {/* <ImageGallery productId={product}/> */}
       </div>
       <p>
