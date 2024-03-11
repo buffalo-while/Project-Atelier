@@ -22,7 +22,7 @@ function ProductBreakdown({ metaResults }) {
       .map((char) => (
         <div key={char}>
           <p>{char}</p>
-          <div className="rating-prod-char">
+          <div className="rating-prod-char" name="characterisic-rating" value={(metaChars[char]).value}>
             <div>
               <div className="rating-prod-bar">
                 <span
