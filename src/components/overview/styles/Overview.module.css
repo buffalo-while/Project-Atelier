@@ -1,0 +1,226 @@
+/* Overview.module.css */
+.contentContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  height: 900px;
+  margin-left: 60px;
+}
+
+.imageGalleryContainer {
+  display: flex;
+  flex: 1;
+  position: relative;
+  max-width: auto;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+.heroImage {
+  display: block;
+  max-height: 900px;
+  margin-left: 200px;
+  background-color: black;
+  max-width: 900px;
+}
+
+.productInfo {
+  padding: 20px;
+  flex-grow: 1;
+  max-width: 100%;
+}
+
+.prodInfoStarSection {
+  display: flex;
+  flex-direction: row;
+}
+
+.prodInfoSmalltext {
+  padding-left: 10px;
+}
+
+.socials {
+  display: flex;
+  flex-direction: row;
+  margin: 25px;
+}
+
+.socialIcon {
+  color: #007bff;
+  width: 25px;
+  height: 25px;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.checkmarkIcon {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  color: blue;
+  font-size: 25px;
+  z-index: 1;
+}
+
+.thumbnailGallery{
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-height: 100%;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: rgba(255, 255, 255, 0.5);
+  margin-top: 10px;
+}
+
+.thumbnailImg {
+  max-height: 150px;
+  object-fit: contain;
+  width: 250px;
+  height: auto;
+}
+
+.thumbnailImg:hover {
+  opacity: 0.6;
+  transform: scale(1.05);
+  cursor: pointer;
+  border: 2px solid #8AA29E;
+
+}
+.styleThumbnail {
+  position: relative;
+  display: inline-block;
+  margin: 10px;
+  cursor: pointer;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  border: 2px solid #ddd;
+  object-fit: cover;
+  object-position: center;
+}
+.styleThumbnailSelected {
+  border: 12px solid #4CAF50;
+}
+
+.arrowIcon {
+  color: #007bff;
+  position: absolute;
+  right: 25px;
+  top: 10px;
+  transform: translateY(-50%);
+  font-size: 18px;
+  width: 25px;
+  height:25px;
+  cursor: pointer;
+}
+
+/* Modal and Overlay styles*/
+.overlay {
+  background: rgba(49,49,49,0.8);
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  z-index: 1040;
+}
+
+.modalContent {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #f1f1f1;
+  padding: 14px 28px;
+  border-radius: 3px;
+  width: auto;
+  max-width: 95%;
+  height: auto;
+  max-height: 95vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  z-index: 1050;
+}
+
+.heroImageModal {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+}
+
+.closeModal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  color: #007bff;
+  font-size: 24px;
+}
+
+body.activeModal {
+  overflow-y: hidden;
+}
+/* Add to Cart */
+.addToCart {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.btnCart {
+  padding: 8px 12px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  color: #333;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btnCart:not(:disabled) {
+  background-color: #007bff;
+  color: white;
+}
+
+.btnCart:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+/* Styles Selector */
+.styleThumbnails {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.styleThumbnailsImg {
+  width: 25px;
+  margin: 10px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.styleThumbnailsImgHover:hover {
+  transform: scale(1.1);
+}
+
+.productInformationColumn {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+}
