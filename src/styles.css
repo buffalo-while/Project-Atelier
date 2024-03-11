@@ -17,10 +17,11 @@ body {
 /* Top Navbar Styling */
 .top-bar {
   display: flex;
+  background-color: #007bff;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  background-color: #172A3A;
+  background-color: ##007bff;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
@@ -40,97 +41,6 @@ body {
 }
 
 /* Component CSS classes */
-
-/* Overview */
-.content-container-1 {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: space-between;
-}
-
-.image-gallery-container {
-  background-color:  #172A3A;;
-  display: flex;
-  flex: 1;
-  position: relative;
-  max-width: 700px;
-  flex-grow: 1;
-}
-
-.hero-image {
-  display: block;
-  width: 100%;
-  margin-left: 200px;
-  background-color: black;
-}
-.product-info {
-  padding: 20px;
-  flex-grow: 1;
-  max-width: 50%;
-}
-/* Product Info */
-.prod-info-star-section{
-  display: flex;
-  flex-direction: row;
-}
-.prod-info-smalltext {
-  padding-left: 10px;
-}
-/* Thumbnails */
-
-.thumbnail-gallery{
-  position: absolute;
-  top: 0;
-  left: 0;
-  max-height: 100%;
-  overflow-y: scroll;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  background-color: rgba(255, 255, 255, 0.5);
-
-}
-
-.thumbnail-img {
-  max-height: 150px;
-  object-fit: contain;
-  width: auto;
-  margin: 10px;
-}
-
-.thumbnail-img:hover {
-  opacity: 0.9;
-  transform: scale(1.05);
-  cursor: pointer;
-  border: 2px solid #8AA29E;
-
-}
-
-/* Styles Selector */
-
-.style-thumbnails {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-
-}
-.style-thumbnails img {
-  width: 100px;
-  margin: 10px;
-  cursor: pointer;
-  transition: transform 0.2s;
-}
-
-.style-thumbnails img:hover {
-  transform: scale(1.1);
-}
-
-.product-information-column{
-  border: 5px solid red;
-  display: flex;
-  flex-direction: column;
-}
 
 /* Rating and Reviews Module */
 
