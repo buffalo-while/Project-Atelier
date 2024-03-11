@@ -17,7 +17,7 @@ function RelatedCard({ product, style }) {
         {/* <ImageGallery productId={product}/> */}
       </div>
       <p>
-        Generate Product #:
+        Generate Product #
         {product.id}
       </p>
       <h3>
