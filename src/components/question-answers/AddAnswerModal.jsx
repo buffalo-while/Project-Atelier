@@ -8,8 +8,6 @@ function AddAnswerModal({
   const modalRoot = document.getElementById('modal');
   // need productNAME AND QUESTION BODY
 
-
-
   const modalContent = (
     <dialog open className={styles.answerModal}>
       <h2>Submit your Answer</h2>
@@ -20,7 +18,7 @@ function AddAnswerModal({
         {questionBody}
         {' '}
       </p>
-      <div className={styles.modalChildren}>{children}</div>
+      <div>{children}</div>
       <button className={styles.answerModalCloseButton} type="submit" onClick={onClose}>Close</button>
     </dialog>
   );

@@ -64,7 +64,7 @@ function AddQuestion({ productId }) {
   };
 
   return (
-    <div>
+    <div data-testid="add-question-modal">
       <button className={styles.addQuestionButton} onClick={openModal}>ADD A QUESTION +</button>
       <AddQuestionModal isOpen={isOpenModal} onClose={closeModal} productName={productName}>
         <form onSubmit={(e) => handleQuestionSubmit(askQuestion, nickName, email, productId)}>
