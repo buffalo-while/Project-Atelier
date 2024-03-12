@@ -3,8 +3,9 @@ import axios from 'axios';
 import { FaFacebook, FaPinterest, FaTwitter } from 'react-icons/fa';
 import overviewStyles from './styles/Overview.module.css';
 
-function ProdInfo({ productId, getRatings, selectedStyle, setProductName }) {
-  const [product, setProduct] = useState('');
+function ProdInfo({
+  productId, getRatings, selectedStyle, setProductName, product, setProduct,
+}) {
   const [ratingData, setRatingData] = useState(null);
 
   useEffect(() => {
@@ -30,7 +31,7 @@ function ProdInfo({ productId, getRatings, selectedStyle, setProductName }) {
 
     fetchProduct();
     fetchRatings();
-  }, [productId, getRatings, setProductName]);
+  }, [productId, getRatings, setProductName, setProduct]);
 
   const suspenseView = (component) => (
     <Suspense fallback={<p>Loading...</p>}>
@@ -71,13 +72,13 @@ function ProdInfo({ productId, getRatings, selectedStyle, setProductName }) {
           </p>
           <div>
             <p className={overviewStyles.socials}>
-              <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" className={overviewStyles.socialIcon}>
+              <a href="https://www.facebook.com/" aria-label="Link to Facebook" target="_blank" rel="noopener noreferrer" className={overviewStyles.socialIcon}>
                 <FaFacebook />
               </a>
-              <a href="https://www.pinterest.com/" target="_blank" rel="noopener noreferrer" className={overviewStyles.socialIcon}>
+              <a href="https://www.pinterest.com/" aria-label="Link to Pinterest" target="_blank" rel="noopener noreferrer" className={overviewStyles.socialIcon}>
                 <FaPinterest />
               </a>
-              <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" className={overviewStyles.socialIcon}>
+              <a href="https://www.twitter.com" aria-label="Link to Twitter" target="_blank" rel="noopener noreferrer" className={overviewStyles.socialIcon}>
                 <FaTwitter />
               </a>
             </p>

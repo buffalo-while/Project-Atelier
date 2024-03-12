@@ -5,6 +5,8 @@ import ProdInfo from './ProdInfo.jsx';
 import StyleSelector from './StyleSelector.jsx';
 import AddToCart from './AddToCart.jsx';
 import overviewStyles from './styles/Overview.module.css';
+import SiteMessage from './SiteMessage.jsx';
+import SloganDescription from './SloganDescription.jsx';
 
 function OverviewMain({ productId, getRatings, setProductName }) {
   const [heroImageUrl, setHeroImageUrl] = useState('');
@@ -14,6 +16,7 @@ function OverviewMain({ productId, getRatings, setProductName }) {
   const [selectedStyleSkus, setSelectedStyleSkus] = useState({});
   const [selectedStyle, setSelectedStyle] = useState({});
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+  const [product, setProduct] = useState('');
 
   useEffect(() => {
     const fetchStyles = async () => {
@@ -64,6 +67,7 @@ function OverviewMain({ productId, getRatings, setProductName }) {
         productId:
         {productId}
       </h1>
+      <SiteMessage />
       <div className={overviewStyles.contentContainer}>
         <ImageGallery
           heroImageUrl={heroImageUrl}
@@ -79,6 +83,8 @@ function OverviewMain({ productId, getRatings, setProductName }) {
             styles={styles}
             selectedStyle={selectedStyle}
             setProductName={setProductName}
+            product={product}
+            setProduct={setProduct}
           />
           <StyleSelector
             styles={styles}
@@ -96,6 +102,7 @@ function OverviewMain({ productId, getRatings, setProductName }) {
           />
         </div>
       </div>
+      <SloganDescription product={product} />
     </div>
   );
 }
