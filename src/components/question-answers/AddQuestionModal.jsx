@@ -12,6 +12,7 @@ function AddQuestionModal({
       <h2>Ask Your Question</h2>
       <p>
         About the
+        {' '}
         {productName}
       </p>
       <div>{children}</div>
