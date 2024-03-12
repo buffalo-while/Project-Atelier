@@ -3,7 +3,7 @@ import axios from 'axios';
 import AddAnswerModal from './AddAnswerModal.jsx';
 import styles from './styles/AddAnswerButton.module.css';
 
-function AddAnswer({ question, productId, productName }) {
+function AddAnswer({ question, productName }) {
   const [isOpenModal, setIsOpenModal] = useState(false);
   // const [productName, setProductName] = useState('');
   const [yourAnswer, setYourAnswer] = useState('');
@@ -90,7 +90,7 @@ function AddAnswer({ question, productId, productName }) {
   };
 
   return (
-    <div>
+    <div data-testid="add-answer-modal">
       <button className={styles.addAnswerButton} onClick={openModal}>Add Answer</button>
       <AddAnswerModal isOpen={isOpenModal} onClose={closeModal} questionBody={question.question_body} productName={productName}>
         <form onSubmit={(e) => handleAnswerSubmit(yourAnswer, nickName, email, photos)}>

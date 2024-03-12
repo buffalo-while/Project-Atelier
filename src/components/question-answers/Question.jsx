@@ -35,7 +35,7 @@ function Question({ question, productId, productName }) {
   };
 
   return (
-    <div className={styles.questionContainer}>
+    <div data-testid="question-container" className={styles.questionContainer}>
       <div className={styles.questionHeader}>
         <span className={styles.questionBody}>
           Q: {question.question_body}
