@@ -5,9 +5,9 @@
 import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import { describe, expect, test } from '@jest/globals';
+import axios from 'axios';
 import ProdInfo from '../ProdInfo.jsx';
 import '@testing-library/jest-dom';
-import axios from 'axios';
 
 jest.mock('axios');
 
@@ -39,7 +39,6 @@ describe('ProdInfo', () => {
       setProductName={setProductName}
     />);
 
-    // Use await waitFor to ensure state updates are completed
     await waitFor(() => {
       expect(screen.getByText('Test Product')).toBeInTheDocument();
       expect(screen.getByText('Test Category')).toBeInTheDocument();
@@ -48,5 +47,4 @@ describe('ProdInfo', () => {
     });
   });
 
-  // Adjust your tests accordingly
 });
