@@ -4,7 +4,7 @@ import AnswerList from './AnswerList.jsx';
 import AddAnswer from './AddAnswer.jsx';
 import styles from './styles/Question.module.css';
 
-function Question({ question, productId }) {
+function Question({ question, productId, productName }) {
   const [markedAsHelpful, setMarkedAsHelpful] = useState(false);
   const [helpfulCount, setHelpfulCount] = useState(question.question_helpfulness);
 
@@ -35,7 +35,7 @@ function Question({ question, productId }) {
   };
 
   return (
-    <div className={styles.questionContainer}>
+    <div data-testid="question-container" className={styles.questionContainer}>
       <div className={styles.questionHeader}>
         <span className={styles.questionBody}>
           Q: {question.question_body}
@@ -45,7 +45,7 @@ function Question({ question, productId }) {
             Helpful?{' '}
             <button onClick={handleHelpfulQuestion}>Yes</button> ({helpfulCount}){ ' | '}
           </span>
-          <AddAnswer question={question} productId={productId} />
+          <AddAnswer question={question} productId={productId} productName={productName} />
         </div>
       </div>
       <div className={styles.answerListContainer}>

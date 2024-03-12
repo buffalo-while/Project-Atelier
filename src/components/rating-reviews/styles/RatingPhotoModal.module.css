@@ -1,0 +1,30 @@
+.expandedRatingPhoto {
+  position: fixed;
+  top: 50%;
+  transform: translate(0%, -50%);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 75%;
+  height: 75%;
+  border-radius: 1%;
+  border: none;
+}
+
+.reviewImageFull {
+  max-height: 80%;
+  max-width: 80%;
+  object-fit: contain;
+}
+
+.ratingPhotoOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background: rgba(49,49,49,0.8);
+  width: 100vw;
+  height: 100vh;
+}

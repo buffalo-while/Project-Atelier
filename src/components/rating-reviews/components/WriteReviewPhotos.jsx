@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { postPhoto } from '../models/reviewsModels.js';
+import styles from '../styles/WriteReviewPhotos.module.css';
 
 function WriteReviewPhotos({ photos, setPhotos }) {
   const [remainingPhotos, setRemainingPhotos] = useState(5);
@@ -37,7 +38,12 @@ function WriteReviewPhotos({ photos, setPhotos }) {
       </label>
       <div>
         {photos.map((photoURL, index) => (
-          <img src={photoURL} alt={`uploaded-review-${index + 1}`} className="review-thumbnail" key={`uploaded-review-${index + 1}`} />
+          <img
+            src={photoURL}
+            alt={`uploaded-review-${index + 1}`}
+            className={styles.reviewThumbnail}
+            key={`uploaded-review-${index + 1}`}
+          />
         ))}
       </div>
     </div>

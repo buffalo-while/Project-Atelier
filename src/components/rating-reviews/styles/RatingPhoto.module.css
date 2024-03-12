@@ -1,0 +1,21 @@
+.reviewImageExpand {
+  border: none;
+  cursor: pointer;
+  appearance: none;
+  background-color: inherit;
+  text-align: left;
+  width: 10%;
+}
+
+.reviewThumbnailImg {
+  max-height: 10%;
+  object-fit: contain;
+  width: 100%;
+  height: auto;
+}
+
+.reviewThumbnailImg:hover {
+  opacity: 0.6;
+  transform: scale(1.05);
+  cursor: pointer;
+}

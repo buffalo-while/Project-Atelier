@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
 import RatingPhotoModal from './RatingPhotoModal.jsx';
+import styles from '../styles/RatingPhoto.module.css';
 
 function RatingPhoto({ photo }) {
   const [showPhotoPortal, setShowPhotoPortal] = useState(false);
@@ -9,11 +10,11 @@ function RatingPhoto({ photo }) {
   };
   return (
     <>
-      <button type="button" className="review-image-expand" name="review-image-expand" onClick={handleOpenPhotoPortal}>
+      <button type="button" className={styles.reviewImageExpand} name="review-image-expand" onClick={handleOpenPhotoPortal}>
         <img
           src={photo.url}
           alt={`Provided by reviewer id ${photo.id}`}
-          className="thumbnail-img"
+          className={styles.reviewThumbnailImg}
           name="review-image-thumbnail"
         />
       </button>

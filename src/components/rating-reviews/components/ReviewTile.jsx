@@ -4,6 +4,7 @@ import { CheckIcon } from '@heroicons/react/20/solid';
 import { renderStars } from '../controllers/getRatings.jsx';
 import RatingPhoto from './RatingPhoto.jsx';
 import { putHelpfulOrReportReview } from '../models/reviewsModels.js';
+import styles from '../styles/ReviewTile.module.css';
 
 function ReviewTile({ review }) {
   const [allText, setAllText] = useState(false);
@@ -48,12 +49,12 @@ function ReviewTile({ review }) {
 
   const reviewText = () => {
     if (allText || review.body.length <= 250) {
-      return (<article name="review-text" className="review-text">{formatParagraphs(review.body)}</article>);
+      return (<article name="review-text">{formatParagraphs(review.body)}</article>);
     }
     return (
-      <article name="review-text" className="review-text">
+      <article name="review-text">
         {formatParagraphs(review.body.slice(0, 250))}
-        <button type="button" onClick={handleShowMore}>Show more</button>
+        <button name="show-more" className={styles.showMore} type="button" onClick={handleShowMore}>Show more</button>
       </article>
     );
   };
@@ -67,20 +68,20 @@ function ReviewTile({ review }) {
   );
 
   return (
-    <div role="listitem" name="review" className="review">
-      <header className="review-topline">
+    <div role="listitem" name="review" className={styles.review}>
+      <header className={styles.reviewHeader}>
         <span name="rating-stars" value={review.rating}>
           {renderStars(review.rating)}
         </span>
-        <span name="reviewer-and-date">
+        <span name="reviewer-and-date" className={styles.reviewerAndDate}>
           {/* verification not implemented as API does not provide reviewer email data */}
           {review.reviewer_name}
           {', '}
           {dayjs(review.date).format('MMMM DD, YYYY')}
         </span>
       </header>
-      <section name="review-body" className="review-body">
-        <p name="review-summary" className="review-summary">{review.summary}</p>
+      <section name="review-body">
+        <p name="review-summary" className={styles.reviewSummary}>{review.summary}</p>
         {reviewText()}
         {images()}
         {review.recommend
@@ -95,22 +96,21 @@ function ReviewTile({ review }) {
       </section>
       {review.response
         ? (
-          <section name="review-response" className="review-response">
+          <section name="review-response">
             <h3>Response:</h3>
             <p>{review.response}</p>
           </section>
         )
         : null}
-      <footer>
-        <p>
-          Helpful?
-          {' '}
-          <button type="button" name="helpful" onClick={handleVoteClick} disabled={voted}>Yes</button>
-          {' ('}
-          {helpfulCount}
-          {')  |  '}
-          <button type="button" name="report" onClick={handleVoteClick} disabled={voted}>Report</button>
-        </p>
+      <footer className={styles.reviewFooter}>
+        Helpful?
+        {' '}
+        <button type="button" name="helpful" onClick={handleVoteClick} disabled={voted}>Yes</button>
+        {' ('}
+        {helpfulCount}
+        )
+        <span>|</span>
+        <button type="button" name="report" onClick={handleVoteClick} disabled={voted}>Report</button>
       </footer>
     </div>
   );

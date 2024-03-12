@@ -1,0 +1,14 @@
+.removeFilters {
+  appearance: none;
+  color: inherit;
+  cursor: pointer;
+  background-color: inherit;
+  border: none;
+  font-size: 0.85em;
+  text-decoration: underline;
+}
+
+.filtersApplied {
+  font-size: 0.9em;
+  font-weight: 500;
+}

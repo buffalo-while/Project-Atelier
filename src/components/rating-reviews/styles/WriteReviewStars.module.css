@@ -1,0 +1,9 @@
+.starRatingRadio {
+  display: none;
+}
+
+.writeReviewStar {
+  cursor: pointer;
+  width: 1em;
+  height: 1em;
+}
