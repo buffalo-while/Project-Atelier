@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { getReviews } from '../models/reviewsModels';
 import ReviewTile from './ReviewTile.jsx';
 import WriteReview from './WriteReview.jsx';
+import styles from '../styles/ReviewsList.module.css';
 
 function ReviewsList({
-  productId, reviewsFilter, metaResults, reviewsSort, productName,
+  productId, reviewsFilter, metaResults, reviewsSort, productName, reviewsSearchFilter,
 }) {
   const [allReviews, setAllReviews] = useState([]);
+  const [visibleCount, setVisibleCount] = useState(2);
   const [visibleReviews, setVisibleReviews] = useState(null);
   const [nonVisibleReviews, setNonVisibleReviews] = useState([]);
 
@@ -28,27 +30,39 @@ function ReviewsList({
           return true;
         }
         return false;
+      }).filter((review) => {
+        if (reviewsSearchFilter.length < 3) {
+          return true;
+        }
+        const summary = review.summary.toLowerCase();
+        const body = review.body.toLowerCase();
+        const searchTerm = reviewsSearchFilter.toLowerCase();
+        if (summary.indexOf(searchTerm) !== -1 || body.indexOf(searchTerm) !== -1) {
+          return true;
+        }
+        return false;
       }).map((review) => (
         <ReviewTile key={review.review_id} review={review} />
       ));
-      setVisibleReviews(filteredReviewElements.slice(0, 2));
-      setNonVisibleReviews(filteredReviewElements.slice(2));
+      setVisibleReviews(filteredReviewElements.slice(0, visibleCount));
+      setNonVisibleReviews(filteredReviewElements.slice(visibleCount));
     }
-  }, [allReviews, reviewsFilter]);
+  }, [allReviews, reviewsFilter, reviewsSearchFilter, visibleCount]);
 
   const handleMoreReviews = () => {
     setVisibleReviews(visibleReviews.concat(nonVisibleReviews.slice(0, 2)));
     setNonVisibleReviews(nonVisibleReviews.slice(2));
+    setVisibleCount(visibleCount + 2);
   };
 
   return (
-    <div className="reviews-list">
+    <div className={styles.reviewsList}>
       <div role="list" name="reviews-list">
         {visibleReviews}
       </div>
       {nonVisibleReviews.length > 0
         ? (
-          <button type="button" name="more-reviews" onClick={handleMoreReviews}>
+          <button type="button" className={styles.moreReviews} name="more-reviews" onClick={handleMoreReviews}>
             MORE REVIEWS
           </button>
         ) : null}

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import StarsBar from './StarsBar.jsx';
 import ReviewsFilters from './ReviewsFilters.jsx';
+import styles from '../styles/StarsBars.module.css';
 
 function StarsBars({ metaResults, reviewsFilter, setReviewsFilter }) {
   const [clearFilters, setClearFilters] = useState(false);
@@ -13,12 +14,11 @@ function StarsBars({ metaResults, reviewsFilter, setReviewsFilter }) {
       clearFilters={clearFilters}
       setClearFilters={setClearFilters}
       key={5 - Number(index)}
-
     />
   ));
   return (
     <>
-      <h3>Rating Breakdown</h3>
+      <h3 className={styles.ratingBreakdownHeader}>Rating Breakdown</h3>
       <ReviewsFilters
         reviewsFilter={reviewsFilter}
         setReviewsFilter={setReviewsFilter}

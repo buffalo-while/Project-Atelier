@@ -1,0 +1,11 @@
+.aveRating {
+  font-size: 4em;
+  font-weight: bold;
+  margin-right: 0.2em;
+  vertical-align: text-top;
+}
+
+.ratingStars {
+  position: relative;
+  top: 0.5em;
+}
