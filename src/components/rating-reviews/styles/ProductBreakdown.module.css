@@ -1,0 +1,25 @@
+.ratingProdChar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+}
+
+.ratingCharDesc {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.ratingProdBar {
+  width: 90%;
+  height: 0.5em;
+  display: inline-block;
+  vertical-align: middle;
+  background-color: #E6ECEC;
+  margin-top: 0.5em;
+  margin-left: 5%;
+  margin-right: 5%;
+}

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { getReviews } from '../models/reviewsModels';
 import ReviewTile from './ReviewTile.jsx';
 import WriteReview from './WriteReview.jsx';
+import styles from '../styles/ReviewsList.module.css';
 
 function ReviewsList({
   productId, reviewsFilter, metaResults, reviewsSort, productName, reviewsSearchFilter,
@@ -53,7 +54,7 @@ function ReviewsList({
   };
 
   return (
-    <div className="reviews-list">
+    <div className={styles.reviewsList}>
       <div role="list" name="reviews-list">
         {visibleReviews}
       </div>

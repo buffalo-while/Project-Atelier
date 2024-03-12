@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from '../styles/ProductBreakdown.module.css';
 
 function ProductBreakdown({ metaResults }) {
   const charDescriptions = {
@@ -21,9 +22,9 @@ function ProductBreakdown({ metaResults }) {
       .map((char) => (
         <div key={char}>
           <p>{char}</p>
-          <div className="rating-prod-char" name="characterisic-rating" value={(metaChars[char]).value}>
+          <div className={styles.ratingProdChar} name="characterisic-rating" value={(metaChars[char]).value}>
             <div>
-              <div className="rating-prod-bar">
+              <div className={styles.ratingProdBar}>
                 <span
                   style={{
                     position: 'relative',
@@ -36,11 +37,11 @@ function ProductBreakdown({ metaResults }) {
                 </span>
               </div>
             </div>
-            <div className="rating-char-desc">
-              <div className="rating-char-low">
+            <div className={styles.ratingCharDesc}>
+              <div>
                 <p>{charDescriptions[char][0]}</p>
               </div>
-              <div className="rating-char-high">
+              <div>
                 <p>{charDescriptions[char][1]}</p>
               </div>
             </div>

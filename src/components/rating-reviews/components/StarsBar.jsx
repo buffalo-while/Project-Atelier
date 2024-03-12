@@ -1,37 +1,29 @@
 import React, { useState, useEffect } from 'react';
+import styles from '../styles/StarsBar.module.css';
 
 function StarsBar({
   numStars, metaResults, reviewsFilter, setReviewsFilter, clearFilters, setClearFilters,
 }) {
   // States
-  const [reviewsFilterClass, setReviewsFilterClass] = useState('reviews-filter');
+  const [reviewsFilterClass, setReviewsFilterClass] = useState(styles.reviewsFilter);
   const [ratingFilterSelected, setRatingFilterSelected] = useState(false);
 
   useEffect(() => {
     if (clearFilters) {
-      setReviewsFilterClass('reviews-filter');
+      setReviewsFilterClass(styles.reviewsFilter);
       setRatingFilterSelected(false);
       setClearFilters(false);
     }
   }, [clearFilters, setClearFilters]);
 
-  // Handler functions
-  const handleStarsBarMouseEnter = () => {
-    setReviewsFilterClass(`${reviewsFilterClass} reviews-filter-hover`);
-  };
-
-  const handleStarsBarMouseLeave = () => {
-    setReviewsFilterClass(reviewsFilterClass.slice(0, reviewsFilterClass.indexOf(' reviews-filter-hover')));
-  };
-
   const handleStarsBarClick = () => {
     const newFilter = [...reviewsFilter];
     if (ratingFilterSelected) {
       newFilter.splice(newFilter.indexOf(numStars), 1);
-      setReviewsFilterClass('reviews-filter reviews-filter-hover');
+      setReviewsFilterClass('styles.reviewsFilter');
     } else {
       newFilter.push(numStars);
-      setReviewsFilterClass('reviews-filter reviews-filter-selected reviews-filter-hover');
+      setReviewsFilterClass(`${styles.reviewsFilter} ${styles.reviewsFilterSelected}`);
     }
     setRatingFilterSelected(!ratingFilterSelected);
     setReviewsFilter(newFilter);
@@ -40,10 +32,10 @@ function StarsBar({
   // Create the bar element, once metaResults are available
   let barElement = (
     <>
-      <span className="num-stars" name="num-stars" style={{ width: '15%', float: 'left' }}>
+      <span name="num-stars" style={{ width: '15%', float: 'left' }}>
         {`${numStars} stars`}
       </span>
-      <span className="stars-bar-loading" name="stars-bar-loading">
+      <span name="stars-bar-loading">
         Loading...
       </span>
     </>
@@ -58,30 +50,18 @@ function StarsBar({
           {`${numStars} stars`}
         </span>
         <span
-          className="stars-bar"
+          className={styles.starsBar}
           name="stars-bar"
-          style={{
-            width: '66%',
-            height: '0.5em',
-            display: 'inline-block',
-            verticalAlign: 'middle',
-            backgroundColor: '#E6ECEC',
-          }}
         >
           <span
-            className="stars-bar-filled"
+            className={styles.starsBarFilled}
             name="stars-bar"
             style={{
               width: `${(ratingCount / totalReviews) * 22}%`,
-              backgroundColor: '#004346',
-              position: 'absolute',
-              height: '0.5em',
-              display: 'inline-block',
-              verticalAlign: 'middle',
             }}
           />
         </span>
-        <span className="count-stars" name="count-stars" style={{ width: '15%', float: 'right' }}>
+        <span name="count-stars" style={{ width: '15%', float: 'right' }}>
           {ratingCount}
         </span>
       </>
@@ -93,8 +73,6 @@ function StarsBar({
       name="reviews-rating-filter"
       className={reviewsFilterClass}
       value={numStars}
-      onMouseEnter={handleStarsBarMouseEnter}
-      onMouseLeave={handleStarsBarMouseLeave}
       onClick={handleStarsBarClick}
       onKeyPress={handleStarsBarClick}
       role="option"

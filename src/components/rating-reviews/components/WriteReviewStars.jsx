@@ -1,6 +1,7 @@
 import React from 'react';
 import { StarIcon as SolidStar } from '@heroicons/react/24/solid';
 import { StarIcon as OutlineStar } from '@heroicons/react/24/outline';
+import styles from '../styles/WriteReviewStars.module.css';
 
 function WriteReviewStars({ rating, setRating }) {
   const ratingStars = ([...Array(5)]).map((star, index) => {
@@ -13,9 +14,11 @@ function WriteReviewStars({ rating, setRating }) {
           id={`star${currRating}`}
           value={currRating}
           onChange={() => setRating(currRating)}
-          className="star-rating-radio"
+          className={styles.starRatingRadio}
         />
-        {currRating <= rating ? <SolidStar className="write-review-star" /> : <OutlineStar className="write-review-star" />}
+        {currRating <= rating
+          ? <SolidStar className={styles.writeReviewStar} />
+          : <OutlineStar className={styles.writeReviewStar} />}
       </label>
     );
   });

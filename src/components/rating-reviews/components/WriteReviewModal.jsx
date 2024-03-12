@@ -3,6 +3,7 @@ import WriteReviewStars from './WriteReviewStars.jsx';
 import WriteReviewCharacteristics from './WriteReviewCharacteristics.jsx';
 import WriteReviewPhotos from './WriteReviewPhotos.jsx';
 import { postReview } from '../models/reviewsModels.js';
+import styles from '../styles/WriteReviewModal.module.css';
 
 function WriteReviewModal({
   productId, productName, onClose, metaResults,
@@ -62,7 +63,7 @@ function WriteReviewModal({
     onClose();
   };
   return (
-    <dialog open className="write-review-portal">
+    <dialog open className={styles.writeReviewPortal}>
       <form onSubmit={handleSubmitReview}>
         <h3>Write Your Review</h3>
         <p>

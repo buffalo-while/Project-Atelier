@@ -1,0 +1,36 @@
+.removeFilters {
+  color: #551A8B;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.reviewsFilterSelected {
+  border: 1px solid #004346;
+  border-radius: 5%;
+  margin: 1px;
+}
+
+.reviewsFilter:hover {
+  background-color: #99B4B5;
+}
+
+.starsBar {
+  width: 66%;
+  height: 0.5em;
+  display: inline-block;
+  vertical-align: middle;
+  background-color: #E6ECEC;
+}
+
+.starsBarFilled {
+  background-color: #004346;
+  position: absolute;
+  height: 0.5em;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.reviewsFilter {
+  display: flex;
+  align-items: center;
+}

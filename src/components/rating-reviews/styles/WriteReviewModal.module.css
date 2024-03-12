@@ -1,0 +1,13 @@
+.writeReviewPortal {
+  position: fixed;
+  top: 50%;
+  transform: translate(0%, -50%);
+  z-index: 1;
+  width: 85%;
+  height: 85%;
+  overflow: auto;
+}
+
+.writeReviewPortal input {
+  width: auto;
+}

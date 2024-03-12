@@ -4,6 +4,7 @@ import { CheckIcon } from '@heroicons/react/20/solid';
 import { renderStars } from '../controllers/getRatings.jsx';
 import RatingPhoto from './RatingPhoto.jsx';
 import { putHelpfulOrReportReview } from '../models/reviewsModels.js';
+import styles from '../styles/ReviewTile.module.css';
 
 function ReviewTile({ review }) {
   const [allText, setAllText] = useState(false);
@@ -80,7 +81,7 @@ function ReviewTile({ review }) {
         </span>
       </header>
       <section name="review-body" className="review-body">
-        <p name="review-summary" className="review-summary">{review.summary}</p>
+        <p name="review-summary" className={styles.reviewSummary}>{review.summary}</p>
         {reviewText()}
         {images()}
         {review.recommend
