@@ -1,0 +1,51 @@
+.removeFilters {
+  color: #551A8B;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.reviewsFilter {
+  display: flex;
+  align-items: center;
+  padding: 0.2em;
+  margin-bottom: 0.5em;
+}
+
+.reviewsFilterSelected {
+  border: 1px solid #004346;
+  border-radius: 3px;
+}
+
+.reviewsFilter:hover {
+  background-color: #99B4B5;
+}
+
+.starsBar {
+  width: 75%;
+  height: 0.5em;
+  display: inline-block;
+  vertical-align: middle;
+  background-color: #CFD4D4;
+}
+
+.starsBarFilled {
+  background-color: #004346;
+  position: absolute;
+  height: 0.5em;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.numStars {
+  padding-right: 0.25em;
+  text-decoration: underline;
+  width: 20%;
+  float: left;
+}
+
+.countStars {
+  padding-left: 2%;
+  font-size: small;
+  width: 10%;
+  float: right;
+}

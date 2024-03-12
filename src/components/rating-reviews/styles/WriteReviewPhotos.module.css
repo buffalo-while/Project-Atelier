@@ -1,0 +1,6 @@
+.reviewThumbnail {
+  max-height: 15%;
+  object-fit: contain;
+  max-width: 15%;
+  margin: 5px;
+}
