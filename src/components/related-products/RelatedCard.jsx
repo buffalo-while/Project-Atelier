@@ -3,7 +3,7 @@ import './lib/relatedProducts.css';
 // import ImageGallery from '../overview/ImageGallery.jsx'
 
 function RelatedCard({
-  product, style, relatedCardClickHandler, actionButtonHandler, actionButton
+  product, style, relatedCardClickHandler, actionButtonHandler, actionButton,
 }) {
   // console.log(style,'cardStyles')
   // console.log(product, 'productInfo')
@@ -30,7 +30,7 @@ function RelatedCard({
         />
         <button
           type="button"
-          aria-label={actionButtonHandler === '⭐' ? 'Compare Products' : 'remove product'}
+          aria-label={actionButton === '⭐' ? 'Compare Products' : 'remove product'}
           className="actionButton"
           onClick={(e) => {
             e.stopPropagation();
