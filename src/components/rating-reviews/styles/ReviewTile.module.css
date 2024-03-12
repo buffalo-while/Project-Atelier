@@ -1,3 +1,53 @@
+.review {
+  margin: 2em 0;
+  padding-bottom: 1em;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+}
+
+.reviewHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.reviewerAndDate {
+  font-size: small;
+  font-weight: lighter;
+}
+
 .reviewSummary::first-line {
   font-weight: bold;
+}
+
+.showMore {
+  border: none;
+  color: inherit;
+  background-color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  text-decoration: underline;
+  margin: inherit;
+  padding: inherit;
+  cursor: pointer;
+}
+
+.reviewFooter {
+  font-size: small;
+}
+
+.reviewFooter button {
+  border: none;
+  color: inherit;
+  background-color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  text-decoration: underline;
+  margin: inherit;
+  margin-left: 0.5em;
+  padding: inherit;
+  cursor: pointer;
+}
+
+.reviewFooter span {
+  margin: 0 0.5em;
 }
