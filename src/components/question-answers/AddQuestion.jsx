@@ -11,6 +11,7 @@ function AddQuestion({ productId }) {
   const [email, setEmail] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
+  // passing this down from main to avoid an API call. I don't think it's necessary?
   useEffect(() => {
     axios.get(`/api/products/${productId}`)
       .then((response) => {

@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import styles from './styles/QuestionModal.module.css';
 
 function AddQuestionModal({
   isOpen, onClose, children, productName,
@@ -7,14 +8,15 @@ function AddQuestionModal({
   const modalRoot = document.getElementById('modal');
 
   const modalContent = (
-    <dialog open>
+    <dialog open className={styles.questionModal}>
       <h2>Ask Your Question</h2>
       <p>
         About the
+        {' '}
         {productName}
       </p>
-      <button type="submit" onClick={onClose}>Close</button>
       <div>{children}</div>
+      <button className={styles.questionModalCloseButton} type="submit" onClick={onClose}>Close</button>
     </dialog>
   );
 
