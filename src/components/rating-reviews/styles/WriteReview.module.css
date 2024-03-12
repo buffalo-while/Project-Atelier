@@ -1,8 +1,4 @@
-.reviewsList {
-  overflow-y: auto;
-}
-
-.moreReviews {
+.writeReviewOpen {
   background: none;
   border: none;
   padding: 0;

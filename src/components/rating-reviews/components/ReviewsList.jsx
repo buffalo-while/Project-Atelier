@@ -8,6 +8,7 @@ function ReviewsList({
   productId, reviewsFilter, metaResults, reviewsSort, productName, reviewsSearchFilter,
 }) {
   const [allReviews, setAllReviews] = useState([]);
+  const [visibleCount, setVisibleCount] = useState(2);
   const [visibleReviews, setVisibleReviews] = useState(null);
   const [nonVisibleReviews, setNonVisibleReviews] = useState([]);
 
@@ -43,14 +44,15 @@ function ReviewsList({
       }).map((review) => (
         <ReviewTile key={review.review_id} review={review} />
       ));
-      setVisibleReviews(filteredReviewElements.slice(0, 2));
-      setNonVisibleReviews(filteredReviewElements.slice(2));
+      setVisibleReviews(filteredReviewElements.slice(0, visibleCount));
+      setNonVisibleReviews(filteredReviewElements.slice(visibleCount));
     }
-  }, [allReviews, reviewsFilter, reviewsSearchFilter]);
+  }, [allReviews, reviewsFilter, reviewsSearchFilter, visibleCount]);
 
   const handleMoreReviews = () => {
     setVisibleReviews(visibleReviews.concat(nonVisibleReviews.slice(0, 2)));
     setNonVisibleReviews(nonVisibleReviews.slice(2));
+    setVisibleCount(visibleCount + 2);
   };
 
   return (
@@ -60,7 +62,7 @@ function ReviewsList({
       </div>
       {nonVisibleReviews.length > 0
         ? (
-          <button type="button" name="more-reviews" onClick={handleMoreReviews}>
+          <button type="button" className={styles.moreReviews} name="more-reviews" onClick={handleMoreReviews}>
             MORE REVIEWS
           </button>
         ) : null}

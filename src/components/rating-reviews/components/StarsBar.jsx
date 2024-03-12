@@ -20,7 +20,7 @@ function StarsBar({
     const newFilter = [...reviewsFilter];
     if (ratingFilterSelected) {
       newFilter.splice(newFilter.indexOf(numStars), 1);
-      setReviewsFilterClass('styles.reviewsFilter');
+      setReviewsFilterClass(styles.reviewsFilter);
     } else {
       newFilter.push(numStars);
       setReviewsFilterClass(`${styles.reviewsFilter} ${styles.reviewsFilterSelected}`);
@@ -32,7 +32,7 @@ function StarsBar({
   // Create the bar element, once metaResults are available
   let barElement = (
     <>
-      <span name="num-stars" style={{ width: '15%', float: 'left' }}>
+      <span name="num-stars" className={styles.numStars}>
         {`${numStars} stars`}
       </span>
       <span name="stars-bar-loading">
@@ -46,7 +46,7 @@ function StarsBar({
     const ratingCount = allMetaData.ratings[numStars] ? allMetaData.ratings[numStars] : 0;
     barElement = (
       <>
-        <span className="num-stars" name="num-stars" style={{ width: '15%', float: 'left' }}>
+        <span className={styles.numStars} name="num-stars">
           {`${numStars} stars`}
         </span>
         <span
@@ -57,11 +57,11 @@ function StarsBar({
             className={styles.starsBarFilled}
             name="stars-bar"
             style={{
-              width: `${(ratingCount / totalReviews) * 22}%`,
+              width: `${(ratingCount / totalReviews) * 25}%`,
             }}
           />
         </span>
-        <span name="count-stars" style={{ width: '15%', float: 'right' }}>
+        <span name="count-stars" className={styles.countStars}>
           {ratingCount}
         </span>
       </>

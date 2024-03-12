@@ -4,10 +4,16 @@
   cursor: pointer;
 }
 
+.reviewsFilter {
+  display: flex;
+  align-items: center;
+  padding: 0.2em;
+  margin-bottom: 0.5em;
+}
+
 .reviewsFilterSelected {
   border: 1px solid #004346;
-  border-radius: 5%;
-  margin: 1px;
+  border-radius: 3px;
 }
 
 .reviewsFilter:hover {
@@ -15,7 +21,7 @@
 }
 
 .starsBar {
-  width: 66%;
+  width: 75%;
   height: 0.5em;
   display: inline-block;
   vertical-align: middle;
@@ -30,7 +36,16 @@
   vertical-align: middle;
 }
 
-.reviewsFilter {
-  display: flex;
-  align-items: center;
+.numStars {
+  padding-right: 0.25em;
+  text-decoration: underline;
+  width: 20%;
+  float: left;
+}
+
+.countStars {
+  padding-left: 2%;
+  font-size: small;
+  width: 10%;
+  float: right;
 }

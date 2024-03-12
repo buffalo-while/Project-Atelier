@@ -10,16 +10,26 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 100%;
+  width: 95%;
+}
+
+.ratingCharDesc p {
+  font-size: small;
+  margin: 0;
+  margin-top: 0.7em
+
 }
 
 .ratingProdBar {
-  width: 90%;
+  width: 95%;
   height: 0.5em;
   display: inline-block;
   vertical-align: middle;
   background-color: #E6ECEC;
   margin-top: 0.5em;
-  margin-left: 5%;
   margin-right: 5%;
+}
+
+.charTitle {
+  margin-bottom: 0;
 }
