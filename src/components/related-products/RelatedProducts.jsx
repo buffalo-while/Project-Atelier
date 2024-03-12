@@ -15,21 +15,28 @@ function RelatedProducts({ productId, setProductId }) {
 
   const populateRelatedProductData = async () => {
     const relatedProductIDs = await getRelatedProducts(productId);
-    const uniqueRelatedProductIds = relatedProductIDs.data.filter((value, index, array) => array.indexOf(value) === index);
-    const uniqueRelatedProducts = await Promise.all(uniqueRelatedProductIds.map((id) => getProduct(id)));
-    // console.log(uniqueRelatedProducts,'test')
-    setRelatedProducts(uniqueRelatedProducts.map((uniqueRelatedProduct) => uniqueRelatedProduct.data));
-    // console.log(uniqueRelatedProducts.map((uniqueRelatedProduct) => uniqueRelatedProduct.data),'set related products')
+    const uniqueRelatedProductIds = relatedProductIDs.data.filter(
+      (value, index, array) => array.indexOf(value) === index,
+    );
+    const uniqueRelatedProducts = await Promise.all(uniqueRelatedProductIds.map(
+      (id) => getProduct(id),
+    ));
+    setRelatedProducts(uniqueRelatedProducts.map(
+      (uniqueRelatedProduct) => uniqueRelatedProduct.data,
+    ));
   };
 
   const populateRelatedStylesData = async () => {
     const relatedProductIDs = await getRelatedProducts(productId);
-    const uniqueRelatedProductIds = relatedProductIDs.data.filter((value, index, array) => array.indexOf(value) === index);
-    const defaultStyles = await Promise.all(uniqueRelatedProductIds.map((id) => getProductStyles(id)));
-    // // console.log(defaultStyles, 'styles');
-    setRelatedProductsStyles(defaultStyles.map((defaultStyle) => defaultStyle.data.results[0].photos[0].thumbnail_url));
-    // console.log(defaultStyles.map((defaultStyle) => defaultStyle.data), 'set styles.data')
-    //  console.log(defaultStyles.map((defaultStyle) => defaultStyle.data.results), 'set styles.result')
+    const uniqueRelatedProductIds = relatedProductIDs.data.filter(
+      (value, index, array) => array.indexOf(value) === index,
+    );
+    const defaultStyles = await Promise.all(uniqueRelatedProductIds.map(
+      (id) => getProductStyles(id),
+    ));
+    setRelatedProductsStyles(defaultStyles.map(
+      (defaultStyle) => defaultStyle.data.results[0].photos[0].thumbnail_url,
+    ));
   };
 
   useEffect(() => {

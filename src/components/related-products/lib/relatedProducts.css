@@ -82,6 +82,17 @@
   right: 5px;
   cursor: pointer;
 }
-/* .image-card{
 
-} */
+.carousel-container {
+  overflow: hidden;
+  flex-grow: 1;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel-button {
+  border: 1px solid;
+}
