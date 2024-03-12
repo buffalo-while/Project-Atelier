@@ -139,3 +139,14 @@ dialog.write-review-portal {
   max-width: 15%;
   margin: 5px;
 }
+/*
+them testing */
+#light {
+  background-color: #FFFFFF;
+  color: black;
+}
+
+#dark {
+  background-color: #000000;
+  color: white;
+}

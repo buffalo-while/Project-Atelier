@@ -1,0 +1,24 @@
+.questionModal {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 50%;
+  transform: translate(0%, -50%);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 60%;
+  height: 60%;
+  overflow: auto;
+}
+
+.questionModalCloseButton {
+  width: 5%;
+}
+
+/* .modalChildren {
+  color: blue;
+  font-size: 30px;
+} */

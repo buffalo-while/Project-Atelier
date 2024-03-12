@@ -3,7 +3,7 @@ import axios from 'axios';
 import AddQuestionModal from './AddQuestionModal.jsx';
 import styles from './styles/AddQuestion.module.css';
 
-function AddQuestion({ productId }) {
+function AddQuestion({ productId, productName }) {
   const [productName, setProductName] = useState('');
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [askQuestion, setAskQuestion] = useState('');
@@ -11,6 +11,7 @@ function AddQuestion({ productId }) {
   const [email, setEmail] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
+  // passing this down from main to avoid an API call. I don't think it's necessary?
   useEffect(() => {
     axios.get(`/api/products/${productId}`)
       .then((response) => {
@@ -61,6 +62,8 @@ function AddQuestion({ productId }) {
     const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return pattern.test(email);
   };
+
+
 
   return (
     <div>
