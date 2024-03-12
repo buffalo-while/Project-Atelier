@@ -57,7 +57,7 @@ function Answer({ answer }) {
   };
 
   return (
-    <div className={styles.answerContainer}>
+    <div data-testid="answer-container" className={styles.answerContainer}>
       <div className={styles.answerBody}>
         <span className={styles.answerTitle}>A:</span>
         {' '}
@@ -77,12 +77,12 @@ function Answer({ answer }) {
           <button onClick={handleHelpfulVote}>Yes</button>
           {' '}
           ({helpfulCount})
-          </span>
-          |
-          <button className={styles.reportedButton} onClick={handleReportedAnswer}>
-            {reported ? 'Reported' : 'Report'}
-            {' '}
-          </button>
+        </span>
+        |
+        <button className={styles.reportedButton} onClick={handleReportedAnswer}>
+          {reported ? 'Reported' : 'Report'}
+          {' '}
+        </button>
       </div>
     </div>
   );

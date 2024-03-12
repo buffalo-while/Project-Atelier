@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import StarsBars from './StarsBars.jsx';
+import styles from '../styles/RatingBreakdown.module.css';
 
 function RatingBreakdown({
   productId, getRatings, metaResults, setMetaResults, reviewsFilter, setReviewsFilter,
@@ -20,12 +21,12 @@ function RatingBreakdown({
     percentRecommend = Math.round((recommend / (recommend + notRecommend)) * 100);
   }
   return (
-    <aside className="rating-breakdown">
-      <header className="rating-summary" name="rating-summary">
-        <span className="ave-rating" name="ave-rating">{metaResults.meanRating}</span>
-        {metaResults.RatingStars}
+    <aside>
+      <header name="rating-summary">
+        <span className={styles.aveRating} name="ave-rating">{metaResults.meanRating}</span>
+        <span className={styles.ratingStars}>{metaResults.RatingStars}</span>
       </header>
-      <section className="rating-breakdown" name="rating-breakdown">
+      <section name="rating-breakdown">
         <StarsBars
           metaResults={metaResults}
           reviewsFilter={reviewsFilter}

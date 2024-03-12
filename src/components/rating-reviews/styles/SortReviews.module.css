@@ -1,0 +1,17 @@
+.sortReviews {
+  margin-bottom: 0.5em;
+  font-weight: bold;
+}
+
+.sortReviewsCriteria {
+  border: none;
+  text-decoration: underline;
+  font-size: inherit;
+  padding-left: none;
+  font-weight: inherit;
+  color: inherit;
+  background-color: inherit;
+}
+
+
+

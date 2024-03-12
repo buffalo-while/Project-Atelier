@@ -3,9 +3,9 @@ import axios from 'axios';
 import AddAnswerModal from './AddAnswerModal.jsx';
 import styles from './styles/AddAnswerButton.module.css';
 
-function AddAnswer({ question, productId }) {
+function AddAnswer({ question, productName }) {
   const [isOpenModal, setIsOpenModal] = useState(false);
-  const [productName, setProductName] = useState('');
+  // const [productName, setProductName] = useState('');
   const [yourAnswer, setYourAnswer] = useState('');
   const [nickName, setNickName] = useState('');
   const [email, setEmail] = useState('');
@@ -13,16 +13,17 @@ function AddAnswer({ question, productId }) {
   const [remainingPhotos, setRemainingPhotos] = useState(5);
   const [errorMessage, setErrorMessage] = useState('');
 
-  useEffect(() => {
-    axios.get(`/api/products/${productId}`)
-      .then((response) => {
-        // console.log("response data name", response.data.name);
-        setProductName(response.data.name);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, [productId]);
+  // passing this down from main to avoid an API call. I don't think it's necessary?
+  // useEffect(() => {
+  //   axios.get(`/api/products/${productId}`)
+  //     .then((response) => {
+  //       // console.log("response data name", response.data.name);
+  //       setProductName(response.data.name);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }, [productId]);
 
   const openModal = () => {
     setIsOpenModal(true);
@@ -89,13 +90,13 @@ function AddAnswer({ question, productId }) {
   };
 
   return (
-    <div>
+    <div data-testid="add-answer-modal">
       <button className={styles.addAnswerButton} onClick={openModal}>Add Answer</button>
       <AddAnswerModal isOpen={isOpenModal} onClose={closeModal} questionBody={question.question_body} productName={productName}>
         <form onSubmit={(e) => handleAnswerSubmit(yourAnswer, nickName, email, photos)}>
           <label htmlFor="answer-modal-answer">
             Your Answer:
-            <span>*</span>
+            <span className={styles.asterisk}>*</span>
           </label>
           <textarea
             cols="48"
@@ -109,7 +110,7 @@ function AddAnswer({ question, productId }) {
 
           <label htmlFor="answer-modal-nickname">
             What is your nickname:
-            <span>*</span>
+            <span className={styles.asterisk}>*</span>
           </label>
           <input
             onChange={(e) => setNickName(e.target.value)}
@@ -124,7 +125,7 @@ function AddAnswer({ question, productId }) {
 
           <label htmlFor="answer-modal-email">
             Your email:
-            <span>*</span>
+            <span className={styles.asterisk}>*</span>
           </label>
           <input
             onChange={(e) => setEmail(e.target.value)}

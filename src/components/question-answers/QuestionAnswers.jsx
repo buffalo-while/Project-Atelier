@@ -6,7 +6,7 @@ import MoreAnsweredQuestions from './MoreAnsweredQuestions.jsx';
 import AddQuestion from './AddQuestion.jsx';
 import styles from './styles/QuestionAnswers.module.css';
 
-function QuestionAnswers({ productId }) {
+function QuestionAnswers({ productId, productName }) {
   const [questionList, setQuestionList] = useState([]);
   const [filteredQuestionList, setFilteredQuestionList] = useState([]);
   const [visibleQuestions, setVisibleQuestions] = useState(4);
@@ -45,25 +45,27 @@ function QuestionAnswers({ productId }) {
   };
 
   return (
-    <div>
+    <div data-testid="qna-container">
       <h4 className={styles.qnaHeader}>QUESTIONS & ANSWERS</h4>
       <SearchQuestion handleSearchQuestion={handleSearchQuestion} />
-      {questionList.length > 0  ?
-        <div>
-          {filteredQuestionList.length !== 0
-            ? filteredQuestionList.slice(0, visibleQuestions).map((question) => (
-              <Question key={question.question_id} question={question} productId={productId} />
-            ))
-            : questionList.slice(0, visibleQuestions).map((question) => (
-              <Question key={question.question_id} question={question} productId={productId} />
-            ))}
+      {questionList.length > 0
+        ? (
+          <div className={styles.qnaContainer}>
+            {filteredQuestionList.length !== 0
+              ? filteredQuestionList.slice(0, visibleQuestions).map((question) => (
+                <Question key={question.question_id} question={question} productId={productId} productName={productName} />
+              ))
+              : questionList.slice(0, visibleQuestions).map((question) => (
+                <Question key={question.question_id} question={question} productId={productId} productName={productName} />
+              ))}
             <div className={styles.qnaButtons}>
-          {remainingQuestions > 2 ? <MoreAnsweredQuestions handleLoadingMore={handleLoadingMore} /> : null}
-          <AddQuestion productId={productId} />
+              {remainingQuestions > 2 ? <MoreAnsweredQuestions handleLoadingMore={handleLoadingMore} /> : null}
+              <AddQuestion productId={productId} />
+            </div>
+            {/* // <MoreAnsweredQuestions handleLoadingMore={handleLoadingMore} /> */}
           </div>
-          {/* // <MoreAnsweredQuestions handleLoadingMore={handleLoadingMore} /> */}
-          </div>
-      : <AddQuestion productId={productId} />}
+        )
+        : <AddQuestion productId={productId} productName={productName} />}
     </div>
   );
 }

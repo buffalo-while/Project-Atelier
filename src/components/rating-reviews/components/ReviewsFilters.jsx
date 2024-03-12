@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from '../styles/ReviewsFilters.module.css';
 
 function ReviewsFilters({ reviewsFilter, setReviewsFilter, setClearFilters }) {
   if (reviewsFilter.length === 0) {
@@ -18,19 +19,17 @@ function ReviewsFilters({ reviewsFilter, setReviewsFilter, setClearFilters }) {
     setClearFilters(true);
   };
   return (
-    <p>
+    <p className={styles.filtersApplied}>
       Filters currently applied:
       {filtersApplied()}
-      <span
+      <button
         name="remove-filters"
-        className="remove-filters"
-        role="button"
+        type="button"
+        className={styles.removeFilters}
         onClick={handleRemoveFiltersClick}
-        onKeyPress={handleRemoveFiltersClick}
-        tabIndex={0}
       >
-        Remove all filters
-      </span>
+        remove all filters
+      </button>
     </p>
   );
 }

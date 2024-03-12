@@ -21,7 +21,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  background-color: ##007bff;
+  background-color: #007bff;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
@@ -42,100 +42,16 @@ body {
 
 /* Component CSS classes */
 
-/* Rating and Reviews Module */
-
-.r-and-r {
-  max-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
+/*
+theme testing */
+#light {
+  background-color: #FFFFFF;
+  color: black;
+  border-color: black;
 }
 
-/* StarsBars/Filter component */
-
-.remove-filters {
-  color: #551A8B;
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-.reviews-filter-selected {
-  border: 1px solid #004346;
-  border-radius: 5%;
-  margin: 1px;
-}
-
-.reviews-filter-hover {
-  background-color: #99B4B5;
-}
-
-/* ReviewList component */
-.reviews-list {
-  overflow-y: auto;
-}
-
-/* ReviewTile component */
-
-p.review-summary::first-line {
-  font-weight: bold;
-}
-
-button.review-image-expand {
-  border: none;
-  cursor: pointer;
-  appearance: none;
-  background-color: inherit;
-}
-
-dialog.expanded-rating-photo {
-  position: fixed;
-  top: 50%;
-  transform: translate(0%, -50%);
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  width: 75%;
-  height: 75%;
-}
-
-.review-image-full {
-  max-height: 80%;
-  max-width: 80%;
-  object-fit: contain;
-}
-
-/* WriteReviewModal component */
-dialog.write-review-portal {
-  position: fixed;
-  top: 50%;
-  transform: translate(0%, -50%);
-  z-index: 1;
-  width: 85%;
-  height: 85%;
-  overflow: auto;
-}
-
-/* WriteReviewStars component */
-.star-rating-radio {
-  display: none;
-}
-
-.write-review-star {
-  cursor: pointer;
-  width: 1em;
-  height: 1em;
-}
-
-.write-review-portal input {
-  width: auto;
-}
-
-/* WriteReviewPhotos component */
-.review-thumbnail {
-  max-height: 15%;
-  object-fit: contain;
-  max-width: 15%;
-  margin: 5px;
+#dark {
+  background-color: #000000;
+  color: white;
+  border-color: white;
 }

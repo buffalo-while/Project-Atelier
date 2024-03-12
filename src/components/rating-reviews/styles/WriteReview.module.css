@@ -1,0 +1,11 @@
+.writeReviewOpen {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  border: solid 1px;
+  font-weight: bold;
+  font-size: large;
+  padding: 1em;
+  margin: 0.25em;
+}
