@@ -41,3 +41,15 @@ body {
 }
 
 /* Component CSS classes */
+
+/*
+theme testing */
+#light {
+  background-color: #FFFFFF;
+  color: black;
+}
+
+#dark {
+  background-color: #000000;
+  color: white;
+}
