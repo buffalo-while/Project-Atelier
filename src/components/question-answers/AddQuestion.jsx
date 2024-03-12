@@ -3,7 +3,7 @@ import axios from 'axios';
 import AddQuestionModal from './AddQuestionModal.jsx';
 import styles from './styles/AddQuestion.module.css';
 
-function AddQuestion({ productId, productName }) {
+function AddQuestion({ productId }) {
   const [productName, setProductName] = useState('');
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [askQuestion, setAskQuestion] = useState('');
