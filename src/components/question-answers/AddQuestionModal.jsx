@@ -16,10 +16,9 @@ function AddQuestionModal({
         {productName}
       </p>
       <div>{children}</div>
-      <button class={styles.questionModalCloseButton} type="submit" onClick={onClose}>Close</button>
+      <button className={styles.questionModalCloseButton} type="submit" onClick={onClose}>Close</button>
     </dialog>
   );
-
 
   return isOpen ? ReactDOM.createPortal(modalContent, modalRoot) : null;
 }

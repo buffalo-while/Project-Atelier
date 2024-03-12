@@ -63,8 +63,6 @@ function AddQuestion({ productId }) {
     return pattern.test(email);
   };
 
-
-
   return (
     <div>
       <button className={styles.addQuestionButton} onClick={openModal}>ADD A QUESTION +</button>
