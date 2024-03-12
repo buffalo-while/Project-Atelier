@@ -8,8 +8,9 @@
   padding: 0;
   cursor: pointer;
   border: solid 1px;
+  color: inherit;
   font-weight: bold;
-  font-size: large;
+  font-size: inherit;
   padding: 1em;
   margin: 0.25em;
 }
