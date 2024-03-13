@@ -150,9 +150,9 @@ function WriteReviewModal({
           </label>
           <p>For authentication reasons, you will not be emailed</p>
         </div>
-        <button type="submit">Submit review</button>
-        <button type="button" onClick={onClose}>Cancel</button>
-        {errorMessage.length > 0 ? <p>{errorMessage}</p> : null}
+        <button data-testid="writeReviewSubmit" type="submit">Submit review</button>
+        <button data-testid="writeReviewCancel" type="button" onClick={onClose}>Cancel</button>
+        {errorMessage.length > 0 ? <p data-testid="writeReviewError">{errorMessage}</p> : null}
       </form>
     </dialog>
   );

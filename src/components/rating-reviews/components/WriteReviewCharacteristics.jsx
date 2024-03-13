@@ -29,6 +29,7 @@ function WriteReviewCharacteristics({ metaResults, characteristics, setCharacter
                     type="radio"
                     name={`${char}-rating-radio`}
                     id={`${char}${currCharRating}`}
+                    data-testid={`${char}${currCharRating}`}
                     value={currCharRating}
                     onChange={() => {
                       const newChars = { ...characteristics };
