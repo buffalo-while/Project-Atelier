@@ -74,7 +74,8 @@ function WriteReviewModal({
         {' '}
         <WriteReviewStars rating={rating} setRating={setRating} />
         <div>
-          Do you recommend this product? (mandatory)
+          Do you recommend this product?
+          <span className={styles.reviewAsterisk}>*</span>
           {' '}
           <label htmlFor="recommend-yes">
             Yes
@@ -93,6 +94,7 @@ function WriteReviewModal({
         <div>
           <label htmlFor="review-summary">
             Review summary
+            <span className={styles.reviewAsterisk}>*</span>
             {' '}
             <input
               type="text"
@@ -106,7 +108,8 @@ function WriteReviewModal({
         </div>
         <div>
           <label htmlFor="review-body">
-            Review body (mandatory)
+            Review body
+            <span className={styles.reviewAsterisk}>*</span>
             {' '}
             <textarea
               rows="5"
@@ -122,7 +125,8 @@ function WriteReviewModal({
         <WriteReviewPhotos photos={photos} setPhotos={setPhotos} />
         <div>
           <label htmlFor="review-nickname">
-            What is your nickname (mandatory)
+            What is your nickname
+            <span className={styles.reviewAsterisk}>*</span>
             {' '}
             <input
               type="text"
@@ -137,7 +141,8 @@ function WriteReviewModal({
         </div>
         <div>
           <label htmlFor="review-email">
-            Your email (mandatory)
+            Your email
+            <span className={styles.reviewAsterisk}>*</span>
             {' '}
             <input
               type="text"
