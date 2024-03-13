@@ -5,7 +5,7 @@ function ReviewsSearch({ reviewsSearchFilter, setReviewsSearchFilter }) {
     setReviewsSearchFilter(e.target.value);
   };
   return (
-    <search>
+    <div>
       <input
         type="search"
         name="reviews-search-query"
@@ -14,7 +14,7 @@ function ReviewsSearch({ reviewsSearchFilter, setReviewsSearchFilter }) {
         placeholder="Search reviews..."
         onChange={handleReviewsSearchChange}
       />
-    </search>
+    </div>
   );
 }
 

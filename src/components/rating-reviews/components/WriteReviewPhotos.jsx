@@ -30,6 +30,7 @@ function WriteReviewPhotos({ photos, setPhotos }) {
         <input
           type="file"
           id="review-photos"
+          data-testid="review-photos"
           name="review-photos"
           accept="image/*"
           onChange={handlePhotoUpload}
