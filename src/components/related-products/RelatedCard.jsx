@@ -20,8 +20,8 @@ function RelatedCard({
     >
       <div className="image-card">
         <img
-          height="100"
-          width="100"
+          height="300"
+          width="300"
           src={style.photos[0].thumbnail_url ? style.photos[0].thumbnail_url : 'https://tracerproducts.com/wp-content/uploads/2019/12/Product-Image-Coming-Soon.jpg'}
           alt={product.name}
         />
@@ -36,7 +36,6 @@ function RelatedCard({
         >
           {actionButton}
         </button>
-        {/* <ImageGallery productId={product}/> */}
       </div>
       <p>
         Generate Product #

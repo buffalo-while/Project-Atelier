@@ -34,7 +34,7 @@ function RelatedList({
           {products.map((product, key) => (
             <div key={product.id} className="carousel-item">
               {product.id === -1 ? (
-                <button type="button" className="add-to-outfit-button" onClick={addToOutfit} style={{ width: '262px', minHeight: '396px' }} key={product.id}>
+                <button type="button" className="add-to-outfit-button" onClick={addToOutfit} style={{ width: '200px', minHeight: '400px' }} key={product.id}>
                   +
                   <br />
                   Add to Outfit

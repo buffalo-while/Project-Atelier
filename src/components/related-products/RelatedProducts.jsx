@@ -9,6 +9,14 @@ import getRatings from '../rating-reviews/controllers/getRatings.jsx';
 function RelatedProducts({ productId, setProductId }) {
   const [currentProductInfo, setProductInfo] = useState({});
 
+  useEffect(() => {
+    const getInfo = async () => {
+      const meta = await getProduct(productId);
+      setProductInfo(meta.data);
+    };
+    getInfo();
+  }, [productId]);
+
   const [relatedProducts, setRelatedProducts] = useState([]);
   const [relatedProductsStyles, setRelatedProductsStyles] = useState([]);
   const [relatedProductRatings, setRelatedProductRatings] = useState([]);
@@ -24,11 +32,17 @@ function RelatedProducts({ productId, setProductId }) {
   useEffect(() => {
     const getRelatedProductData = async () => {
       const relatedProductsIds = await getRelatedProducts(productId);
-      const uniqueRelatedProductIds = relatedProductsIds.data.filter((value, index, array) => array.indexOf(value) === index);
-      const uniqueRelatedProducts = await Promise.all(uniqueRelatedProductIds.map((id) => getProduct(id)));
+      const uniqueRelatedProductIds = relatedProductsIds.data.filter(
+        (value, index, array) => array.indexOf(value) === index,
+      );
+      const uniqueRelatedProducts = await Promise.all(uniqueRelatedProductIds.map(
+        (id) => getProduct(id),
+      ));
       const defaultStyles = await getProductsStyles(uniqueRelatedProductIds);
       const ratings = await getRatings(uniqueRelatedProductIds);
-      setRelatedProducts(uniqueRelatedProducts.map((uniqueRelatedProduct) => uniqueRelatedProduct.data));
+      setRelatedProducts(uniqueRelatedProducts.map(
+        (uniqueRelatedProduct) => uniqueRelatedProduct.data,
+      ));
       setRelatedProductsStyles(defaultStyles);
       setRelatedProductRatings(ratings);
     };
@@ -51,7 +65,9 @@ function RelatedProducts({ productId, setProductId }) {
       const defaultStyles = await getProductsStyles(outfitFromCookie);
       const ratings = await getRatings(outfitFromCookie);
       setOutfitProductIds([-1].concat(outfitFromCookie));
-      setOutfitProducts([{ id: -1 }].concat(outfitProductsData.map((uniqueRelatedProduct) => uniqueRelatedProduct.data)));
+      setOutfitProducts([{ id: -1 }].concat(outfitProductsData.map(
+        (uniqueRelatedProduct) => uniqueRelatedProduct.data,
+      )));
       setOutfitProductsStyles([null].concat(defaultStyles));
       setOutfitRatings([null].concat(ratings));
     };
@@ -75,8 +91,10 @@ function RelatedProducts({ productId, setProductId }) {
 
   const removeFromOutfitHandler = useCallback((product) => {
     const indexToRemove = outfitProductIds.findIndex((productKey) => productKey === product.id);
-    const outfitString = JSON.stringify(outfitProductIds.filter((val, index) => index !== indexToRemove).slice(1));
-    document.cookie = `outfit=${outfitString}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+    const outfitString = JSON.stringify(outfitProductIds.filter(
+      (val, index) => index !== indexToRemove,
+    ).slice(1));
+    document.cookie = `outfit=${outfitString} path=/`;
     setOutfitProductIds(outfitProductIds.filter((val, index) => index !== indexToRemove));
     setOutfitProducts(outfitProducts.filter((val, index) => index !== indexToRemove));
     setOutfitProductsStyles(outfitProductsStyles.filter((val, index) => index !== indexToRemove));
@@ -109,7 +127,7 @@ function RelatedProducts({ productId, setProductId }) {
         && (
           <CompareModal>
             <RelatedComparison
-              product={productId}
+              product={currentProductInfo}
               comparedProduct={comparedProduct}
               setComparisonModal={setComparisonModal}
             />
