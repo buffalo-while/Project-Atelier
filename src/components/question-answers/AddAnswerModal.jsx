@@ -6,7 +6,6 @@ function AddAnswerModal({
   isOpen, onClose, children, questionBody, productName,
 }) {
   const modalRoot = document.getElementById('modal');
-  // need productNAME AND QUESTION BODY
 
   const modalContent = (
     <dialog open className={styles.answerModal}>

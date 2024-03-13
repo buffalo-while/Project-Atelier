@@ -5,25 +5,12 @@ import styles from './styles/AddAnswerButton.module.css';
 
 function AddAnswer({ question, productName }) {
   const [isOpenModal, setIsOpenModal] = useState(false);
-  // const [productName, setProductName] = useState('');
   const [yourAnswer, setYourAnswer] = useState('');
   const [nickName, setNickName] = useState('');
   const [email, setEmail] = useState('');
   const [photos, setPhotos] = useState([]);
   const [remainingPhotos, setRemainingPhotos] = useState(5);
   const [errorMessage, setErrorMessage] = useState('');
-
-  // passing this down from main to avoid an API call. I don't think it's necessary?
-  // useEffect(() => {
-  //   axios.get(`/api/products/${productId}`)
-  //     .then((response) => {
-  //       // console.log("response data name", response.data.name);
-  //       setProductName(response.data.name);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }, [productId]);
 
   const openModal = () => {
     setIsOpenModal(true);
@@ -42,7 +29,6 @@ function AddAnswer({ question, productName }) {
   const handlePhotoUpload = (e) => {
     const newPhotos = [...photos];
     const file = e.target.files[0];
-    // console.log('file type:', file.type);
 
     if (file && remainingPhotos > 0) {
       const photoURL = URL.createObjectURL(file);
@@ -91,7 +77,7 @@ function AddAnswer({ question, productName }) {
 
   return (
     <div data-testid="add-answer-modal">
-      <button className={styles.addAnswerButton} onClick={openModal}>Add Answer</button>
+      <button type="button" className={styles.addAnswerButton} onClick={openModal}>Add Answer</button>
       <AddAnswerModal isOpen={isOpenModal} onClose={closeModal} questionBody={question.question_body} productName={productName}>
         <form onSubmit={(e) => handleAnswerSubmit(yourAnswer, nickName, email, photos)}>
           <label htmlFor="answer-modal-answer">
@@ -158,9 +144,16 @@ function AddAnswer({ question, productName }) {
               </div>
             ))}
           </div>
-
           <button type="submit">Submit Answer</button>
-
+          {errorMessage
+            && (
+            <div>
+              <p>
+                You must enter the following:
+                {errorMessage}
+              </p>
+            </div>
+            )}
         </form>
       </AddAnswerModal>
     </div>
