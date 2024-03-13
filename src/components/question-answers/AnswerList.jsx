@@ -16,7 +16,6 @@ function AnswerList({ questionId }) {
     axios.get(`/api/qa/questions/${questionId}/answers`)
       .then(((response) => {
         setAnswerList(response.data.results.sort((a, b) => b.helpfulness - a.helpfulness));
-      // console.log("response data inside answerList", response.data.results);
       }))
       .catch((err) => {
         console.log('error inside answer useEffect', err);
@@ -33,7 +32,6 @@ function AnswerList({ questionId }) {
         <Answer key={answer.answer_id} answer={answer} />
       ))}
       {remainingAnswers > 0 ? <button className={styles.answerListButton} onClick={loadMoreAnswers}>LOAD MORE ANSWERS</button> : null}
-      {/* <button onClick={loadMoreAnswers}>See more answers</button> */}
     </div>
   );
 }

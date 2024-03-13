@@ -54,4 +54,10 @@ theme testing */
   background-color: #000000;
   color: white;
   border-color: white;
+
+}
+#dark button {
+  background-color: #000000;
+  color: white;
+
 }
