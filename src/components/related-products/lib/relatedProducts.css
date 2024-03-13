@@ -95,3 +95,9 @@
 .carousel-button {
   border: 1px solid;
 }
+
+.carousel-item {
+  flex: 0 0 25%;
+  box-sizing: border-box;
+  padding: 0 8px;
+}

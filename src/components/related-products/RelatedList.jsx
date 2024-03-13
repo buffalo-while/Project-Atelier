@@ -1,50 +1,51 @@
-import React, { useState, useEffect } from 'react';
-import RelatedCard from './RelatedCard.jsx';
-import './lib/relatedProducts.css';
+import React, { useState, useEffect } from "react";
+import RelatedCard from "./RelatedCard.jsx";
+import "./lib/relatedProducts.css";
 
 function RelatedList({
-  relatedProducts, relatedProductStyles, relatedCardClickHandler, actionButtonHandler, isYourOutfit,
+  products, styles, ratings, relatedCardClickHandler, actionButtonHandler, isYourOutfit, addToOutfit,
 }) {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
     setIndex(0);
-  }, [relatedProducts]);
+  }, [products]);
 
-  const relatedCardsShown = 3;
+  const relatedCardsShown = 4;
   const left = index > 0;
-  const right = index < relatedProducts.length - relatedCardsShown;
+  const right = index < products.length - relatedCardsShown;
 
   const leftClick = () => {
     setIndex((prevIndex) => Math.max(0, prevIndex - 1));
   };
   const rightClick = () => {
-    setIndex((prevIndex) => Math.min(relatedProducts.length - relatedCardsShown, prevIndex + 1));
+    setIndex((prevIndex) => Math.min(products.length - relatedCardsShown, prevIndex + 1));
   };
 
-  if (relatedProducts.length === 0) {
+  if (products.length === 0) {
     return <div />;
   }
 
   return (
-    <div className="related-products-container">
+    <div className="related-products">
       {left && <button type="button" className="carousel-button" onClick={leftClick}>{'<'}</button>}
       <div className="carousel-container">
         <div className="carousel-track" style={{ transform: `translateX(-${index * (100 / relatedCardsShown)}%)` }}>
-          {relatedProducts.map((product, key) => (
-            <div className="related-card" key={product.id}>
-              <RelatedCard
-                product={relatedProducts[key]}
-                style={relatedProductStyles[key]}
-                relatedCardClickHandler={relatedCardClickHandler}
-                actionButtonHandler={actionButtonHandler}
-                actionButton={isYourOutfit ? '❌' : '⭐'}
-              />
+          {products.map((product, key) => (
+            <div key={product.id} className="carousel-item">
+              {product.id === -1 ? (
+                <button type="button" className="add-to-outfit-button" onClick={addToOutfit} style={{ width: '262px', minHeight: '396px' }} key={product.id}>
+                  +
+                  <br />
+                  Add to Outfit
+                </button>
+
+              ) : (<RelatedCard product={products[key]} style={styles[key]} rating={ratings[key]} relatedCardClickHandler={relatedCardClickHandler} actionButtonHandler={actionButtonHandler} actionButton={isYourOutfit ? '❌' : '⭐'} />)}
             </div>
           ))}
         </div>
       </div>
-      {right && <button type="button" className="carousel-button" onClick={rightClick}>{'>'}</button>}
+      {right ? <button type="button" className="carousel-button" onClick={rightClick}>{'>'}</button> : <div />}
     </div>
   );
 }

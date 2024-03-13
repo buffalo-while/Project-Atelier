@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import compareFunction from './util/compareFunctions.js';
 import './lib/relatedProducts.css';
 
 export default function RelatedComparison({ product, comparedProduct, setComparisonModal }) {
   return (
     <div className="comparison-container">
-      <button type="button" aria-label="Close Comparison Modal" className="close-button" onClick={() => { setComparisonModal(false); }}>
+      <button type="button" aria-label="Close Comparison" className="close-button" onClick={() => { setComparisonModal(false); }}>
         X
       </button>
       <h5>Comparison</h5>
