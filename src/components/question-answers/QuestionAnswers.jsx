@@ -15,7 +15,7 @@ function QuestionAnswers({ productId, productName }) {
   useEffect(() => {
     axios.get(`/api/qa/questions/?product_id=${productId}&page=1&count=50`)
       .then((response) => {
-        console.log('response.data', response.data.results);
+        // console.log('response.data', response.data.results);
         setQuestionList(response.data.results.sort((a, b) => b.question_helpfulness - a.question_helpfulness));
       })
       .catch((err) => {
@@ -40,7 +40,7 @@ function QuestionAnswers({ productId, productName }) {
   };
 
   const handleLoadingMore = () => {
-    console.log('loading two more questons');
+    // console.log('loading two more questons');
     setVisibleQuestions(visibleQuestions + 2);
   };
 
