@@ -45,38 +45,45 @@ function AddToCart({ selectedStyleSkus }) {
 
   return (
     <div className={overviewStyles.addToCart}>
-      <select
-        onChange={handleSizeChange}
-        value={selectedSize}
-        disabled={!availableSizes.length}
-        className={overviewStyles.addToCartSelect}
-      >
-        <option value="">Select Size</option>
-        {availableSizes.map((size) => (
-          <option key={size.sku} value={size.size}>{size.size}</option>
-        ))}
-      </select>
+      <div className="cart1">
+        <select
+          onChange={handleSizeChange}
+          value={selectedSize}
+          aria-label="Add to cart"
+          disabled={!availableSizes.length}
+          className={overviewStyles.addToCartSelect}
+        >
+          <option value="">Select Size</option>
+          {availableSizes.map((size) => (
+            <option key={size.sku} value={size.size}>{size.size}</option>
+          ))}
+        </select>
 
-      <select
-        onChange={handleQuantityChange}
-        value={selectedQuantity}
-        disabled={!selectedSize}
-        className={overviewStyles.addToCartSelect}
-      >
-        <option value="">Qty</option>
-        {Array.from({ length: maxQuantity }, (_, i) => i + 1).map((qty) => (
-          <option key={qty} value={qty}>{qty}</option>
-        ))}
-      </select>
-
-      <button
-        type="submit"
-        onClick={postToCart}
-        className={overviewStyles.btnCart}
-        disabled={!selectedSize || maxQuantity === 0}
-      >
-        Add to Cart
-      </button>
+        <select
+          onChange={handleQuantityChange}
+          aria-label="Quantity"
+          value={selectedQuantity}
+          disabled={!selectedSize}
+          className={overviewStyles.addToCartSelect}
+        >
+          <option value="">Qty</option>
+          {Array.from({ length: maxQuantity }, (_, i) => i + 1).map((qty) => (
+            <option key={qty} value={qty}>{qty}</option>
+          ))}
+        </select>
+      </div>
+      <div className="cart2">
+        <button
+          type="submit"
+          aria-label="postToCart"
+          onClick={postToCart}
+          className={overviewStyles.btnCart}
+          disabled={!selectedSize || maxQuantity === 0}
+        >
+          Add to Cart      +
+        </button>
+        <StarButton className="starButton" />
+      </div>
     </div>
   );
 }
