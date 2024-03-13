@@ -6,11 +6,10 @@ function StarButton() {
 
   const toggleFill = () => {
     setIsFilled(!isFilled);
-    alert('Added to Favorites!');
   };
 
   return (
-    <button type="submit" onClick={toggleFill} style={{ background: 'transparent', border: 'none', cursor: 'pointer' }}>
+    <button id="favorite" aria-label="starButton" type="submit" onClick={toggleFill} style={{ background: 'transparent', border: '2px solid', cursor: 'pointer' }}>
       {isFilled ? <FaStar color="#f39c12" /> : <FaRegStar color="#f39c12" />}
     </button>
   );

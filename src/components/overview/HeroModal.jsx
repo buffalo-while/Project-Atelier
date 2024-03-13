@@ -17,12 +17,16 @@ function HeroModal({ heroImageUrl }) {
 
   return (
     <div className={overviewStyles.modalContainer}>
-      <FaExpandArrowsAlt onClick={toggleModal}
+      <FaExpandArrowsAlt
+        onClick={toggleModal}
         className={overviewStyles.arrowIcon}
         type="submit"/>
       {heroModal && (
       <div className={overviewStyles.heroModal}>
-        <div onClick={toggleModal} className={overviewStyles.overlay} />
+        <div
+          onClick={toggleModal}
+          className={overviewStyles.overlay}
+        />
         <div className={overviewStyles.modalContent}>
           {heroImageUrl ? <img src={heroImageUrl} alt="Hero" className={overviewStyles.heroImageModal} /> : <p>Loading...</p>}
           <FaExpandArrowsAlt onClick={toggleModal} className={overviewStyles.closeModal} />
