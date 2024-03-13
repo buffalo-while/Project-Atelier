@@ -3,6 +3,7 @@ import { StarIcon as SolidStar } from '@heroicons/react/24/solid';
 import { StarIcon as OutlineStar } from '@heroicons/react/24/outline';
 import { getReviewsMetaData } from '../models/reviewsModels';
 
+// Function to render stars correctly based on the mean (average) rating, adding a given CSS class
 const renderStars = (meanRating, cssClass) => {
   const solidStars = (n) => {
     let key = 0;
@@ -63,6 +64,8 @@ const renderStars = (meanRating, cssClass) => {
   );
 };
 
+// function returning a promise for an object containing rating stars element and other
+// reviews metadata that may be needed, for a given productId
 function getRatings(productId, cssClass) {
   return getReviewsMetaData(productId)
     .then((res) => {
