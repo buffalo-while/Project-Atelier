@@ -1,5 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import { render, renderIntoDocument, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, expect, test } from '@jest/globals';
 import '@testing-library/jest-dom';
 import React from 'react';

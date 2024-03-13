@@ -44,7 +44,7 @@ function WriteReviewStars({ rating, setRating }) {
   };
 
   return (
-    <p className="star-rating-fieldset">
+    <p>
       {'Overall rating (mandatory) '}
       {ratingStars}
       {' '}
