@@ -1,6 +1,6 @@
 import React from 'react';
 import compareFunction from './util/compareFunctions.js';
-import './lib/relatedProducts.css';
+import './lib/relatedComparison.css';
 
 export default function RelatedComparison({ product, comparedProduct, setComparisonModal }) {
   return (
@@ -8,7 +8,7 @@ export default function RelatedComparison({ product, comparedProduct, setCompari
       <button type="button" aria-label="Close Comparison" className="close-button" onClick={() => { setComparisonModal(false); }}>
         X
       </button>
-      <h5>Comparison</h5>
+      <h5>Clothing Comparison</h5>
       <table>
         <thead>
           <tr>

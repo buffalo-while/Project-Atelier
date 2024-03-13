@@ -13,6 +13,6 @@ export const getProductsStyles = async (productIds) => {
 };
 
 export function getOutfitFromCookie() {
-  const outfitCookie = document.cookie.replace(/(?:(?:^|.*;\s*)outfit\s*=\s*([^;]*).*$)|^.*$/, '$1');
+  const outfitCookie = document.cookie?.match(/(?:(?:^|.*;\s*)outfit\s*=\s*([^;]*).*$)|^.*$/)?.[1];
   return outfitCookie ? JSON.parse(outfitCookie) : [];
 }
