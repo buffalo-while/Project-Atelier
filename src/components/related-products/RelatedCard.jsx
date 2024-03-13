@@ -1,12 +1,9 @@
 import React from 'react';
 import './lib/relatedProducts.css';
-// import ImageGallery from '../overview/ImageGallery.jsx'
 
 function RelatedCard({
-  product, style, relatedCardClickHandler, actionButtonHandler, actionButton
+  product, style, rating, relatedCardClickHandler, actionButtonHandler, actionButton,
 }) {
-  // console.log(style,'cardStyles')
-  // console.log(product, 'productInfo')
   return (
     <div
       data-testid="related-card"
@@ -23,14 +20,14 @@ function RelatedCard({
     >
       <div className="image-card">
         <img
-          height="100"
-          width="100"
-          src={style ? style : 'https://tracerproducts.com/wp-content/uploads/2019/12/Product-Image-Coming-Soon.jpg'}
+          height="300"
+          width="300"
+          src={style.photos[0].thumbnail_url ? style.photos[0].thumbnail_url : 'https://tracerproducts.com/wp-content/uploads/2019/12/Product-Image-Coming-Soon.jpg'}
           alt={product.name}
         />
         <button
           type="button"
-          aria-label={actionButtonHandler === '⭐' ? 'Compare Products' : 'remove product'}
+          aria-label={actionButton === '⭐' ? 'Compare Products' : 'remove product'}
           className="actionButton"
           onClick={(e) => {
             e.stopPropagation();
@@ -39,7 +36,6 @@ function RelatedCard({
         >
           {actionButton}
         </button>
-        {/* <ImageGallery productId={product}/> */}
       </div>
       <p>
         Generate Product #
@@ -53,6 +49,7 @@ function RelatedCard({
         Category:
         {product.category}
         <br />
+        {rating}
         Slogan:
         {product.slogan}
       </p>
