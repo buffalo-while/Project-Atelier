@@ -37,13 +37,13 @@ function Question({ question, productId, productName }) {
   return (
     <div data-testid="question-container" className={styles.questionContainer}>
       <div className={styles.questionHeader}>
-        <span className={styles.questionBody}>
+        <span data-testid="question-body" className={styles.questionBody}>
           Q: {question.question_body}
         </span>
         <div className={styles.actionsContainer}>
           <span className={styles.questionHelpful}>
             Helpful?{' '}
-            <button onClick={handleHelpfulQuestion}>Yes</button> ({helpfulCount}){ ' | '}
+            <button type="button" onClick={handleHelpfulQuestion}>Yes</button> ({helpfulCount}){ ' | '}
           </span>
           <AddAnswer question={question} productId={productId} productName={productName} />
         </div>
