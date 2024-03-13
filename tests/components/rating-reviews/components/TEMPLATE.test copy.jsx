@@ -3,11 +3,11 @@ import { render } from '@testing-library/react';
 import { describe, expect, test } from '@jest/globals';
 import '@testing-library/jest-dom';
 import React from 'react';
-import RatingReviews from '../../../src/components/rating-reviews/RatingReviews.jsx';
+import TEMPLATE from '../../../../src/components/rating-reviews/components/TEMPLATE.jsx';
 
-describe('RatingReviews', () => {
-  const { container } = render(<RatingReviews productId="" productName="" />);
-  test('RatingReviews component should render onto the screen', () => {
-    expect(container.firstChild.id).toBe('r-and-r');
+describe('TEMPLATE', () => {
+  const { container } = render(<TEMPLATE productId="" productName="" />);
+  test('TEMPLATE component should render onto the screen', () => {
+    expect(container.firstChild.id).toBe('ADD SOMETHING APPROPRIATE HERE');
   });
 });

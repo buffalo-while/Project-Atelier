@@ -68,7 +68,7 @@ function ReviewTile({ review }) {
   );
 
   return (
-    <div role="listitem" name="review" className={styles.review}>
+    <div role="listitem" name="review" className={styles.review} data-testid="reviewItem">
       <header className={styles.reviewHeader}>
         <span name="rating-stars" value={review.rating}>
           {renderStars(review.rating)}

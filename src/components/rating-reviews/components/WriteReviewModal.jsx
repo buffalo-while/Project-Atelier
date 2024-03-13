@@ -78,11 +78,11 @@ function WriteReviewModal({
           {' '}
           <label htmlFor="recommend-yes">
             Yes
-            <input type="radio" id="recommend-yes" value="yes" name="recommend-radio" onChange={() => (setRecommend(true))} />
+            <input type="radio" id="recommend-yes" data-testid="recommend-yes" value="yes" name="recommend-radio" onChange={() => (setRecommend(true))} />
           </label>
           <label htmlFor="recommend-no">
             No
-            <input type="radio" id="recommend-no" value="no" name="recommend-radio" onChange={() => (setRecommend(false))} />
+            <input type="radio" id="recommend-no" data-testid="recommend-no" value="no" name="recommend-radio" onChange={() => (setRecommend(false))} />
           </label>
         </div>
         <WriteReviewCharacteristics

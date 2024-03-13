@@ -10,7 +10,7 @@ function RatingPhoto({ photo }) {
   };
   return (
     <>
-      <button type="button" className={styles.reviewImageExpand} name="review-image-expand" onClick={handleOpenPhotoPortal}>
+      <button type="button" className={styles.reviewImageExpand} name="review-image-expand" onClick={handleOpenPhotoPortal} data-testid="review-image-expand">
         <img
           src={photo.url}
           alt={`Provided by reviewer id ${photo.id}`}

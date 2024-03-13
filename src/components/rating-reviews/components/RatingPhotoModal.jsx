@@ -11,7 +11,7 @@ function RatingPhotoModal({ onClose, photo }) {
           className={styles.reviewImageFull}
           name="review-image-full"
         />
-        <button type="button" onClick={onClose}>Close</button>
+        <button type="button" onClick={onClose} data-testid="review-image-close">Close</button>
       </dialog>
       <div className={styles.ratingPhotoOverlay} />
     </>

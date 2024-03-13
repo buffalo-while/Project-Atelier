@@ -12,6 +12,7 @@ function WriteReviewStars({ rating, setRating }) {
           type="radio"
           name="star-rating-radio"
           id={`star${currRating}`}
+          data-testid={`star${currRating}`}
           value={currRating}
           onChange={() => setRating(currRating)}
           className={styles.starRatingRadio}
