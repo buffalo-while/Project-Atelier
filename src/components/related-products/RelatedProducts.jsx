@@ -7,15 +7,8 @@ import { getProduct, getRelatedProducts } from './util/relatedModels.js';
 import getRatings from '../rating-reviews/controllers/getRatings.jsx';
 
 function RelatedProducts({ productId, setProductId }) {
+  // UseStates
   const [currentProductInfo, setProductInfo] = useState({});
-
-  useEffect(() => {
-    const getInfo = async () => {
-      const meta = await getProduct(productId);
-      setProductInfo(meta.data);
-    };
-    getInfo();
-  }, [productId]);
 
   const [relatedProducts, setRelatedProducts] = useState([]);
   const [relatedProductsStyles, setRelatedProductsStyles] = useState([]);
@@ -28,6 +21,15 @@ function RelatedProducts({ productId, setProductId }) {
   const [outfitProductIds, setOutfitProductIds] = useState([]);
   const [outfitProductsStyles, setOutfitProductsStyles] = useState([]);
   const [outfitRatings, setOutfitRatings] = useState([]);
+
+  // UseEffects
+  useEffect(() => {
+    const getInfo = async () => {
+      const meta = await getProduct(productId);
+      setProductInfo(meta.data);
+    };
+    getInfo();
+  }, [productId]);
 
   useEffect(() => {
     const getRelatedProductData = async () => {
@@ -49,15 +51,6 @@ function RelatedProducts({ productId, setProductId }) {
     getRelatedProductData();
   }, [productId]);
 
-  const relatedCardClickHandler = useCallback((id) => {
-    setProductId(id);
-  }, []);
-
-  const actionButtonHandler = useCallback((product) => {
-    setComparedProduct(product);
-    setComparisonModal(true);
-  }, []);
-
   useEffect(() => {
     const outfitFromCookie = getOutfitFromCookie();
     const getOutfitData = async () => {
@@ -74,19 +67,25 @@ function RelatedProducts({ productId, setProductId }) {
     getOutfitData();
   }, []);
 
+  // Button Handlers
+  const relatedCardClickHandler = useCallback((id) => {
+    setProductId(id);
+  }, []);
+
+  const actionButtonHandler = useCallback((product) => {
+    setComparedProduct(product);
+    setComparisonModal(true);
+  }, []);
+
   const addToOutfitHandler = useCallback(async () => {
-    if (outfitProductIds.includes(productId)) {
-      console.log(`Product ID: ${productId} already in Your Outfit`);
-    } else {
-      const [defaultStyle] = await getProductsStyles([productId]);
-      const [rating] = await getRatings([productId]);
-      const outfitString = JSON.stringify([productId].concat(outfitProductIds.slice(1)));
-      document.cookie = `outfit=${outfitString}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
-      setOutfitProductIds([-1, productId].concat(outfitProductIds.slice(1)));
-      setOutfitProducts([{ id: -1 }, currentProductInfo].concat(outfitProducts.slice(1)));
-      setOutfitProductsStyles([null, defaultStyle].concat(outfitProductsStyles.slice(1)));
-      setOutfitRatings([null, rating].concat(outfitRatings.slice(1)));
-    }
+    const [defaultStyle] = await getProductsStyles([productId]);
+    const [rating] = await getRatings([productId]);
+    const outfitString = JSON.stringify([productId].concat(outfitProductIds.slice(1)));
+    document.cookie = `outfit=${outfitString} path=/`;
+    setOutfitProductIds([-1, productId].concat(outfitProductIds.slice(1)));
+    setOutfitProducts([{ id: -1 }, currentProductInfo].concat(outfitProducts.slice(1)));
+    setOutfitProductsStyles([null, defaultStyle].concat(outfitProductsStyles.slice(1)));
+    setOutfitRatings([null, rating].concat(outfitRatings.slice(1)));
   }, [productId, currentProductInfo, outfitProductsStyles, outfitRatings, outfitProductIds, outfitProducts]);
 
   const removeFromOutfitHandler = useCallback((product) => {
@@ -101,6 +100,7 @@ function RelatedProducts({ productId, setProductId }) {
     setOutfitRatings(outfitRatings.filter((val, index) => index !== indexToRemove));
   }, [productId, currentProductInfo, outfitProductIds, outfitProducts, outfitProductsStyles, outfitRatings]);
 
+  // Return Statement
   return (
     <div>
       <h2>Related Products</h2>

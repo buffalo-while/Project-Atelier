@@ -22,12 +22,12 @@ function RelatedCard({
         <img
           height="300"
           width="300"
-          src={style.photos[0].thumbnail_url ? style.photos[0].thumbnail_url : 'https://tracerproducts.com/wp-content/uploads/2019/12/Product-Image-Coming-Soon.jpg'}
+          src={style.photos[0].thumbnail_url ? style.photos[0].thumbnail_url : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZ7SsdDOAxGIuFgj3nx_8D0JW4ypdrnGGWnSgbXvuDDA&s'}
           alt={product.name}
         />
         <button
           type="button"
-          aria-label={actionButton === '⭐' ? 'Compare Products' : 'remove product'}
+          aria-label={actionButton === '⭐' ? 'comparing products' : 'removing product'}
           className="actionButton"
           onClick={(e) => {
             e.stopPropagation();

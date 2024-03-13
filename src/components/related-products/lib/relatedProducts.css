@@ -1,54 +1,13 @@
-.related-products-container{
+.related-products{
   display:flex;
   align-items: center;
+  margin-left: 100px;
+  margin-right: 100px;
 }
 
 .related-card {
   border: 1px solid black;
   padding: 1px;
-  cursor: pointer;
-}
-
-.modal-background {
-  width: 100vw;
-  height: 100vh;
-  background: rgba(3, 3, 3, .6);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 15;
-  position: fixed;
-  top: 0;
-  left: 0;
-}
-
-.modal-background * {
-  z-index: 16;
-}
-
-.comparison-container {
-  border: 1px solid;
-  background-color: white;
-  padding: 1em;
-}
-
-.left-header {
-  text-align: left;
-}
-
-.right-header {
-  text-align: right;
-}
-
-.feature {
-  text-align: center;
-}
-
-.value {
-  width: 2em;
-}
-
-.close-button {
   cursor: pointer;
 }
 
@@ -80,24 +39,4 @@
   top: 5px;
   right: 5px;
   cursor: pointer;
-}
-
-.carousel-container {
-  overflow: hidden;
-  flex-grow: 1;
-}
-
-.carousel-track {
-  display: flex;
-  transition: transform 0.5s ease;
-}
-
-.carousel-button {
-  border: 1px solid;
-}
-
-.carousel-item {
-  flex: 0 0 25%;
-  box-sizing: border-box;
-  padding: 0 8px;
 }
