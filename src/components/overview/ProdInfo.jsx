@@ -40,20 +40,6 @@ function ProdInfo({
     initiateFetches();
   }, [productId, getRatings, setProductName, setProduct]);
 
-  //   const fetchRatings = async () => {
-  //     try {
-  //       const ratings = await getRatings(productId);
-  //       setRatingData(ratings);
-  //     } catch (error) {
-  //       console.error('There was an error fetching ratings: ', error);
-  //     }
-  //   };
-
-  //   fetchProduct();
-  //   fetchRatings();
-  // }, [productId, getRatings, setProductName, setProduct]);
-
-
   const suspenseView = (component) => (
     <Suspense fallback={<p>Loading...</p>}>
       {component}
