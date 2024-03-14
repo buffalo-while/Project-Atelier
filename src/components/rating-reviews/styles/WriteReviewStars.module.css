@@ -7,3 +7,12 @@
   width: 1em;
   height: 1em;
 }
+
+.reviewAsterisk {
+  color: red;
+}
+
+.writeReviewLabel {
+  font-weight: bold;
+  margin-right: 1em;
+}
