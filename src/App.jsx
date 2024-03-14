@@ -47,7 +47,9 @@ function App() {
         <h1>Hello World!</h1>
         <OverviewMain productId={productId} getRatings={getRatings} setProductName={setProductName} />
         <RelatedProducts productId={productId} setProductId={setProductId} />
-        <QuestionAnswers productId={productId} productName={productName} />
+        <div className="question-answers-container-app">
+          <QuestionAnswers productId={productId} productName={productName} />
+        </div>
         <RatingReviews productId={productId} getRatings={getRatings} productName={productName} />
       </div>
     </ThemeContext.Provider>
