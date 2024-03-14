@@ -4,7 +4,6 @@ import styles from '../styles/StarsBar.module.css';
 function StarsBar({
   numStars, metaResults, reviewsFilter, setReviewsFilter, clearFilters, setClearFilters,
 }) {
-  // States
   const [reviewsFilterClass, setReviewsFilterClass] = useState(styles.reviewsFilter);
   const [ratingFilterSelected, setRatingFilterSelected] = useState(false);
 

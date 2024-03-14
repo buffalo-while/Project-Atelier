@@ -4,8 +4,6 @@ import dayjs from 'dayjs';
 import styles from './styles/Answer.module.css';
 
 function Answer({ answer }) {
-  // console.log("question inside answer", question.answer.body);
-  // console.log("question ID inside answer", questionId);
   const [hasVoted, setHasVoted] = useState(false);
   const [helpfulCount, setHelpfulCount] = useState(answer.helpfulness);
   const [reported, setReported] = useState(false);
@@ -63,9 +61,6 @@ function Answer({ answer }) {
         {' '}
         {answer.body}
       </div>
-      {/* {/* {answer.photos.map((photo, index) => (
-        <img key={index} src={photo.url} alt="thumbnail of photo" height="50" width="50" />
-      /*} */}
       <div className={styles.answererInfo}>
         <span className={styles.nameAndDate}> by {answer.answerer_name.toLowerCase() === 'seller' ? <b>Seller</b> : answer.answerer_name},
           {' '}

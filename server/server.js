@@ -4,11 +4,13 @@ const path = require('path');
 const axios = require('axios');
 const morgan = require('morgan');
 const cloudinary = require('cloudinary').v2;
+const compression = require('compression');
 const config = require('../config.js');
 
 const auth = `${config.GITHUB_APIKEY}`;
 const app = express();
 
+app.use(compression());
 app.use(express.json({ limit: '50mb' }));
 app.use(express.static(path.join(__dirname, '../dist')));
 app.use(morgan('dev'));

@@ -11,3 +11,7 @@ export function getRelatedProducts(id) {
 export function getProductStyles(id) {
   return axios.get(`/api/products/${id}/styles`);
 }
+
+export function getReviewsMetaData(id) {
+  return axios.get(`/api/reviews/meta/?product_id=${id}`);
+}
