@@ -1,5 +1,7 @@
-import React from 'react';
-import './lib/relatedProducts.css';
+import React, { memo } from 'react';
+import './styles/relatedProducts.css';
+import StarRating from './lib/StarRating.jsx';
+import Price from './lib/Price.jsx';
 
 function RelatedCard({
   product, style, rating, relatedCardClickHandler, actionButtonHandler, actionButton,
@@ -49,7 +51,8 @@ function RelatedCard({
         Category:
         {product.category}
         <br />
-        {rating}
+        <Price selectedStyle={{ original_price: style.original_price, sale_price: style.sale_price }} />
+        <StarRating rating={rating.ratings} />
         Slogan:
         {product.slogan}
       </p>
@@ -57,4 +60,4 @@ function RelatedCard({
   );
 }
 
-export default RelatedCard;
+export default memo(RelatedCard);

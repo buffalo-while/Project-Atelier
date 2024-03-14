@@ -1,6 +1,7 @@
 .qnaContainer {
   height: 800px;
-  overflow: auto;
+  overflow-y: auto;
+  width:100%;
 }
 
 .qnaButtons {
@@ -11,4 +12,9 @@
 .qnaHeader {
   margin-left: 10px;
   font-weight: 500;
+}
+
+.testing {
+  margin: 0;
+  width: 70%;
 }

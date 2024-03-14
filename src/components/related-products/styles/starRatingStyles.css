@@ -1,0 +1,30 @@
+.star-rating-wrapper {
+  width: 5em;
+  height: 1em;
+  position: relative;
+  display: block;
+  font-family: 'Open Sans', sans-serif;
+  -webkit-font-smoothing: subpixel-antialiased;
+  font-weight: normal;
+}
+
+.active-stars {
+  position: absolute;
+  left: 0;
+  z-index: 10;
+  overflow: hidden;
+  display: flex;
+}
+
+.inactive-stars {
+  width: 100%;
+  display: flex;
+  left: 0;
+  color: var(--inactive-star-color);
+  position: absolute;
+}
+
+.stars {
+  width: 1em;
+  height: 1em;
+}

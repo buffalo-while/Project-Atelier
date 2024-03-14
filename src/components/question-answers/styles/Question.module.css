@@ -4,13 +4,14 @@
   border: 1px solid;
   padding: 10px;
   margin: 10px;
-  width: 50%;
+  width: 95%;
 }
 
 .questionHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 }
 
 .questionBody {
