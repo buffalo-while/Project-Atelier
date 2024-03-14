@@ -20,6 +20,12 @@ function HeroModal({ heroImageUrl }) {
       <FaExpandArrowsAlt
         onClick={toggleModal}
         className={overviewStyles.arrowIcon}
+        style={{
+          position: 'absolute',
+          right: '190px',
+          top: '230px',
+          zIndex: 1000, // Ensure it's above all other content
+        }}
         type="submit"/>
       {heroModal && (
       <div className={overviewStyles.heroModal}>

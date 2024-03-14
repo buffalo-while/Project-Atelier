@@ -12,9 +12,8 @@ function ProdInfo({
     const fetchProduct = async () => {
       try {
         const response = await axios.get(`/api/products/${productId}`);
-        const productName = response.data.name;
         setProduct(response.data);
-        setProductName(productName);
+        setProductName(response.data.name);
       } catch (error) {
         console.error('There was an error: ', error);
       }
@@ -25,13 +24,35 @@ function ProdInfo({
         const ratings = await getRatings(productId);
         setRatingData(ratings);
       } catch (error) {
-        console.error('There was an error fetching ratings: ', error);
+        console.error('There was an error fetching product: ', error);
+      }
+      try {
+        setRatingData(ratings);
+      } catch (error) {
+        console.error('There was an error fetching product: ', error);
       }
     };
 
-    fetchProduct();
-    fetchRatings();
+    const initiateFetches = async() => {
+      await Promise.all([fetchProduct(), fetchRatings()]);
+    };
+
+    initiateFetches();
   }, [productId, getRatings, setProductName, setProduct]);
+
+  //   const fetchRatings = async () => {
+  //     try {
+  //       const ratings = await getRatings(productId);
+  //       setRatingData(ratings);
+  //     } catch (error) {
+  //       console.error('There was an error fetching ratings: ', error);
+  //     }
+  //   };
+
+  //   fetchProduct();
+  //   fetchRatings();
+  // }, [productId, getRatings, setProductName, setProduct]);
+
 
   const suspenseView = (component) => (
     <Suspense fallback={<p>Loading...</p>}>
