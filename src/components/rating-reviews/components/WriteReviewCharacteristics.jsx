@@ -15,17 +15,19 @@ function WriteReviewCharacteristics({ metaResults, characteristics, setCharacter
     Object.keys(charDescriptions)
       .filter((char) => (metaChars[char]))
       .map((char) => (
-        <p key={char}>
-          <span>
+        <div key={char} className={styles.charRatingsFull}>
+          <span className={styles.charRatingsTitle}>
             {char}
             {': '}
           </span>
-          <span>
+          <span className={styles.charRatings}>
             {([...Array(5)]).map((charValue, index) => {
               const currCharRating = index + 1;
               return (
-                <label key={currCharRating} htmlFor={`${char}${currCharRating}`}>
-                  {charDescriptions[char][index]}
+                <div className={styles.charRating} key={currCharRating}>
+                  <label htmlFor={`${char}${currCharRating}`} className={styles.charRatingLabel}>
+                    {charDescriptions[char][index]}
+                  </label>
                   <input
                     type="radio"
                     name={`${char}-rating-radio`}
@@ -37,22 +39,22 @@ function WriteReviewCharacteristics({ metaResults, characteristics, setCharacter
                       newChars[(metaChars[char]).id] = currCharRating;
                       setCharacteristics(newChars);
                     }}
-                    className="char-rating-radio"
+                    className={styles.charRatingRadio}
                   />
-                </label>
+                </div>
               );
             })}
           </span>
-        </p>
+        </div>
       ))
   );
 
   return (
     <div>
-      <p>
+      <div className={styles.writeReviewLabel}>
         Characteristics
         <span className={styles.reviewAsterisk}>*</span>
-      </p>
+      </div>
       {applicableChars()}
     </div>
   );

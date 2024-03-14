@@ -11,3 +11,8 @@
 .reviewAsterisk {
   color: red;
 }
+
+.writeReviewLabel {
+  font-weight: bold;
+  margin-right: 1em;
+}

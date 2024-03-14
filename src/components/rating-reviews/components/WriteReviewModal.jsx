@@ -63,103 +63,108 @@ function WriteReviewModal({
     onClose();
   };
   return (
-    <dialog open className={styles.writeReviewPortal}>
-      <form onSubmit={handleSubmitReview}>
-        <h3>Write Your Review</h3>
-        <p>
-          About the
+    <>
+      <dialog open className={styles.writeReviewPortal}>
+        <form onSubmit={handleSubmitReview}>
+          <h3>Write Your Review</h3>
+          <p>
+            About the
+            {' '}
+            {productName}
+          </p>
           {' '}
-          {productName}
-        </p>
-        {' '}
-        <WriteReviewStars rating={rating} setRating={setRating} />
-        <div>
-          Do you recommend this product?
-          <span className={styles.reviewAsterisk}>*</span>
-          {' '}
-          <label htmlFor="recommend-yes">
-            Yes
-            <input type="radio" id="recommend-yes" data-testid="recommend-yes" value="yes" name="recommend-radio" onChange={() => (setRecommend(true))} />
-          </label>
-          <label htmlFor="recommend-no">
-            No
-            <input type="radio" id="recommend-no" data-testid="recommend-no" value="no" name="recommend-radio" onChange={() => (setRecommend(false))} />
-          </label>
-        </div>
-        <WriteReviewCharacteristics
-          metaResults={metaResults}
-          characteristics={characteristics}
-          setCharacteristics={setCharacteristics}
-        />
-        <div>
-          <label htmlFor="review-summary">
-            Review summary
-            <span className={styles.reviewAsterisk}>*</span>
+          <WriteReviewStars rating={rating} setRating={setRating} />
+          <div>
+            <span className={styles.writeReviewLabel}>
+              Do you recommend this product?
+              <span className={styles.reviewAsterisk}>*</span>
+            </span>
             {' '}
-            <input
-              type="text"
-              name="review-summary"
-              id="review-summary"
-              placeholder="Example: Best purchase ever!"
-              maxLength="60"
-              onChange={(e) => (setSummary(e.target.value))}
-            />
-          </label>
-        </div>
-        <div>
-          <label htmlFor="review-body">
-            Review body
-            <span className={styles.reviewAsterisk}>*</span>
-            {' '}
-            <textarea
-              rows="5"
-              name="review-body"
-              id="review-body"
-              placeholder="Why did you like the product or not?"
-              maxLength="1000"
-              onChange={(e) => (setBody(e.target.value))}
-            />
-          </label>
-          <p>{body.length < 50 ? `Minimum required characters left: ${50 - body.length}` : 'Minimum reached'}</p>
-        </div>
-        <WriteReviewPhotos photos={photos} setPhotos={setPhotos} />
-        <div>
-          <label htmlFor="review-nickname">
-            What is your nickname
-            <span className={styles.reviewAsterisk}>*</span>
-            {' '}
-            <input
-              type="text"
-              name="review-nickname"
-              id="review-nickname"
-              placeholder="Example: jackson11!"
-              maxLength="60"
-              onChange={(e) => (setName(e.target.value))}
-            />
-          </label>
-          <p>For privacy reasons, do not use your full name or email address</p>
-        </div>
-        <div>
-          <label htmlFor="review-email">
-            Your email
-            <span className={styles.reviewAsterisk}>*</span>
-            {' '}
-            <input
-              type="text"
-              name="review-email"
-              id="review-email"
-              placeholder="Example: jackson11@email.com"
-              maxLength="60"
-              onChange={(e) => (setEmail(e.target.value))}
-            />
-          </label>
-          <p>For authentication reasons, you will not be emailed</p>
-        </div>
-        <button data-testid="writeReviewSubmit" type="submit">Submit review</button>
-        <button data-testid="writeReviewCancel" type="button" onClick={onClose}>Cancel</button>
-        {errorMessage.length > 0 ? <p data-testid="writeReviewError">{errorMessage}</p> : null}
-      </form>
-    </dialog>
+            <label htmlFor="recommend-yes">
+              Yes
+              <input type="radio" id="recommend-yes" data-testid="recommend-yes" value="yes" name="recommend-radio" onChange={() => (setRecommend(true))} />
+            </label>
+            <label htmlFor="recommend-no">
+              No
+              <input type="radio" id="recommend-no" data-testid="recommend-no" value="no" name="recommend-radio" onChange={() => (setRecommend(false))} />
+            </label>
+          </div>
+          <WriteReviewCharacteristics
+            metaResults={metaResults}
+            characteristics={characteristics}
+            setCharacteristics={setCharacteristics}
+          />
+          <div>
+            <label htmlFor="review-summary" className={styles.writeReviewLabel}>
+              Review summary
+              <span className={styles.reviewAsterisk}>*</span>
+              {' '}
+              <input
+                type="text"
+                name="review-summary"
+                id="review-summary"
+                placeholder="Example: Best purchase ever!"
+                maxLength="60"
+                onChange={(e) => (setSummary(e.target.value))}
+              />
+            </label>
+          </div>
+          <div>
+            <label htmlFor="review-body" className={styles.writeReviewLabel}>
+              Review body
+              <span className={styles.reviewAsterisk}>*</span>
+              {' '}
+              <textarea
+                rows="5"
+                name="review-body"
+                id="review-body"
+                placeholder="Why did you like the product or not?"
+                maxLength="1000"
+                onChange={(e) => (setBody(e.target.value))}
+              />
+            </label>
+            <p>{body.length < 50 ? `Minimum required characters left: ${50 - body.length}` : 'Minimum reached'}</p>
+          </div>
+          <WriteReviewPhotos photos={photos} setPhotos={setPhotos} />
+          <div>
+            <label htmlFor="review-nickname" className={styles.writeReviewLabel}>
+              What is your nickname
+              <span className={styles.reviewAsterisk}>*</span>
+              {' '}
+              <input
+                type="text"
+                name="review-nickname"
+                id="review-nickname"
+                placeholder="Example: jackson11!"
+                maxLength="60"
+                onChange={(e) => (setName(e.target.value))}
+              />
+            </label>
+            <p>For privacy reasons, do not use your full name or email address</p>
+          </div>
+          <div>
+            <label htmlFor="review-email" className={styles.writeReviewLabel}>
+              Your email
+              <span className={styles.reviewAsterisk}>*</span>
+              {' '}
+              <input
+                type="text"
+                name="review-email"
+                id="review-email"
+                placeholder="Example: jackson11@email.com"
+                maxLength="60"
+                onChange={(e) => (setEmail(e.target.value))}
+              />
+            </label>
+            <p>For authentication reasons, you will not be emailed</p>
+          </div>
+          <button data-testid="writeReviewSubmit" type="submit">Submit review</button>
+          <button data-testid="writeReviewCancel" type="button" onClick={onClose}>Cancel</button>
+          {errorMessage.length > 0 ? <p data-testid="writeReviewError">{errorMessage}</p> : null}
+        </form>
+      </dialog>
+      <div className={styles.writeReviewOverlay} />
+    </>
   );
 }
 

@@ -25,8 +25,8 @@ function WriteReviewPhotos({ photos, setPhotos }) {
 
   return (
     <div>
-      <label htmlFor="review-photos">
-        Upload your photos:
+      <label htmlFor="review-photos" className={styles.writeReviewLabel}>
+        Upload your photos
         <input
           type="file"
           id="review-photos"

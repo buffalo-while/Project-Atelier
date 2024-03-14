@@ -44,14 +44,16 @@ function WriteReviewStars({ rating, setRating }) {
   };
 
   return (
-    <p>
-      Overall rating
-      <span className={styles.reviewAsterisk}>*</span>
+    <div>
+      <span className={styles.writeReviewLabel}>
+        Overall rating
+        <span className={styles.reviewAsterisk}>*</span>
+      </span>
       {' '}
       {ratingStars}
       {' '}
       {ratingStarsComment(rating)}
-    </p>
+    </div>
   );
 }
 
