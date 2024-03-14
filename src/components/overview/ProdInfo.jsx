@@ -27,6 +27,7 @@ function ProdInfo({
         console.error('There was an error fetching product: ', error);
       }
       try {
+        const ratings = await getRatings(productId);
         setRatingData(ratings);
       } catch (error) {
         console.error('There was an error fetching product: ', error);
