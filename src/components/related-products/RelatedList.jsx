@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, memo } from 'react';
 import RelatedCard from './RelatedCard.jsx';
-import './lib/relatedProducts.css';
-import './lib/relatedCarousel.css';
+import './styles/relatedProducts.css';
+import './styles/relatedCarousel.css';
 
 function RelatedList({
   products, styles, ratings, relatedCardClickHandler, actionButtonHandler, isYourOutfit, addToOutfit,
@@ -48,4 +48,4 @@ function RelatedList({
   );
 }
 
-export default RelatedList;
+export default memo(RelatedList);
