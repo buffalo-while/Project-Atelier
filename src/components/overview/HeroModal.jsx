@@ -24,7 +24,7 @@ function HeroModal({ heroImageUrl }) {
           position: 'absolute',
           right: '190px',
           top: '230px',
-          zIndex: 1000, // Ensure it's above all other content
+          zIndex: 1000,
         }}
         type="submit"/>
       {heroModal && (
