@@ -39,17 +39,23 @@ function RelatedCard({
           {actionButton}
         </button>
       </div>
+      <p>
+        Generate Product #
+        {product.id}
+      </p>
       <h3>
+        Name:
         {product.name}
       </h3>
-      <div>
-        Category: {product.category}
-      </div>
-      <div>
+      <p>
+        Category:
+        {product.category}
+        <br />
         <Price selectedStyle={{ original_price: style.original_price, sale_price: style.sale_price }} />
-        <StarRating rating={rating} />
-        Slogan: {product.slogan}
-      </div>
+        <StarRating rating={rating.ratings} />
+        Slogan:
+        {product.slogan}
+      </p>
     </div>
   );
 }

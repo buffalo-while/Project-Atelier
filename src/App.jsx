@@ -44,7 +44,6 @@ function App() {
             </button>
           </div>
         </div>
-        <h1>Hello World!</h1>
         <OverviewMain productId={productId} getRatings={getRatings} setProductName={setProductName} />
         <RelatedProducts productId={productId} setProductId={setProductId} />
         <div className="question-answers-container-app">
