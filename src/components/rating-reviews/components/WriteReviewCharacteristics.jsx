@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from '../styles/WriteReviewCharacteristics.module.css';
 
 function WriteReviewCharacteristics({ metaResults, characteristics, setCharacteristics }) {
   const charDescriptions = {
@@ -48,7 +49,10 @@ function WriteReviewCharacteristics({ metaResults, characteristics, setCharacter
 
   return (
     <div>
-      <p>Characteristics (mandatory)</p>
+      <p>
+        Characteristics
+        <span className={styles.reviewAsterisk}>*</span>
+      </p>
       {applicableChars()}
     </div>
   );

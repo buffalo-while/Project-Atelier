@@ -15,6 +15,14 @@
   width: auto;
 }
 
+.writeReviewPortal textarea {
+  margin-bottom: 10px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 0.5em;
+  width: 100%;
+}
+
 
 
 .answerModal {
@@ -68,7 +76,7 @@
   width: 100%;
 }
 
-.answerModal span {
+.reviewAsterisk {
   color: red;
 }
 

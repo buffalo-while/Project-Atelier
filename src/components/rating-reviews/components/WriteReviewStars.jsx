@@ -45,7 +45,9 @@ function WriteReviewStars({ rating, setRating }) {
 
   return (
     <p>
-      {'Overall rating (mandatory) '}
+      Overall rating
+      <span className={styles.reviewAsterisk}>*</span>
+      {' '}
       {ratingStars}
       {' '}
       {ratingStarsComment(rating)}
