@@ -17,40 +17,22 @@ export function getOutfitFromCookie() {
   return outfitCookie ? JSON.parse(outfitCookie) : [];
 }
 
-// export const getRatings = async (productIds) => {
-//   const ratingsData = await Promise.all(productIds.map((id) => getReviewsMetaData(id)));
-//   const ratings = ratingsData.map((ratingData) => {
-//     const r = ratingData.data;
-
-//     return (
-//       (Number(r[1])
-//         + (Number(r[2]) * 2)
-//         + (Number(r[3]) * 3)
-//         + (Number(r[4]) * 4)
-//         + (Number(r[5]) * 5))
-//       / (Number(r[1]) + Number(r[2]) + Number(r[3]) + Number(r[4]) + Number(r[5]))
-//     );
-//   });
-//   return ratings;
-// };
-
 export const getRatings = async (productIds) => {
-  console.log(productIds);
-  console.log(getReviewsMetaData(40349), 'metaReviewsAPI call');
   const ratingsData = await Promise.all(productIds.map((id) => getReviewsMetaData(id)));
-  console.log(ratingsData, 'ratingsPromise');
-  const rMap = ratingsData.map((ratingsData1) => {
-    console.log(ratingsData1);
-    const metaData = ratingsData1.data;
-    // console.log(metaData);
-    const { ratings } = metaData;
-    let [totalStars, totalReviews] = [0, 0];
-    Object.keys(ratings).forEach((key) => {
-      totalStars += Number(ratings[key]) * Number(key);
-      totalReviews += Number(ratings[key]);
-    });
-    const meanRating = Math.round((totalStars / totalReviews) * 10) / 10;
-    return meanRating;
+  const ratings = ratingsData.map((ratingData) => {
+    const rating = ratingData.data.ratings;
+    return (
+      (Number(rating[1])
+        + (Number(rating[2]) * 2)
+        + (Number(rating[3]) * 3)
+        + (Number(rating[4]) * 4)
+        + (Number(rating[5]) * 5))
+      / (Number(rating[1])
+        + Number(rating[2])
+        + Number(rating[3])
+        + Number(rating[4])
+        + Number(rating[5]))
+    );
   });
-  return rMap;
+  return ratings;
 };

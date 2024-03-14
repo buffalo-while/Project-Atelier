@@ -4,6 +4,7 @@ import RelatedComparison from './RelatedComparison.jsx';
 import CompareModal from './lib/CompareModal.jsx';
 import { getProductsStyles, getOutfitFromCookie, getRatings } from './util/miscFunctions.js';
 import { getProduct, getRelatedProducts } from './util/relatedModels.js';
+import './styles/relatedProducts.css';
 
 function RelatedProducts({ productId, setProductId }) {
   // UseStates
@@ -105,8 +106,8 @@ function RelatedProducts({ productId, setProductId }) {
 
   // Return Statement
   return (
-    <div>
-      <h2>Related Products</h2>
+    <div className="related-products-container">
+      <h2 className="related-products-header">Related Products</h2>
       <RelatedList
         products={relatedProducts}
         styles={relatedProductsStyles}
@@ -115,7 +116,7 @@ function RelatedProducts({ productId, setProductId }) {
         actionButtonHandler={actionButtonHandler}
         isYourOutfit={false}
       />
-      <h2>Given Outfit</h2>
+      <h2 className="related-products-header">Given Outfit</h2>
       <RelatedList
         products={outfitProducts}
         styles={outfitProductsStyles}

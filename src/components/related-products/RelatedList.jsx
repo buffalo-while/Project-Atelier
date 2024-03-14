@@ -37,7 +37,6 @@ function RelatedList({
                   <br />
                   Add to Outfit
                 </button>
-
               ) : (<RelatedCard product={products[key]} style={styles[key]} rating={ratings[key]} relatedCardClickHandler={relatedCardClickHandler} actionButtonHandler={actionButtonHandler} actionButton={isYourOutfit ? '❌' : '⭐'} />)}
             </div>
           ))}

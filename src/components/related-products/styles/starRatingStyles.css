@@ -3,8 +3,6 @@
   height: 1em;
   position: relative;
   display: block;
-  font-family: 'Open Sans', sans-serif;
-  -webkit-font-smoothing: subpixel-antialiased;
   font-weight: normal;
 }
 
@@ -20,7 +18,7 @@
   width: 100%;
   display: flex;
   left: 0;
-  color: var(--inactive-star-color);
+  color: white;
   position: absolute;
 }
 
