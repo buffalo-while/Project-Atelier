@@ -15,7 +15,6 @@ function QuestionAnswers({ productId, productName }) {
   useEffect(() => {
     axios.get(`/api/qa/questions/?product_id=${productId}&page=1&count=50`)
       .then((response) => {
-        // console.log('response.data', response.data.results);
         setQuestionList(response.data.results.sort((a, b) => b.question_helpfulness - a.question_helpfulness));
       })
       .catch((err) => {
@@ -29,7 +28,6 @@ function QuestionAnswers({ productId, productName }) {
 
   const handleSearchQuestion = (event, searchValue) => {
     event.preventDefault();
-    // console.log("searchValue", searchValue);
 
     if (searchValue.length >= 3) {
       const filteredQuestions = questionList.filter((q) => q.question_body.toLowerCase().includes(searchValue.toString().toLowerCase()));
@@ -40,7 +38,6 @@ function QuestionAnswers({ productId, productName }) {
   };
 
   const handleLoadingMore = () => {
-    // console.log('loading two more questons');
     setVisibleQuestions(visibleQuestions + 2);
   };
 
@@ -62,7 +59,6 @@ function QuestionAnswers({ productId, productName }) {
               {remainingQuestions > 2 ? <MoreAnsweredQuestions handleLoadingMore={handleLoadingMore} /> : null}
               <AddQuestion productId={productId} />
             </div>
-            {/* // <MoreAnsweredQuestions handleLoadingMore={handleLoadingMore} /> */}
           </div>
         )
         : <AddQuestion productId={productId} productName={productName} />}

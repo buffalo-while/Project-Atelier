@@ -56,4 +56,8 @@ theme testing */
   background-color: #2d2d30;
   color: rgb(228, 228, 228);
   border-color: white;
+
+}
+#dark button {
+  color: white;
 }

@@ -12,6 +12,7 @@ function ReviewsList({
   const [visibleReviews, setVisibleReviews] = useState(null);
   const [nonVisibleReviews, setNonVisibleReviews] = useState([]);
 
+  // Make API call to pull reviews data if productId or sort criteria changes
   useEffect(() => {
     if (getReviews && metaResults.totalReviews && metaResults.totalReviews !== 'N/A') {
       const page = 1;
@@ -23,6 +24,7 @@ function ReviewsList({
     }
   }, [productId, reviewsSort, metaResults]);
 
+  // Apply filters and render correct number of visibile reviews without new API call
   useEffect(() => {
     if (allReviews.length) {
       const filteredReviewElements = allReviews.filter((review) => {

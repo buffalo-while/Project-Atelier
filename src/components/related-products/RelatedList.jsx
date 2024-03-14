@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react";
-import RelatedCard from "./RelatedCard.jsx";
-import "./lib/relatedProducts.css";
+import React, { useState, useEffect } from 'react';
+import RelatedCard from './RelatedCard.jsx';
+import './lib/relatedProducts.css';
+import './lib/relatedCarousel.css';
 
 function RelatedList({
   products, styles, ratings, relatedCardClickHandler, actionButtonHandler, isYourOutfit, addToOutfit,
 }) {
+  // Carousel Set Up
   const [index, setIndex] = useState(0);
-
   useEffect(() => {
     setIndex(0);
   }, [products]);
@@ -15,16 +16,13 @@ function RelatedList({
   const left = index > 0;
   const right = index < products.length - relatedCardsShown;
 
+  // Button Handlers
   const leftClick = () => {
     setIndex((prevIndex) => Math.max(0, prevIndex - 1));
   };
   const rightClick = () => {
     setIndex((prevIndex) => Math.min(products.length - relatedCardsShown, prevIndex + 1));
   };
-
-  if (products.length === 0) {
-    return <div />;
-  }
 
   return (
     <div className="related-products">

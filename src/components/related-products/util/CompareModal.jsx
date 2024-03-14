@@ -1,5 +1,5 @@
 import React from 'react';
-import '../lib/relatedProducts.css';
+import '../lib/relatedModal.css';
 
 export default function CompareModal({ prop }) {
   return (
