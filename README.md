@@ -22,6 +22,24 @@ npm run server-dev
 # Build the client side of the app and refresh when files are saved using webpack
 npm run client-dev
 ```
+## Deployment
+To deploy in production:
+- ensure node is installed in production instance
+```
+curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash - &&\
+sudo apt-get install -y nodejs
+```
+- clone repo to production instance
+```
+git clone https://github.com/buffalo-while/Project-Atelier.git
+```
+- navigate to ProjectAtilier root directory
+- update example.env file to be .env and add your API tokens and port 3000
+- run the following commands in ubuntu
+```
+npm install
+npm run build
+```
 
 ## Git Workflow
 
