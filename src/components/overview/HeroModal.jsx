@@ -22,7 +22,7 @@ function HeroModal({ heroImageUrl }) {
         className={overviewStyles.arrowIcon}
         style={{
           position: 'absolute',
-          right: '190px',
+          right: '240px',
           top: '230px',
           zIndex: 1000,
         }}
