@@ -8,7 +8,7 @@ const VerticalCarousel = ({
 }) => {
   const [visibleIndex, setVisibleIndex] = useState(0);
   const displaySize = 5;
-  const classes = 'overviewStyles.thumbnailButton, styleThumbnailSelected '
+  const classes = 'overviewStyles.thumbnailButton, styleThumbnailSelected ';
 
   const selectImage = (index) => {
     const adjustedIndex = index + visibleIndex;
@@ -20,17 +20,17 @@ const VerticalCarousel = ({
     <div className={overviewStyles.verticalCarouselContainer}>
       <FaChevronUp
         className={overviewStyles.carouselNavUp}
-        onClick={() => navigateHeroImage('up')}
+        onClick={() => navigateHeroImage('left')}
       />
       <div className={overviewStyles.thumbnailDisplay}>
         {thumbnails.slice(visibleIndex, visibleIndex + displaySize).map((thumbnail, index) => (
           <button
-          key={index}
-          className={{classes}}
-          onClick={() => {
-            selectImage(index);
-            setVisibleIndex(index);
-          }}
+            key={index}
+            className={{ classes }}
+            onClick={() => {
+              selectImage(index);
+              setCurrentIndex(index);
+            }}
         >
             <img src={thumbnail.thumbnailUrl} alt={`Thumbnail ${index + 1}`} className={overviewStyles.thumbnailImg} />
           </button>
@@ -38,7 +38,7 @@ const VerticalCarousel = ({
       </div>
       <FaChevronDown
         className={overviewStyles.carouselNavDown}
-        onClick={() => navigateHeroImage('down')}
+        onClick={() => navigateHeroImage('right')}
       />
     </div>
   );
