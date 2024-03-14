@@ -40,6 +40,7 @@ function ImageGallery({ heroImageUrl, changeHeroFromGallery, thumbnails, setSele
         ) : (
           <p>Loading...</p>
         )}
+        <HeroModal heroImageUrl={heroImageUrl} />
 
       </div>
 
@@ -47,7 +48,6 @@ function ImageGallery({ heroImageUrl, changeHeroFromGallery, thumbnails, setSele
         className={overviewStyles.navigationIconRight}
         onClick={() => navigateHeroImage('right')}
       />
-      <HeroModal heroImageUrl={heroImageUrl} />
 
     </div>
   );

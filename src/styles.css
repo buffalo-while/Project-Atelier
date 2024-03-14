@@ -61,3 +61,9 @@ theme testing */
 #dark button {
   color: white;
 }
+
+.question-answers-container-app {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+}
