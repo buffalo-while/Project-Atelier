@@ -1,6 +1,6 @@
 import React from 'react';
 import compareFunction from './util/compareFunctions.js';
-import './lib/relatedComparison.css';
+import './styles/relatedComparison.css';
 
 export default function RelatedComparison({ product, comparedProduct, setComparisonModal }) {
   return (
