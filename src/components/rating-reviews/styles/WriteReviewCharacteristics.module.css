@@ -1,0 +1,37 @@
+.reviewAsterisk {
+  color: red;
+}
+
+.charRatingsFull {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 0.5em;
+}
+
+.charRatingsTitle {
+  width: 15%;
+  align-self: center;
+}
+
+.charRatings {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 85%;
+  align-items: end;
+}
+
+.charRating {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 15%;
+}
+
+.charRatingLabel {
+  font-size: small;
+}
+
+.writeReviewLabel {
+  font-weight: bold;
+}

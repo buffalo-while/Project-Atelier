@@ -50,7 +50,9 @@ function ProdInfo({
             <div className={overviewStyles.prodInfoSmalltext}>read all reviews</div>
           </div>
           <p className={overviewStyles.prodInfoCategory}>{product.category}</p>
-          <p className={overviewStyles.prodInfoName}>{product.name}</p>
+          <p className={overviewStyles.prodInfoName}>
+            {product.name}
+          </p>
           <p className={overviewStyles.prodInfoPrice}>
             {selectedStyle && selectedStyle.sale_price > 1 ? (
               <>
