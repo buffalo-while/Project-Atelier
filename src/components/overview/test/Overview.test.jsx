@@ -4,7 +4,7 @@
 
 import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
-import { describe, expect, test } from '@jest/globals';
+import { describe, expect, test, beforeEach } from '@jest/globals';
 import axios from 'axios';
 import ProdInfo from '../ProdInfo.jsx';
 import '@testing-library/jest-dom';
@@ -46,5 +46,4 @@ describe('ProdInfo', () => {
       expect(screen.getByText('$50')).toBeInTheDocument();
     });
   });
-
 });

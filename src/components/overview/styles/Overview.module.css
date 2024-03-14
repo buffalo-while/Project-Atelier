@@ -31,7 +31,6 @@
   height: 500px;
   max-width: 700px;
   object-fit: contain;
-  background-color: black;
 }
 
 .productInfo {
@@ -40,6 +39,13 @@
   max-width: 400px;
 }
 
+.prodInfoCategory {
+  font-size: 22px;
+}
+.prodInfoName {
+  font-size: 32px;
+  font-weight: 700;
+}
 .prodInfoStarSection {
   display: flex;
   flex-direction: row;
@@ -202,7 +208,7 @@ body.activeModal {
   margin-right: 20px;
   margin-left: 50px;
   margin-bottom: 75px;
-  border: 2px blue solid;
+  border: 2px black solid;
 }
 .cart2 {
   display: flex;
@@ -214,7 +220,7 @@ body.activeModal {
 .starButton {
   margin-right: 20px;
   margin-left: 250px;
-  border: 2px blue solid;
+  border: 3px blue solid;
 
 }
 .btnCart {
@@ -229,7 +235,7 @@ body.activeModal {
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  border: 2px blue solid;
+  border: 2px black solid;
 
 }
 
@@ -307,7 +313,6 @@ body.activeModal {
   right: 10px;
 }
 
-
 .carouselNavUp, .carouselNavDown {
   position: absolute;
   left: 50%;
@@ -326,7 +331,6 @@ body.activeModal {
   bottom: -5px;
   cursor: crosshair
 }
-
 
 .verticalCarouselContainer {
   display: flex;
@@ -373,7 +377,7 @@ margin-right: 10px;
  flex-direction: column;
  align-items: center;
  flex: 1;
-  color: green;
+ color: #007bff;
 }
 
 .divider {
@@ -383,10 +387,8 @@ margin-right: 10px;
   align-self: stretch;
 }
 
-
-
 .gmoList {
- color: blue;
+ color: #007bff;
  flex: 1;
 }
 

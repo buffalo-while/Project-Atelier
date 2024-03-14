@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FaExpandArrowsAlt } from 'react-icons/fa';
-import overviewStyles from './styles/Overview.module.css'; // Adjust the import path as needed
+import overviewStyles from './styles/Overview.module.css';
 
 function HeroModal({ heroImageUrl }) {
   const [heroModal, setHeroModal] = useState(false);
