@@ -1,10 +1,102 @@
-# Project-Atelier
+<a id='readme-top'> </a>
 
-## Installation
+<br />
+<div align="center">
+  <a href="https://github.com/buffalo-while/Project-Atelier">
+    <!-- <img src="" alt="finance tracker logo" width="50" height="50" /> -->
+  </a>
+  <h3 align="center">
+    Project Atelier E-commerce Page Redesign
+  </h3>
+  <p align="center">
+    <br />
+    <a href="https://github.com/buffalo-while/Project-Atelier"><strong>Explore the docs »</strong></a>
+    <br />
+  </p>
+</div>
 
-To install this project in a dev environment you will need to have on your machine:
-- Node.js
-- npm
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about">About</a>
+      <ul>
+        <li>
+          <a href="#built-with">Built With</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li>
+          <a href="#prerequisites">Prerequisites</a>
+        </li>
+        <li>
+          <a href="#installation">Installation</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="#usage">Usage</a>
+    </li>
+    <li>
+      <a href="#roadmap">Roadmap</a>
+    </li>
+    <li>
+      <a href="#optimizations">Optimizations</a>
+    </li>
+    <li>
+      <a href="#contributing">Contributing</a>
+    </li>
+    <li>
+      <a href="#contact">Contact</a>
+    </li>
+  </ol>
+</details>
+
+## About
+
+<div align="center">
+    <h3>Client Portal</h3>
+  <img src="./public/assets/pp-demo-2.gif" alt="project landing page image" width="600px" />
+</div>
+
+<br />
+<p>
+  Project Atelier is a full redesign of a product webpage, to deliver a modernized, dynamic and responsive web application utilizing the component React that is a web-developer to client file sharing and communication platform that is not just functional, but also intuitive and user-friendly, catering to clients who found existing services like Dropbox overly complex.
+</p>
+
+### Built With
+
+![node.js](https://img.shields.io/badge/node-%23000000.svg?style=for-the-badge&logo=node.js)
+![React](https://img.shields.io/badge/React-%23000000.svg?style=for-the-badge&logo=react&logoColor)
+![Javacript](https://img.shields.io/badge/javascript-%23000000.svg?style=for-the-badge&logo=javascript)
+
+<p align="right">
+  (<a href="#readme-top">back to top</a>)
+</p>
+
+## Getting Started
+
+<p>
+    Instructions to setup Project Atelier on your local machine below.
+</p>
+
+### Prerequisites
+
+![NPM](https://img.shields.io/badge/NPM-%23000000.svg?style=for-the-badge&logo=npm&logoColor=white)
+
+```sh
+npm install npm@latest -g
+```
+
+### Installation for Development Environment
+
+Clone the repo
+   ```
+   git clone https://github.com/buffalo-while/Project-Atelier
+   ```
 
 Create local .env and .config.js files
 - Copy the example.env file, rename to .env, add you github credentials and preferred local port to use
@@ -22,7 +114,7 @@ npm run server-dev
 # Build the client side of the app and refresh when files are saved using webpack
 npm run client-dev
 ```
-## Deployment
+### Deployment
 To deploy in production:
 - ensure node is installed in production instance
 ```
@@ -41,7 +133,56 @@ npm install
 npm run build
 ```
 
-## Git Workflow
+## Usage
+
+Pixel Atelier is run on the designated port. It can also be accessed utilizing localhost:PORT directly in the browser.
+
+Run linter: `npm run lint `
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Optimizations
+
+1. To be added
+
+<!-- CONTRIBUTING -->
+
+## Contributing
+
+Feel free to join in! Whether its fixing bugs, improving documentation, or
+simply spreading the word!
+
+<!-- CONTACT -->
+
+## Contact
+
+<h3 align='center'> Greg</h3>
+<h4 align='center'>
+  <a href="">Linkedin</a> |
+  <a href="">GitHub</a>
+</h4>
+<h3 align='center'> James</h3>
+<h4 align='center'>
+  <a href="">Linkedin</a> |
+  <a href="">GitHub</a>
+</h4>
+<h3 align='center'> Justin</h3>
+<h4 align='center'>
+  <a href="">Linkedin</a> |
+  <a href="">GitHub</a>
+</h4>
+<h3 align='center'> Stephen</h3>
+<h4 align='center'>
+  <a href="https://www.linkedin.com/in/stephen-capper-49a77720/">Linkedin</a> |
+  <a href="https://github.com/stephencapper">GitHub</a>
+</h4>
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+## Additional project details
+
+### Git Workflow
 
 0. If first time working on the repo, git clone main branch from git to local machine
 ```
@@ -105,15 +246,15 @@ Additional Notes:
 - That is not a license to break the site, verify that the page is still rendering correctly/without errors and no tests that were previously passing are failing at each stage of the pull request process, including after making changes based on code review and after resolving conflicts
 - Mistakes could happen, teammates will seek to be forgiving if rollback of main to earlier version of git is necessary
 
-## Making API requests
+### Making API requests
 
 All API requests should be routed through the server, by making requests to url `/api/<endpoint>` where endpoint, paramaters, request method and request body are as specified by the Atelier API.
 
 The server will add Authentication to the request based on github token included in .env file, before rerouting the request to the API and passing back the response provided by the the API.
 
-## Rating and Reviews Module
+### Rating and Reviews Module
 
-### getRatings function
+#### getRatings function
 The getRatings function is designed to provide a rating stars react element as well as other rating and reviews meta data for a particular product for any module that needs it.
 
 As such it is imported into App.jsx from where it can be passed as a prop to any module.
