@@ -43,7 +43,7 @@ function QuestionAnswers({ productId, productName }) {
 
   return (
     <div className={styles.testing} data-testid="qna-container">
-      <h4 className={styles.qnaHeader}>QUESTIONS & ANSWERS</h4>
+      <h2 className={styles.qnaHeader}>QUESTIONS & ANSWERS</h2>
       <SearchQuestion handleSearchQuestion={handleSearchQuestion} />
       {questionList.length > 0
         ? (
