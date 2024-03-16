@@ -9,12 +9,13 @@
   flex-direction: row;
   align-items: center;
 }
-.qnaHeader {
-  margin-left: 10px;
-  font-weight: 500;
-}
 
 .testing {
   margin: 0;
   width: 70%;
+}
+.qnaHeader {
+  font-weight: 500;
+  font-size: 1.2em;
+  margin-left: 10px;
 }

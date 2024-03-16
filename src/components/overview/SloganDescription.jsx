@@ -5,7 +5,7 @@ const SloganDescription = ({ product }) => (
   <div className={overviewStyles.sloganContainer}>
     <div className={overviewStyles.sloganDescription}>
       <div>
-        <h3 className={overviewStyles.messageDiv} style={{ fontStyle: 'italic' }}>{product.slogan}</h3>
+        <h2 className={overviewStyles.messageDiv} style={{ fontStyle: 'italic' }}>{product.slogan}</h2>
       </div>
       <div>
         <h3 className={overviewStyles.sloganDescription}>{product.description}</h3>

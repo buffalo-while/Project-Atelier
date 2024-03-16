@@ -34,8 +34,8 @@ function App() {
             <img src="https://res.cloudinary.com/grubhub/image/upload/d_search:browse-images:default.jpg/w_auto,q_auto:low,fl_lossy,dpr_2.0,c_pad,f_auto,h_168/lvnnr6xijsgj7zmthirm" alt="Logo" className="logo" />
           </div>
           <div className='ldmodeswitch' >
-            <label>{theme === 'light' ? 'Switch to Dark Mode' : 'Switch to Light Mode'} </label>
-          <ReactSwitch onChange={toggleTheme} checked={theme === 'light'} />
+            <label htmlFor="theme-switch">{theme === 'light' ? 'Switch to Dark Mode' : 'Switch to Light Mode'} </label>
+            <ReactSwitch id="theme-switch" name="theme-switch" onChange={toggleTheme} checked={theme === 'light'} />
           </div>
           <div className="search-container">
             <input type="text" placeholder="Search..." className="search-input" />
